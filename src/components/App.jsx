@@ -1,9 +1,5 @@
 import { Routes } from "react-router";
 
-const Routes = () => <Routes>
-  <Route path='/' element={<> Landing route </>} />
-</Routes>
-
 export const App = () => {
   return (
     <div
@@ -17,7 +13,6 @@ export const App = () => {
       }}
     >
       React homework template
-      <Routes />
     </div>
   );
 };
