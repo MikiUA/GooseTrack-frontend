@@ -1,4 +1,5 @@
-import { Routes } from "react-router";
+import { Routes } from 'react-router';
+import '../index.css';
 
 export const App = () => {
   return (
@@ -9,7 +10,8 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
+        fontFamily: 'Coolvetica',
       }}
     >
       React homework template
