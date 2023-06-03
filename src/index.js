@@ -8,7 +8,7 @@ import { store } from 'API/store/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <BrowserRouter basename="goosetrack-frontend">
+    <BrowserRouter basename="GooseTrack-frontend">
       <App />
     </BrowserRouter>
   </Provider>
