@@ -24,7 +24,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <BrowserRouter basename="goose-track-frontend">
+      <BrowserRouter basename="GooseTrack-frontend">
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             {/* Приватні маршрути */}
