@@ -10,22 +10,18 @@ export const StyledForm = styled(Formik)`
   align-items: center; */
 `;
 export const StyledFormInsight = styled(Form)`
-  width: 100%;
+  max-width: 287px; /* Измените max-width на место width */
   display: flex;
   background-color: #ffffff;
   flex-direction: column;
   align-items: left;
   text-align: left;
   border-radius: 8px;
-  padding-top: 40px;
-  padding-left: 24px;
-  padding-bottom: 40px;
-  padding-right: 24px;
+  padding: 40px 24px;
 
   @media screen and (min-width: 768px) {
-    width: 480px;
-    padding-left: 40px;
-    padding-right: 40px;
+    max-width: 480px; /* Измените max-width на место width */
+    padding: 40px;
   }
 `;
 
@@ -54,11 +50,8 @@ export const StyledLabel = styled.label`
   }
 `;
 export const StyledInputWrap = styled.div`
-  width: 287px;
-  position: relative;
-  @media screen and (min-width: 768px) {
-    width: 400px;
-  }
+  display: flex;
+  flex-direction: column;
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
@@ -74,8 +67,7 @@ export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
 `;
 
 export const StyledInput = styled(Field)`
-  display: block;
-  width: 100%;
+  display: flex;
   height: 46px;
   border: 1px solid rgba(220, 227, 229, 0.6);
   border-radius: 8px;
