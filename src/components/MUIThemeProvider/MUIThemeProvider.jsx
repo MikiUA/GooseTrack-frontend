@@ -1,33 +1,11 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import { createContext, useMemo } from "react";
+import React, { createContext, useMemo } from "react";
+import TestingPage from "./TestingPage";
 
 const themeOptions = (mode) => ({
     palette: {
-        mode,
-        ...(mode === 'light'
-            ? {
-                // palette values for light mode
-                primary: amber,
-                divider: amber[200],
-                text: {
-                    primary: grey[900],
-                    secondary: grey[800],
-                },
-            }
-            : {
-                // palette values for dark mode
-                primary: deepOrange,
-                divider: deepOrange[700],
-                background: {
-                    default: deepOrange[900],
-                    paper: deepOrange[900],
-                },
-                text: {
-                    primary: '#fff',
-                    secondary: grey[500],
-                },
-            }),
-    },
+        mode
+    }
 });
 
 const ColorModeContext = createContext();
@@ -51,6 +29,7 @@ export default function MuiThemeProvider({ children }) {
     return (
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
+                <TestingPage />
                 {children}
             </ThemeProvider>
         </ColorModeContext.Provider>

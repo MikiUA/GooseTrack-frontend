@@ -4,7 +4,7 @@ import { lazy, Suspense } from 'react';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { CalendarRoute } from './CalendarRoute';
-import MuiThemeProvider from './MuiContext';
+import MuiThemeProvider from './MUIThemeProvider/MUIThemeProvider';
 
 const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
 const AccountPage = lazy(() => import('../pages/AccountPage/AccountPage'));
