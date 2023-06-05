@@ -52,6 +52,7 @@ export const StyledLabel = styled.label`
 export const StyledInputWrap = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
