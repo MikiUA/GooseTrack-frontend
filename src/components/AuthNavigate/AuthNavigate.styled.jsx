@@ -12,7 +12,7 @@ export const RedirectLink = styled(NavLink)`
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     margin-top: 24px;
   }
 
