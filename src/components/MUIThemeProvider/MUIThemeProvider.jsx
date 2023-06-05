@@ -29,7 +29,6 @@ export default function MuiThemeProvider({ children }) {
     return (
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
-                <TestingPage />
                 {children}
             </ThemeProvider>
         </ColorModeContext.Provider>
