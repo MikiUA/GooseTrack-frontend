@@ -33,18 +33,3 @@ export const StyledImg = styled.img`
     bottom: 19px;
   }
 `;
-export const StyledNavLink = styled(NavLink)`
-  display: block;
-  margin-top: 18px;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 14px;
-  text-decoration-line: underline;
-  color: #3e85f3;
-  text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
-    0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
-
-  @media screen and (min-width: 768px) {
-    margin-top: 24px;
-  }
-`;

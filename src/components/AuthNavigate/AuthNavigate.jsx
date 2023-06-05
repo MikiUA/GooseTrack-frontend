@@ -1,13 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './AuthNavigate.module.css';
+import { RedirectLink } from './AuthNavigate.styled';
 
-const AuthNavigate = ({ route, title }) => {
+export const AuthNavigate = ({ redirect, nameLink }) => {
   return (
-    <Link to={route} className={styles.link}>
-      {title}
-    </Link>
+    <>
+      <RedirectLink to={redirect}>{nameLink}</RedirectLink>
+    </>
   );
 };
-
-export default AuthNavigate;

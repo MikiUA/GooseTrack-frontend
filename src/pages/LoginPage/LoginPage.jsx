@@ -2,19 +2,17 @@
 //AuthNanigate
 
 import LoginForm from '../../components/AuthForms/LoginForm/LoginForm';
-import {
-  StyledDiv,
-  StyledLoginFormWrapper,
-  StyledNavLink,
-} from './LoginPage.styled';
+import { AuthNavigate } from '../../components/AuthNavigate';
+import { StyledDiv, StyledLoginFormWrapper } from './LoginPage.styled';
 import { StyledImg } from './LoginPage.styled';
 
 const LoginPage = () => {
+  const redirectRegister = '/register';
   return (
     <StyledDiv>
       <StyledLoginFormWrapper>
         <LoginForm />
-        <StyledNavLink to="/register">Sign Up</StyledNavLink>
+        <AuthNavigate redirect={redirectRegister} nameLink="Sign up" />
       </StyledLoginFormWrapper>
       <StyledImg
         src={require('../../images/page/Desktop/gooseinrocket_desk@1x.png')}
