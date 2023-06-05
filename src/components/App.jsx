@@ -1,9 +1,10 @@
-import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { CalendarRoute } from './CalendarRoute';
+import MuiThemeProvider from './MUIThemeProvider/MUIThemeProvider';
 
 const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
 const AccountPage = lazy(() => import('../pages/AccountPage/AccountPage'));
@@ -14,6 +15,7 @@ const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 
 export const App = () => {
   return (
+    <MuiThemeProvider>
     <div
       style={{
         height: '100vh',
@@ -24,34 +26,39 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Routes>
-        {/* Приватні маршрути */}
-        <Route path="/" element={<PrivateRoute />}>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="/" element={<CalendarRoute />} />
-            <Route path="/calendar" element={<CalendarRoute />} />
-            <Route
-              path="/calendar/month/:currentDate"
-              element={<CalendarPage />}
-            />
-            <Route
-              path="/calendar/day/:currentDate"
-              element={<CalendarPage />}
-            />
-            {/* Аккаунт */}
-            <Route path="account" element={<AccountPage />} />
-          </Route>
-        </Route>
+      <BrowserRouter basename="GooseTrack-frontend">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            {/* Приватні маршрути */}
+            <Route path="/" element={<PrivateRoute />}>
+              <Route path="/" element={<MainLayout />}>
+                <Route path="/" element={<CalendarRoute />} />
+                <Route path="/calendar" element={<CalendarRoute />} />
+                <Route
+                  path="/calendar/month/:currentDate"
+                  element={<CalendarPage />}
+                />
+                <Route
+                  path="/calendar/day/:currentDate"
+                  element={<CalendarPage />}
+                />
+                {/* Аккаунт */}
+                <Route path="account" element={<AccountPage />} />
+              </Route>
+            </Route>
 
-        {/* Публічні маршрути */}
-        <Route path="/" element={<PublicRoute />}>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Route>
+            {/* Публічні маршрути */}
+            <Route path="/" element={<PublicRoute />}>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+            </Route>
 
-        <Route path="*" element={<h1>not found page</h1>} />
-      </Routes>
+            <Route path="*" element={<h1>not found page</h1>} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </div>
+    </MuiThemeProvider>
   );
 };

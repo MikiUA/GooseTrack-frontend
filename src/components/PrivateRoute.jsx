@@ -8,5 +8,5 @@ import { Navigate, Outlet } from 'react-router-dom';
 export const PrivateRoute = () => {
   // const { token } = useAuth();
   const token = false;
-  return token ? <Outlet /> : <Navigate to="/homepage" replace />;
+  return token ? <Outlet /> : <Navigate to="/" replace />;
 };
