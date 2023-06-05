@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { CalendarRoute } from './CalendarRoute';
+import MuiThemeProvider from './MuiContext';
 
 const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
 const AccountPage = lazy(() => import('../pages/AccountPage/AccountPage'));
@@ -14,6 +15,7 @@ const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 
 export const App = () => {
   return (
+    <MuiThemeProvider>
     <div
       style={{
         height: '100vh',
@@ -57,5 +59,6 @@ export const App = () => {
         </Suspense>
       </BrowserRouter>
     </div>
+    </MuiThemeProvider>
   );
 };
