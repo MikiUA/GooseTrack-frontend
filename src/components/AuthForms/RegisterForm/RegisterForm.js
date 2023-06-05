@@ -26,6 +26,7 @@ const RegisterForm = () => {
 
   return (
     <Container >
+    
       <Box sx={{ textAlign:'start', display: "flex", flexDirection: "column", width:470,backgroundColor:'#fff',ml:'auto',mr:'auto',padding:'40px 24px',borderRadius:2,outline:'1px solid red'}} >
         <StyledHeader >Sign Up</StyledHeader>
         <Box >
