@@ -1,4 +1,0 @@
-// AuthSection
-//Description
-//ReviewSlider 
-
