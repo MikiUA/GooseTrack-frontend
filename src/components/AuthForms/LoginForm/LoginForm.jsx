@@ -17,6 +17,16 @@ import { FiLogIn } from 'react-icons/fi';
 const LoginForm = () => {
   const [loginMutation] = useLoginMutation();
 
+  const handleSubmit = async (values, { resetForm }) => {
+    const { data } = await loginMutation(values);
+    const { refreshToken, token } = data;
+
+    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+
+    resetForm();
+  };
+
   return (
     <StyledForm
       initialValues={{
@@ -30,9 +40,7 @@ const LoginForm = () => {
           .min(8, 'Password is too short - should be 8 chars minimum.')
           .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
       })}
-      onSubmit={values => {
-        loginMutation.mutate(values);
-      }}
+      onSubmit={handleSubmit}
     >
       {formik => (
         <StyledFormInsight>
