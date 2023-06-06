@@ -17,14 +17,14 @@ export const App = () => {
   return (
     <MuiThemeProvider>
     <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
+      // style={{
+      //   height: '100vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      //   fontSize: 40,
+      //   color: '#010101',
+      // }}
     >
       <BrowserRouter basename="GooseTrack-frontend">
         <Suspense fallback={<div>Loading...</div>}>
@@ -49,7 +49,7 @@ export const App = () => {
 
             {/* Публічні маршрути */}
             <Route path="/" element={<PublicRoute />}>
-              <Route path="/" element={<MainPage />} />
+              <Route index element={<MainPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
             </Route>
