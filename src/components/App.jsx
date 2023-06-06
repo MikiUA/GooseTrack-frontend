@@ -1,5 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import MuiThemeProvider from "./MUIThemeProvider/MUIThemeProvider";
+import { Router } from "./Router/Router";
 
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
@@ -49,7 +49,7 @@ export const App = () => {
 
             {/* Публічні маршрути */}
             <Route path="/" element={<PublicRoute />}>
-              <Route index element={<MainPage />} />
+              <Route path="/" element={<MainPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
             </Route>
