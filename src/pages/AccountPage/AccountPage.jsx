@@ -1,10 +1,11 @@
 //UserForm
 import React, { useState } from 'react';
+//eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 // import Joi from 'joi';
 // import { updateUser } from 'actions/authActions';
-import icon from '../../images/page/Desktop/gooseinrocket_desk@1x.png';
+import icon from 'images/logIn+signup/Log-in-Img.png';
 import {
   StyledButton,
   Container,
@@ -24,6 +25,7 @@ import {
 } from './AccountPage.styled';
 
 const UserForm = () => {
+  //eslint-disable-next-line
   const dispatch = useDispatch();
 
   const currentUser = { name: 'Name', email: 'mail@gmail.com' };
