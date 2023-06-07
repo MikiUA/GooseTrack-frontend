@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = '';
-const jwt = localStorage.getItem('jwt');
+const BASE_URL = 'https://goosetrack-backend-zk53.onrender.com';
+const jwt = JSON.parse(localStorage.getItem('token'));
 
 const authenticationApi = createApi({
   reducerPath: 'registrationApi',
@@ -9,33 +9,32 @@ const authenticationApi = createApi({
   endpoints: builder => ({
     registration: builder.mutation({
       query: body => ({
-        url: '/users/signup',
+        url: '/auth/signup',
         method: 'POST',
         body,
       }),
     }),
     login: builder.mutation({
       query: body => ({
-        url: '/users/login',
+        url: '/auth/login',
         method: 'POST',
         body,
       }),
     }),
     logout: builder.mutation({
       query: body => ({
-        url: '/users/logout',
-        method: 'POST',
+        url: '/auth/logout',
+        method: 'DELETE',
         body,
         headers: { Authorization: `Bearer ${jwt}` },
       }),
     }),
     getUserInfo: builder.query({
-      query: body => ({
-        url: '/users/current',
+      query: () => ({
+        url: '/users',
         method: 'GET',
-        headers: { Authorization: jwt },
+        headers: { Authorization: `Bearer ${jwt}` },
       }),
-      providesTags: ['Contacts'],
     }),
   }),
 });
