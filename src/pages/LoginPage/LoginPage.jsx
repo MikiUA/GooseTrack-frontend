@@ -1,10 +1,10 @@
 //LoginForm
 //AuthNanigate
 
-// import LoginForm from '../../components/AuthForms/LoginForm/LoginForm';
-// import { AuthNavigate } from '../../components/AuthNavigate';
-// import { StyledDiv, StyledLoginFormWrapper } from './LoginPage.styled';
-// import { StyledImg } from './LoginPage.styled';
+import LoginForm from '../../components/AuthForms/LoginForm/LoginForm';
+import { AuthNavigate } from '../../components/AuthNavigate';
+import { StyledDiv, StyledLoginFormWrapper } from './LoginPage.styled';
+import { StyledImg } from './LoginPage.styled';
 
 const LoginPage = () => {
   const redirectRegister = '/register';
@@ -23,4 +23,4 @@ const LoginPage = () => {
   );
 };
 
-// export default LoginPage;
+export default LoginPage;
