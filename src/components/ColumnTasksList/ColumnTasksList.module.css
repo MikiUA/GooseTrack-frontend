@@ -1,0 +1,16 @@
+.list {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.list::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 12px;
+    background-color: #F2F2F2;
+}
+
+.list::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background-color: #E7E5E5;
+}
