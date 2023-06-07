@@ -13,18 +13,34 @@ import {
   StyledIconChecked,
 } from './LoginForm.styled';
 import { FiLogIn } from 'react-icons/fi';
+import { setUserInfo } from 'API/userSlice';
+import { useDispatch } from 'react-redux';
 
 const LoginForm = () => {
-  const [loginMutation] = useLoginMutation();
+  const [login] = useLoginMutation();
+
+  const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
-    const { data } = await loginMutation(values);
-    const { refreshToken, token } = data;
+    try {
+      const { error, data } = await login(values);
 
-    localStorage.setItem('token', JSON.stringify(token));
-    localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+      if (error) {
+        alert(error.data.message);
+        return;
+      }
 
-    resetForm();
+      const { refreshToken, token, user } = data;
+
+      dispatch(setUserInfo(user));
+
+      localStorage.setItem('token', JSON.stringify(token));
+      localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+
+      resetForm();
+    } catch (error) {
+      console.error('Error occurred during form submission:', error);
+    }
   };
 
   return (
