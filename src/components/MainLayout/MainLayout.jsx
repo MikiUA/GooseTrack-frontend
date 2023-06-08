@@ -1,30 +1,26 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 
-import { Box } from '@mui/material';
 import {
-  StyledMain,
   WrapperMain,
+  WrapperPageContent,
   WrapperSideBarContent,
 } from './MainLayout.styled';
 import { Header } from 'components/Header/Header';
-// import SideBar from 'components/SideBar/SideBar';
+import SideBar from 'components/SideBar/SideBar';
 
 const MainLayout = () => {
   return (
     <>
-      <StyledMain>
-        <WrapperMain>
-          <WrapperSideBarContent>{/* <SideBar /> */}</WrapperSideBarContent>
-          <Box>
-            <Header/>
-            <h2>SideBar</h2>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Outlet />
-            </Suspense>
-          </Box>
-        </WrapperMain>
-      </StyledMain>
+      <WrapperMain>
+        <WrapperSideBarContent><SideBar /></WrapperSideBarContent>
+        <WrapperPageContent>
+          <Header />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </WrapperPageContent>
+      </WrapperMain>
     </>
   );
 };

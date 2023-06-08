@@ -28,11 +28,11 @@ export const Router = () => {
               <Route path="/calendar" element={<CalendarRoute />} />
               <Route
                 path="/calendar/month/:currentDate"
-                element={<CalendarPage />}
+                element={<CalendarPage variant='month'/>}
               />
               <Route
                 path="/calendar/day/:currentDate"
-                element={<CalendarPage />}
+                element={<CalendarPage variant='day'/>}
               />
               {/* Аккаунт */}
               <Route path="account" element={<AccountPage />} />
