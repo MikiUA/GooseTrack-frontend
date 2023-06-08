@@ -1,9 +1,15 @@
+
+
 import {
   Button,
   Typography,
   Container,
   styled,
+  Box,
+ 
 } from '@mui/material';
+
+
 
 
 import { Link as StyledLink } from 'react-router-dom';
@@ -32,6 +38,7 @@ height:100%;
 align-items:center;
 text-align:center;
 background-color:#DCEBF7;
+
 `
 
 export const StyledTypography = styled(Typography)`
@@ -65,8 +72,24 @@ font-weight:600;
 `;
 
 
+export const StyledBox = styled(Box)`
+  min-width: 287px;
+  display: flex;
+  background-color: #ffffff;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  border-radius: 8px;
+  padding: 40px 24px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 155px; */
 
+  @media screen and (min-width: 768px) {
+    width: 400px; 
+    padding: 40px;
+  }
 
-
+`;
 
 

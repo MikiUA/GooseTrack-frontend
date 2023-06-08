@@ -1,12 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
-// import { useAuth } from 'hooks';
+import { useSelector } from 'react-redux';
+import { getUserInfo } from 'API/userSlice';
 
 /**
  * - If the route is public gives acess to login or register page
  */
 
 export const PublicRoute = () => {
-  //   const { token } = useAuth();
-  const token = false;
-  return token ? <Navigate to="/" replace /> : <Outlet />;
+  const userInfo = useSelector(getUserInfo);
+
+  return userInfo.name ? <Navigate to="/calendar" replace /> : <Outlet />;
 };
