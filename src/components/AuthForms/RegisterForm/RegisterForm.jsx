@@ -32,7 +32,7 @@ const RegisterForm = () => {
       <StyledHeader >Sign Up</StyledHeader>
       <Box >
         <Formik initialValues={initialRegisterValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-          <Form style={{ width: '100%' }} >
+          <Form style={{  }} >
             <StyledTypography >Name</StyledTypography>
             <Field component={TextField} name="name" fullWidth variant="outlined" type="text" placeholder=' Enter your name' />
             <StyledTypography >Email</StyledTypography>
