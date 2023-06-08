@@ -1,4 +1,6 @@
-.button {
+import styled from 'styled-components';
+
+export const Button = styled.button`
     padding-top: 15px;
     padding-bottom: 15px;
     margin-right: 12px;
@@ -10,4 +12,4 @@
     line-height: 18px;
     cursor: pointer;
     background-color: #E3F3FF;
-}
+`;

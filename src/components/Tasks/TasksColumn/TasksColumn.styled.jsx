@@ -1,4 +1,7 @@
-.item {
+import styled from 'styled-components';
+
+
+export const Item = styled.li`
     display: flex;
     flex-direction: column;
     margin-left: 16px;
@@ -22,4 +25,4 @@
         min-width: calc(100% / 3 - 56px);
         padding: 25px 23px 28px 20px;
     }
-}
+`;

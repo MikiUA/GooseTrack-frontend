@@ -1,15 +1,14 @@
-// TaskColumnCard
-
 import TaskColumnCard from "../TaskColumnCard/TaskColumnCard";
-import css from "./ColumnTasksList.module.css";
+import { List } from "./ColumnTasksList.styled";
+
 
 const ColumnTasksList = ({tasks}) => {
     return (
-        <ul className={css.list}>
+        <List>
             {tasks !== 0 && tasks.map(({title, id, priority}) => (
                 <TaskColumnCard key={id} title={title} priority={priority} />
             ))}
-        </ul>
+        </List>
     )
 }
 

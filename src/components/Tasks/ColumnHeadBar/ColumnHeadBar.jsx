@@ -1,12 +1,13 @@
 import AddTaskBtn from "../AddTaskBtn/AddTaskBtn";
-import css from "./ColumnHeadBar.module.css";
+import { Container, Title } from "./ColumnHeadBar.styled";
+
 
 const ColumnHeadBar = ({taskColumnTitle}) => {
     return (
-        <div className={css.container}>
-            <h2 className={css.title}>{taskColumnTitle}</h2>
+        <Container>
+            <Title>{taskColumnTitle}</Title>
             <AddTaskBtn columnHeadBtn />
-        </div>
+        </Container>
     )
 }
 

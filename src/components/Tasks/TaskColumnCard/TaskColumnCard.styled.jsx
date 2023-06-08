@@ -1,4 +1,7 @@
-.item {
+import styled from 'styled-components';
+
+
+export const Item = styled.li`
     padding: 14px 12px 18px 15px;
     margin-bottom: 14px;
     margin-right: 6px;
@@ -9,9 +12,9 @@
     @media screen and (min-width: 768px) {
         margin-bottom: 18px;
     }
-}
+`;
 
-.title {
+export const Title = styled.h3`
     width: 100%;
     padding: 0;
     margin: 0 0 28px 0;
@@ -25,44 +28,33 @@
     @media screen and (min-width: 768px) {
         margin: 0 0 32px 0;
     }
-}
+`;
 
-.container {
+export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-}
+`;
 
-.container__info {
+export const ContainerInfo = styled.div`
     display: flex;
     align-items: flex-end;
-}
+`;
 
-.container__user {
+export const ContainerUser = styled.div`
     display: flex;
     margin-right: 8px;
     border: 1.8px solid #3E85F3;
     border-radius: 50%;
     object-fit: cover;
-}
+`;
 
-.priority {
+export const Priority = styled.span`
     color: #F7F6F9;
     border-radius: 4px;
     font-weight: 600;
     font-size: 10px;
     line-height: 12px;
     padding: 4px 12px;
-}
-
-.priority__low {
-    background-color: #72C2F8;
-}
-
-.priority__medium {
-    background-color: #F3B249;
-}
-
-.priority__high {
-    background-color: #EA3D65;
-}
+    background-color: ${props => props.backgroundColor};
+`;

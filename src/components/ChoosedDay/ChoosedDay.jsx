@@ -1,7 +1,7 @@
 // DayCalendarHead
 // TasksComulmnList
 
-import TasksColumnsList from "components/TasksColumnsList/TasksColumnsList";
+import TasksColumnsList from "components/Tasks/TasksColumnsList/TasksColumnsList";
 import css from "./ChoosedDay.module.css";
 
 //цей компонент потрібно доробити, так як я його створив виключно для того, щоб вписати туди TasksColumnsList

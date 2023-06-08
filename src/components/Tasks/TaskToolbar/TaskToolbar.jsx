@@ -1,16 +1,16 @@
 import MoveCardBtn from "./MoveCardBtn/MoveCardBtn"
 import EditCardBtn from "./EditCardBtn/EditCardBtn"
 import DeleteCardBtn from "./DeleteCardBtn/DeleteCardBtn"
-import css from "./TaskToolbar.module.css"
+import { List } from "./TaskToolbar.styled"
 
 
 const TaskToolbar = () => {
     return (
-        <ul className={css.list}>
+        <List>
             <MoveCardBtn />
             <EditCardBtn />
             <DeleteCardBtn /> 
-        </ul>
+        </List>
     )
 }
 

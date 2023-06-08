@@ -1,4 +1,7 @@
-.list {
+import styled from 'styled-components';
+
+
+export const List = styled.ul`
     display: flex;
     overflow: auto;
     padding: 0 0 34px 0;
@@ -17,15 +20,15 @@
         padding-bottom: 0;
         justify-content: space-between;
     }
-}
 
-.list::-webkit-scrollbar {
-    height: 12px;
-    border-radius: 12px;
-    background-color: #F2F2F2;
-}
+    &::-webkit-scrollbar {
+        height: 12px;
+        border-radius: 12px;
+        background-color: #F2F2F2;
+    }
 
-.list::-webkit-scrollbar-thumb {
-    border-radius: 12px;
-    background-color: #E7E5E5;
-}
+    &::-webkit-scrollbar-thumb {
+        border-radius: 12px;
+        background-color: #E7E5E5;
+    }
+`

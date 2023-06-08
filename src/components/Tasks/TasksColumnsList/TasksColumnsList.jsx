@@ -1,8 +1,5 @@
-// ColumnHeadBar
-// ColumnTasksList
-
 import TasksColumn from "../TasksColumn/TasksColumn";
-import css from "./TasksColumnsList.module.css";
+import { List } from "./TasksColumnsList.styled";
 
 
 const tasks = [
@@ -37,13 +34,13 @@ const TasksColumnsList = () => {
     const taskColumnTitles = ["To do", "In progress", "Done"];
 
     return (
-        <ul className={css.list}> {
+        <List> {
             taskColumnTitles.map(taskColumnTitle => (
                 <TasksColumn
                     key={taskColumnTitle}
                     taskColumnTitle={taskColumnTitle}
                     tasks={tasks} />))}  
-        </ul>
+        </List>
     )
 }
 
