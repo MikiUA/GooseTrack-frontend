@@ -11,18 +11,25 @@ import {
   StyledInputWrap,
   StyledIconError,
   StyledIconChecked,
+  StyledSpan,
+  StyledSpanText,
 } from './LoginForm.styled';
+import { Icon } from '@mui/material';
 import { FiLogIn } from 'react-icons/fi';
 import { setUserInfo } from 'API/userSlice';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { Box, CircularProgress } from '@mui/material';
 
 const LoginForm = () => {
   const [login] = useLoginMutation();
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
+      setIsLoading(true);
       const { error, data } = await login(values);
 
       if (error) {
@@ -37,8 +44,10 @@ const LoginForm = () => {
       localStorage.setItem('token', JSON.stringify(token));
       localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
 
+      setIsLoading(false);
       resetForm();
     } catch (error) {
+      setIsLoading(false);
       console.error('Error occurred during form submission:', error);
     }
   };
@@ -97,8 +106,21 @@ const LoginForm = () => {
             )}
           </StyledInputWrap>
           <StyledError name="password" component="div" />
-          <StyledButton type="submit">
-            Log In <FiLogIn />
+          <StyledButton type="submit" disabled={isLoading}>
+            {isLoading ? (
+              <Box sx={{ display: 'flex' }}>
+                <CircularProgress sx={{ color: 'white' }} />
+              </Box>
+            ) : (
+              <StyledSpan>
+                <StyledSpanText>Log In</StyledSpanText>
+
+                <Icon
+                  component={FiLogIn}
+                  sx={{ width: '20px', height: '20px' }}
+                />
+              </StyledSpan>
+            )}
           </StyledButton>
         </StyledFormInsight>
       )}
