@@ -1,11 +1,14 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+import { getUserInfo } from 'API/userSlice';
 
 /**
  * - If the route is public gives acess to login or register page
  */
 
 export const PublicRoute = () => {
-  const token = JSON.parse(localStorage.getItem('token'));
+  const userInfo = useSelector(getUserInfo);
+  console.log({userInfo});
 
-  return token ? <Navigate to="/" replace /> : <Outlet />;
+  return userInfo.name ? <Navigate to="/" replace /> : <Outlet />;
 };

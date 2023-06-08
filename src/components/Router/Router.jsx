@@ -20,7 +20,7 @@ export const Router = () => {
           {/* Приватні маршрути */}
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/" element={<MainLayout />}>
-              <Route path="/" element={<CalendarRoute />} />
+              <Route path="/*" element={<CalendarRoute />} />
               <Route path="/calendar" element={<CalendarRoute />} />
               <Route
                 path="/calendar/month/:currentDate"
