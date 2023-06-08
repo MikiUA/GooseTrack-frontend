@@ -9,5 +9,5 @@ import { getUserInfo } from 'API/userSlice';
 export const PrivateRoute = () => {
   const userInfo = useSelector(getUserInfo);
 
-  return userInfo.name ? <Outlet /> : <Navigate to="/login" replace />;
+  return userInfo.name ? <Outlet /> : <Navigate to="/" replace />;
 };
