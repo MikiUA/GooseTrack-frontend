@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { getUserInfo } from 'API/userSlice';
 
 /**
@@ -8,7 +8,6 @@ import { getUserInfo } from 'API/userSlice';
 
 export const PublicRoute = () => {
   const userInfo = useSelector(getUserInfo);
-  console.log({userInfo});
 
-  return userInfo.name ? <Navigate to="/" replace /> : <Outlet />;
+  return userInfo.name ? <Navigate to="/calendar" replace /> : <Outlet />;
 };
