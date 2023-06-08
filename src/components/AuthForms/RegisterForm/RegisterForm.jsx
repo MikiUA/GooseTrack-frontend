@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import { Form, Formik, Field } from 'formik';
 import { TextField } from 'formik-mui';
 import {
@@ -12,6 +12,8 @@ import LoginIcon from '@mui/icons-material/Login';
 import * as Yup from 'yup';
 import { setUserInfo } from 'API/userSlice';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { StyledSpan } from '../LoginForm/LoginForm.styled';
 
 const initialRegisterValues = {
   name: '',
@@ -21,10 +23,13 @@ const initialRegisterValues = {
 
 const RegisterForm = () => {
   const [registration] = useRegistrationMutation();
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
+      setIsLoading(true);
       const { error, data } = await registration(values);
 
       if (error) {
@@ -39,8 +44,10 @@ const RegisterForm = () => {
       localStorage.setItem('token', JSON.stringify(token));
       localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
 
+      setIsLoading(false);
       resetForm();
     } catch (error) {
+      setIsLoading(false);
       console.error('Error occurred during form submission:', error);
     }
   };
@@ -93,9 +100,17 @@ const RegisterForm = () => {
                 fullWidth
                 variant="contained"
                 type="submit"
-                endIcon={<LoginIcon />}
+                disabled={isLoading}
               >
-                Sign Up
+                {isLoading ? (
+                  <Box sx={{ display: 'flex' }}>
+                    <CircularProgress sx={{ color: 'white' }} />
+                  </Box>
+                ) : (
+                  <StyledSpan>
+                    Sign Up <LoginIcon sx={{ width: '20px', height: '20px' }} />
+                  </StyledSpan>
+                )}
               </StyledButton>
             </Box>
           </Form>
