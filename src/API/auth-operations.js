@@ -22,10 +22,9 @@ const authenticationApi = createApi({
       }),
     }),
     logout: builder.mutation({
-      query: body => ({
+      query: () => ({
         url: '/auth/logout',
         method: 'DELETE',
-        body,
         headers: { Authorization: `Bearer ${jwt}` },
       }),
     }),
