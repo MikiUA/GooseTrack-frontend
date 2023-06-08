@@ -73,7 +73,7 @@ font-weight:600;
 
 
 export const StyledBox = styled(Box)`
-  min-width: 335px;
+  min-width: 287px;
   display: flex;
   background-color: #ffffff;
   flex-direction: column;
@@ -83,10 +83,10 @@ export const StyledBox = styled(Box)`
   padding: 40px 24px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 155px;
+  /* margin-top: 155px; */
 
   @media screen and (min-width: 768px) {
-    width: 480px; 
+    width: 400px; 
     padding: 40px;
   }
 
