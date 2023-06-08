@@ -1,13 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getUserInfo } from 'API/userSlice';
 
 /**
  * - If the route is private and user is authorized allows to use privat pages
  */
 
 export const PrivateRoute = () => {
-  const token = JSON.parse(localStorage.getItem('token'));
+  const userInfo = useSelector(getUserInfo);
 
-  console.log('token =', token);
-
-  return token ? <Outlet /> : <Navigate to="/" replace />;
+  return userInfo.name ? <Outlet /> : <Navigate to="/" replace />;
 };

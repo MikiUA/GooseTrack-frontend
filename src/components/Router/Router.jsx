@@ -7,9 +7,13 @@ import { CalendarRoute } from './CalendarRoute';
 
 const MainLayout = lazy(() => import('../MainLayout/MainLayout'));
 const AccountPage = lazy(() => import('../../pages/AccountPage/AccountPage'));
-const CalendarPage = lazy(() => import('../../pages/CalendarPage/CalendarPage'));
+const CalendarPage = lazy(() =>
+  import('../../pages/CalendarPage/CalendarPage')
+);
 const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
-const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'));
+const RegisterPage = lazy(() =>
+  import('../../pages/RegisterPage/RegisterPage')
+);
 const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
 
 export const Router = () => {

@@ -7,6 +7,7 @@ import {
   WrapperMain,
   WrapperSideBarContent,
 } from './MainLayout.styled';
+import { Header } from 'components/Header/Header';
 // import SideBar from 'components/SideBar/SideBar';
 
 const MainLayout = () => {
@@ -16,7 +17,8 @@ const MainLayout = () => {
         <WrapperMain>
           <WrapperSideBarContent>{/* <SideBar /> */}</WrapperSideBarContent>
           <Box>
-            <h2>Header</h2>
+            <Header/>
+            <h2>SideBar</h2>
             <Suspense fallback={<div>Loading...</div>}>
               <Outlet />
             </Suspense>
