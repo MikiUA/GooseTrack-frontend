@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import { Button, styled } from '@mui/material';
 
-export const StyledThemeButton = styled.button`
+export const StyledToggleThemeBox = styled(Button)`
   @media screen and (min-width: 375px) {
+    display: block;
     border: none;
     background-color: none;
     width: 20px;
