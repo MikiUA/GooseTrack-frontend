@@ -12,8 +12,6 @@ import {
   SliderArWrap,
 } from './Slider.styled';
 
-import Olena from '../../../imagesMainPage/img/mobile/Olena2x.png';
-import Olex from '../../../imagesMainPage/img/desktop/Olexdesk2x.png';
 //import { ReactComponent as Star } from '../../../imagesMainPage/svg/star.svg';
 // import { ReactComponent as LeftArrow } from '../../../imagesMainPage/svg/leftarrow.svg';
 // import { ReactComponent as RightArrow } from '../../../imagesMainPage/svg/rightarrow.svg';
@@ -31,7 +29,7 @@ const Slider = () => {
       <SliderList>
         <SliderItem>
           <SliderHeaderUser>
-            <SliderUserPhoto src={Olena} alt="Olena Doe"></SliderUserPhoto>
+            <SliderUserPhoto src={"https://avatars.githubusercontent.com/u/106928450?s=40&v=4"} alt="Olena Doe"></SliderUserPhoto>
             <HeaderUserWrapper>
               <SliderUserTitle>Olena Doe</SliderUserTitle>
               <SliderUserRating>
@@ -50,7 +48,7 @@ const Slider = () => {
         <SliderItem additionalClass={true}>
           <SliderHeaderUser>
             <SliderUserPhoto
-              src={Olex}
+              src={"https://avatars.githubusercontent.com/u/106928450?s=40&v=4"}
               alt="Alexander Hubbard "
             ></SliderUserPhoto>
             <HeaderUserWrapper>

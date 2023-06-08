@@ -1,6 +1,6 @@
 import { StyledText, StyledSubtitle, StyledItem, StyledBtnDescr, StyledNumberTitle, StyledList, StyledImg, StyledPictureDescr, WrapItemText } from './Description.styled';
 
-const basePath = '../../../images/MainPage/';
+const basePath = 'images/MainPage/';
 
 const Description = () => {
   return (
