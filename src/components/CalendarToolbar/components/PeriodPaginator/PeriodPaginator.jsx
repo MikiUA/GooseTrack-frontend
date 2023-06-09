@@ -7,6 +7,7 @@ import {
 } from './PeriodPaginator.styled';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { useParams } from 'react-router';
 
 export default function PeriodPaginator() {
   const isDayPage = false;
