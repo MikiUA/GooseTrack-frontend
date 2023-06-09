@@ -1,5 +1,3 @@
-import React from 'react';
-// import DeleteIcon from '@mui/icons-material/Delete';
 import {
   StyledBox,
   StyledButton,
@@ -17,7 +15,7 @@ import { useLogoutMutation } from 'API/auth-operations';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from 'API/userSlice';
 
-const SideBar = () => {
+const SideBar = ({ onClose, isOpen }) => {
   const [logout] = useLogoutMutation();
   const dispatch = useDispatch();
 
@@ -35,12 +33,13 @@ const SideBar = () => {
   };
 
   return (
-    <StyledContainer>
+    <StyledContainer data={isOpen ? true : undefined}>
       <StyledBox>
         <StyledHeader>
           GooseTrack
           <StyledButtonClose
             variant="text"
+            onClick={onClose}
             startIcon={<CloseIcon />}
           ></StyledButtonClose>
         </StyledHeader>
