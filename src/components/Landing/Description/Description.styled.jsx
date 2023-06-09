@@ -16,11 +16,8 @@ margin-bottom: 64px;
 
 
 @media screen and (min-width: 768px) {
-  ${({ additionalClass }) =>
-    additionalClass &&
-    `
-    flex-direction: row-reverse;      
-    `}
+  display: flex;
+flex-direction: column;
 }
 
 @media screen and (min-width: 1440px) {
@@ -28,22 +25,21 @@ display: flex;
 gap: 228px;
 justify-content: center;
 align-items: center;
+flex-direction: row;
 
-${({ additionalClass }) =>
-    additionalClass &&
-    `
-    flex-direction: row-reverse;      
-    `}
+&.sidebarItem {  
+  flex-direction: row-reverse;
+}
 }
 `
 
-export const WrapItemText = styled.div`@media screen and (min-width: 768px) {
-    ${({ additionalClass }) =>
-      additionalClass &&
-      `
-      margin-left: 430px;      
-      `}
-  }
+export const WrapItemText = styled.div`
+
+@media screen and (min-width: 768px) {
+  &.sidebarWrapText {
+margin-left: auto;
+   }  
+}
    
   @media screen and (min-width: 1440px) {
   flex-direction: column;
@@ -103,21 +99,15 @@ export const WrapItemText = styled.div`@media screen and (min-width: 768px) {
   line-height: 1.25;
   text-transform: uppercase;
   color: #171820;
+
+  &.sidebarSub {
+margin-top: 14px;
+  }  
   
   @media screen and (min-width: 768px) {
-   
-  font-size: 40px;
-  line-height: 1.1;
-  }
-  @media screen and (min-width: 768px) {
-    ${({ additionalClass }) =>
-      additionalClass &&
-      `
-        margin-top: 14px;
-      `}
-  
-  }
-  
+     font-size: 40px;
+     line-height: 1.1;
+  }  
   `
   export const StyledText = styled.p`
   font-family: 'Inter';
@@ -145,6 +135,10 @@ export const WrapItemText = styled.div`@media screen and (min-width: 768px) {
   
      @media screen and (min-width: 768px) {
        width: 704px;
+       
+       &.sidebarImg {
+         margin-left: auto;
+      } 
      }
   
      @media screen and (min-width: 1440px) {

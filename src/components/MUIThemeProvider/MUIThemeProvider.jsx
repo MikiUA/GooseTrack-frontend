@@ -1,12 +1,6 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React, { createContext, useMemo } from "react";
-
-
-const themeOptions = (mode) => ({
-    palette: {
-        mode
-    }
-});
+import getThemeOptions from "./getThemeOptions";
 
 const ColorModeContext = createContext();
 
@@ -24,7 +18,7 @@ export default function MuiThemeProvider({ children }) {
         [],
     );
     // Update the theme only if the mode changes
-    const theme = React.useMemo(() => createTheme(themeOptions(mode)), [mode]);
+    const theme = React.useMemo(() => createTheme(getThemeOptions(mode)), [mode]);
 
     return (
         <ColorModeContext.Provider value={colorMode}>
