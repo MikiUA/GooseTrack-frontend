@@ -23,7 +23,7 @@ export const UserInfo = () => {
   return (
     <StyledUserBox>
       <StyledLink>{userInfo.name}</StyledLink>
-      <StyledAvatar />
+      <StyledAvatar src={userInfo.avatarUrl} />
     </StyledUserBox>
   );
 };

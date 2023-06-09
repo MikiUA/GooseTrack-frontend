@@ -1,6 +1,16 @@
 import { StyledButton } from './BtnAddFeedback.styled';
-import { Button } from '@mui/material';
+import { useState } from 'react';
+import Modal from '../../Modal/Modal';
 
 export const BtnAddFeedback = () => {
-  return <StyledButton variant="contained">Feedback</StyledButton>;
+  const [isModalOpen, setIsOpenModal] = useState(false);
+  const handleToggle = () => setIsOpenModal(pS => !pS);
+  return (
+    <>
+      <StyledButton onClick={handleToggle} variant="contained">
+        Feedback
+      </StyledButton>
+      <Modal onClose={handleToggle} isOpen={isModalOpen}></Modal>
+    </>
+  );
 };

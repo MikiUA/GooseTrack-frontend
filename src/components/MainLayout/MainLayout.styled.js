@@ -10,7 +10,8 @@ export const WrapperMain = styled(Box)(
 `
 );
 
-export const WrapperSideBarContent = styled(Box)(({ theme }) => `
+export const WrapperSideBarContent = styled(Box)(
+  ({ theme }) => `
   border-right:1px solid ${theme.palette.borderGray};
   background-color:${theme.palette.background.sidebar};
   color:${theme.palette.text.primary}
@@ -24,12 +25,24 @@ export const WrapperSideBarContent = styled(Box)(({ theme }) => `
     min-width: 289px;
     width: calc((100vw - 1440px) / 2 + 289px);
   }
-`);
+`
+);
 
-export const WrapperPageContent = styled(Box)(({ theme }) => `
-  display:block;
+export const WrapperPageContent = styled(Box)(
+  ({ theme }) => `
+  display:flex;
   flex-grow:1;
-  background-color:${theme.palette.background.default}
+  background-color:${theme.palette.background.paper};
+  flex-direction:column;
+  align-items:center;
+
+  @media screen and (min-width: 375px) {
+    padding-top:24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top:40px;
+  }
 `
 );
 
