@@ -16,7 +16,7 @@ export const StyledFormInsight = styled(Form)`
   border-radius: 8px;
   padding: 40px 24px;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     max-width: 480px;
     padding: 40px;
   }
@@ -28,7 +28,7 @@ export const StyledTitle = styled.h2`
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 32px;
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 24px;
   }
@@ -41,7 +41,7 @@ export const StyledLabel = styled.label`
   margin-bottom: 8px;
   margin-top: 8px;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 17px;
   }
@@ -80,7 +80,7 @@ export const StyledInput = styled(Field)`
     outline: none;
   }
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding: 18px;
   }
 `;
@@ -99,9 +99,22 @@ export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 11px;
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     margin-top: 48px;
   }
+`;
+
+export const StyledSpanText = styled.p`
+  font-size: 14px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+export const StyledSpan = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 12px;
 `;
 
 export const StyledError = styled(ErrorMessage)`
