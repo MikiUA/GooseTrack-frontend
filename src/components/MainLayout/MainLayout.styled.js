@@ -1,12 +1,13 @@
 import { styled, Box } from '@mui/material';
 
-
-export const WrapperMain = styled(Box)(({ theme }) => `
+export const WrapperMain = styled(Box)(
+  ({ theme }) => `
   display:flex;
   min-height: 100vh;
   background-color:${theme.palette.background.default};
   color:${theme.palette.text.primary}
-`);
+`
+);
 
 export const WrapperSideBarContent = styled(Box)`
   width: 289px;
@@ -20,8 +21,13 @@ export const WrapperSideBarContent = styled(Box)`
   }
 `;
 
-export const WrapperPageContent = styled(Box)(({ theme }) => `
-  display:block;
+export const WrapperPageContent = styled(Box)(
+  ({ theme }) => `
+  display:flex;
   flex-grow:1;
-  background-color:${theme.palette.background.paper}
-`);
+  background-color:${theme.palette.background.paper};
+  flex-direction:column;
+  align-items:center;
+  
+`
+);
