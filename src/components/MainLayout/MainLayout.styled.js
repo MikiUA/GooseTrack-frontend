@@ -32,7 +32,7 @@ export const WrapperPageContent = styled(Box)(
   ({ theme }) => `
   display:flex;
   flex-grow:1;
-  background-color:${theme.palette.background.paper};
+  background-color:${theme.palette.background.default};
   flex-direction:column;
   align-items:center;
 
