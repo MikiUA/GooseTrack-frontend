@@ -10,7 +10,11 @@ export const WrapperMain = styled(Box)(
 `
 );
 
-export const WrapperSideBarContent = styled(Box)`
+export const WrapperSideBarContent = styled(Box)(({ theme }) => `
+  border-right:1px solid ${theme.palette.borderGray};
+  background-color:${theme.palette.background.sidebar};
+  color:${theme.palette.text.primary}
+
   width: ${props => (props.data ? '289px' : 'none')};
 
   @media screen and(min-width: 1440px) {
@@ -20,13 +24,12 @@ export const WrapperSideBarContent = styled(Box)`
     min-width: 289px;
     width: calc((100vw - 1440px) / 2 + 289px);
   }
-`;
+`);
 
-export const WrapperPageContent = styled(Box)(
-  ({ theme }) => `
+export const WrapperPageContent = styled(Box)(({ theme }) => `
   display:block;
   flex-grow:1;
-  background-color:${theme.palette.background.paper}
+  background-color:${theme.palette.background.default}
 `
 );
 
