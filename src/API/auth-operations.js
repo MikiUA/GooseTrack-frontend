@@ -28,20 +28,9 @@ const authenticationApi = createApi({
         headers: { Authorization: `Bearer ${jwt}` },
       }),
     }),
-    getUserInfo: builder.query({
-      query: () => ({
-        url: '/users',
-        method: 'GET',
-        headers: { Authorization: `Bearer ${jwt}` },
-      }),
-    }),
   }),
 });
 
-export const {
-  useRegistrationMutation,
-  useLoginMutation,
-  useLogoutMutation,
-  useGetUserInfoQuery,
-} = authenticationApi;
+export const { useRegistrationMutation, useLoginMutation, useLogoutMutation } =
+  authenticationApi;
 export default authenticationApi;
