@@ -1,6 +1,6 @@
-import { StyledLink, StyledHeader, StyledTitle, StyledAuthButton, StyledPicture, StyledImgAuthNav, AuthBtnWrapper, Span } from './AuthLanding.styled';
+import { CustomIcon, StyledLink, StyledHeader, StyledTitle, StyledAuthButton, StyledPicture, StyledImgAuthNav, AuthBtnWrapper, Span } from './AuthLanding.styled';
 
-import Icon from '../../../utils/Icon/Icon'
+//import Icon from '../../../utils/Icon/Icon'
 
 const basePath = '../../../images/logoGoose/';
 
@@ -33,7 +33,7 @@ const AuthLanding = () => {
       <AuthBtnWrapper>
         <StyledAuthButton to="login">
           Log in        
-          <Icon name='icon-log-in-01' width='16' height='16' />
+          <CustomIcon name='icon-log-in-01' width='16' height='16' />
         </StyledAuthButton>
         <StyledLink to="register">Sign up</StyledLink>
       </AuthBtnWrapper>
