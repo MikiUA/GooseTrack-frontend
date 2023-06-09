@@ -1,27 +1,15 @@
 import { useTheme } from "@mui/material/styles";
 import { useToggleDarkMode } from "./MUIThemeProvider";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { StyledThemeSwitcherBox } from "./ThemeTestPage.styled";
 
 export default function ThemeSwitcher() {
     const theme = useTheme();
     const toggleDarkMode = useToggleDarkMode();
     return (
-        <Box
-            sx={{
-                display: 'block',
-                width: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
-                bgcolor: 'background.default',
-                color: 'text.primary',
-                borderRadius: 1,
-                p: 3,
-                border: '1px solid',
-                borderColor: 'palette.primary'
-            }}>
+        <StyledThemeSwitcherBox>
             {theme.palette.mode} mode
-            <Button onClick={toggleDarkMode} variant="contained"> switch </Button>
-        </Box>
+            <Button onClick={toggleDarkMode} variant="contained" sx={{ marginLeft: '10px' }}> switch </Button>
+        </StyledThemeSwitcherBox>
     )
 }

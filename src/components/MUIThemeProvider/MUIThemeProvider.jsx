@@ -1,10 +1,6 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React, { createContext, useMemo } from "react";
 import getThemeOptions from "./getThemeOptions";
-import ThemeSwitcher from "./ThemeSwitcher";
-
-
-
 
 const ColorModeContext = createContext();
 
