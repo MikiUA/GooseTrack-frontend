@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import Icon from '../../../utils/Icon/Icon';
 
+export const CustomIcon = styled(Icon)`
+  margin-left: 8px;
+`;
 
 export const StyledHeader = styled.section`
   height: 100vh;
@@ -115,5 +119,7 @@ export const StyledLink = styled(NavLink)`
       line-height: 1.29;  
   }
 `;
+
+
 
 
