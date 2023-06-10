@@ -1,31 +1,25 @@
 import React from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ButtonsWrapper, StyledLink } from './PeriodTypeSelect.styled';
-import { Button, Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
-export default function PeriodTypeSelect({ onChangeType }) {
+export default function PeriodTypeSelect({ isDay }) {
   const { currentDate } = useParams();
-  const location = useLocation();
-  const isMonthRoute = location.pathname.includes('month');
-  const isDayRoute = location.pathname.includes('day');
+  const navigate = useNavigate();
   return (
     <ButtonsWrapper>
-      <Button
-        component={StyledLink}
-        to={`/calendar/month/${currentDate}`}
-        className={`${isMonthRoute ? 'active' : ''} month`}
-        onClick={() => onChangeType('month')}
+      <StyledLink
+        onClick={() => navigate(`/calendar/month/${currentDate}`)}
+        disabled={!isDay}
       >
         <Typography sx={{ textTransform: 'none' }}>Month</Typography>
-      </Button>
-      <Button
-        component={StyledLink}
-        to={`/calendar/day/${currentDate}`}
-        className={`${isDayRoute ? 'active' : ''} day`}
-        onClick={() => onChangeType('day')}
+      </StyledLink>
+      <StyledLink
+        onClick={() => navigate(`/calendar/day/${currentDate}`)}
+        disabled={isDay}
       >
         <Typography sx={{ textTransform: 'none' }}>Day</Typography>
-      </Button>
+      </StyledLink>
     </ButtonsWrapper>
   );
 }

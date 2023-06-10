@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   PeriodPaginationWrapper,
   DateField,
@@ -7,71 +7,48 @@ import {
 } from './PeriodPaginator.styled';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { Box } from '@mui/material';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en'; // Импорт английской локали для названий месяцев
 
+function checkIfLessAllowed(currentDate) {
+  //this thing allows us to go one month prior to current date. This is intentional. use <= to not allow it
+  //Есть кейс когда невозможно переключиться на предыдущий месяц, если выбранная дата этого месяца раньше текущей, теоретически во второй обьект нужно добавить не текущую дату а первое число месяца
+  //на самом деле можно просто добавить первое число прошлого месяца во второй обьект и заменить < на <=
+  if (dayjs(currentDate) < dayjs()) return false;
+  return true;
+}
+
 export default function PeriodPaginator({
   isDay,
-  typePeriod,
-  changeActiveDay,
 }) {
   const { currentDate } = useParams();
-
+  const navigate = useNavigate();
+  const isLessAllowed = useMemo(() => checkIfLessAllowed(currentDate), [currentDate]);
   const formattedDate =
-    typePeriod === 'day'
+    isDay
       ? dayjs(currentDate).format('DD MMMM YYYY')
       : dayjs(currentDate).format('MMMM YYYY');
 
-  const dateForLinkNext = isDay
-    ? dayjs(currentDate).add(1, 'day').format('DDMMMMYYYY')
-    : dayjs(currentDate).add(1, 'month').format('MMMMYYYY');
-
-  const dateForLinkPrev = isDay
-    ? dayjs(currentDate).subtract(1, 'day').format('DDMMMMYYYY')
-    : dayjs(currentDate).subtract(1, 'month').format('MMMMYYYY');
-
   // const shouldDisable = date < Date.now();
-
+  function getNavigateLink(isDay, isBackward) {
+    const type = isDay ? 'day' : 'month';
+    const dateForLink = dayjs(currentDate).add(!isBackward ? 1 : -1, type).format('YYYY-MM-DD');
+    return `/calendar/${type}/${dateForLink}`
+  }
   return (
     <PeriodPaginationWrapper>
       <Box>
         <DateField>{formattedDate}</DateField>
       </Box>
       <ButtonsWrapper>
-        {isDay ? (
-          <>
-            <StyledLink
-              onClick={() => changeActiveDay(-1)}
-              to={`/calendar/day/${dateForLinkPrev}`}
-            >
-              <NavigateBeforeIcon />
-            </StyledLink>
-            <StyledLink
-              onClick={() => changeActiveDay(1)}
-              to={`/calendar/day/${dateForLinkNext}`}
-            >
-              <NavigateNextIcon />
-            </StyledLink>
-          </>
-        ) : (
-          <>
-            <StyledLink
-              // disabled={shouldDisable}
-              to={`/calendar/month/${dateForLinkPrev}`}
-              onClick={() => changeActiveDay(-1)}
-            >
-              <NavigateBeforeIcon />
-            </StyledLink>
-            <StyledLink
-              to={`/calendar/month/${dateForLinkNext}`}
-              onClick={() => changeActiveDay(1)}
-            >
-              <NavigateNextIcon />
-            </StyledLink>
-          </>
-        )}
+        <StyledLink onClick={() => navigate(getNavigateLink(isDay, true))} disabled={!isLessAllowed}>
+          <NavigateBeforeIcon />
+        </StyledLink>
+        <StyledLink onClick={() => navigate(getNavigateLink(isDay))}>
+          <NavigateNextIcon />
+        </StyledLink>
       </ButtonsWrapper>
     </PeriodPaginationWrapper>
   );
