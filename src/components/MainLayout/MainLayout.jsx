@@ -17,7 +17,7 @@ const MainLayout = () => {
   return (
     <>
       <WrapperMain>
-        <WrapperSideBarContent data={isMenuOpen ? true : undefined}>
+        <WrapperSideBarContent data={isMenuOpen ? 'true' : undefined}>
           {isMenuOpen ? null : (
             <SideButton
               color="inherit"
