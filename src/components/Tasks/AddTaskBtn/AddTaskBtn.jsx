@@ -3,10 +3,36 @@ import { Button } from './AddTaskBtn.styled';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import ModalTaskForm from '../ModalTaskForm/ModalTaskForm';
+import { useLazyAddTaskQuery } from 'API/taskUtils';
 
 const AddTaskBtn = ({ columnHeadBtn }) => {
   const [isModalOpen, setIsOpenModal] = useState(false);
   const handleToggle = () => setIsOpenModal(pS => !pS);
+
+  const [addTask] = useLazyAddTaskQuery();
+
+  const handleSubmit = async ({
+    title,
+    start,
+    end,
+    priority,
+    date,
+    category,
+  }) => {
+    try {
+      const res = await addTask({
+        title: title,
+        start: start,
+        end: end,
+        priority: priority,
+        date: date,
+        category: category,
+      });
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -20,7 +46,7 @@ const AddTaskBtn = ({ columnHeadBtn }) => {
         </Button>
       )}
       <Modal onClose={handleToggle} isOpen={isModalOpen}>
-        <ModalTaskForm onClose={handleToggle} />
+        <ModalTaskForm onClose={handleToggle} handleSubmit={handleSubmit} />
       </Modal>
     </>
   );
