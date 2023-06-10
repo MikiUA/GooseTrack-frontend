@@ -9,7 +9,7 @@ import {
     Priority
 } from "./TaskColumnCard.styled";
 
-import Icon from "../../../utils/Icon";
+import Icon from "utils/Icon/Icon";
 
 
 const TaskColumnCard = ({title, priority, id, task}) => {
