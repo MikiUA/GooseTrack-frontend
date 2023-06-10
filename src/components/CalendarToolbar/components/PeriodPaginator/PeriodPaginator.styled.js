@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const PeriodPaginationWrapper = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ export const ButtonsWrapper = styled.div`
   display: flex;
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled(Link)`
   padding: 0;
   display: flex;
   justify-content: center;
