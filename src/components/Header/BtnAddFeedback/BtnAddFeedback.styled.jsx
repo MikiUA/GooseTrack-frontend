@@ -1,4 +1,4 @@
-import { Button, styled } from '@mui/material';
+import { Box, Button, styled } from '@mui/material';
 
 export const StyledButton = styled(Button)`
   @media screen and (min-width: 375px) {
@@ -27,5 +27,17 @@ export const StyledButton = styled(Button)`
   }
 
   @media screen and (min-width: 1440px) {
+  }
+`;
+
+export const FeedbackWrapper = styled(Box)`
+  @media screen and (min-width: 375px) {
+    width: 335px;
+    max-height: 564px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 468px;
+    max-height: 673px;
   }
 `;
