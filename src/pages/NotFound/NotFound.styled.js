@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
-import Icon from '../../../utils/Icon/Icon';
+import Icon from 'utils/Icon/Icon';
 
 export const CustomIcon = styled(Icon)`
   margin-left: 8px;
@@ -59,11 +59,9 @@ export const StyledTitleSec = styled.h1`
   }
 `;
 
-
 export const Span = styled.span`
-font-style: italic;
-
-`
+  font-style: italic;
+`;
 
 export const StyledPicture = styled.picture`
   width: 142px;
@@ -113,8 +111,7 @@ export const StyledAuthButton = styled(NavLink)`
   border: none;
   display: flex;
   align-items: center;
-  justify-content: center; 
-  
+  justify-content: center;
 `;
 
 export const StyledAuthSpan = styled.img`
@@ -129,20 +126,19 @@ export const StyledLink = styled(NavLink)`
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
-  line-height: 1.17;  
+  line-height: 1.17;
   text-decoration-line: underline;
   color: #ffffff;
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 
-    @media screen and (min-width: 768px) {
-      font-size: 14px;
-      line-height: 1.29;  
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.29;
   }
 `;
 
 export const TitleWrapper = styled.div`
-display: inline-flex;
-flex-direction: column;
-`
-
+  display: inline-flex;
+  flex-direction: column;
+`;
