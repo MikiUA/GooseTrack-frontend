@@ -16,13 +16,14 @@ const RegisterPage = lazy(() =>
   import('../../pages/RegisterPage/RegisterPage')
 );
 const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
+const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 
 export const Router = () => {
   return (
     <BrowserRouter basename="GooseTrack-frontend">
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path='/themeTest' element={<ThemeTestPage />} />
+          <Route path="/themeTest" element={<ThemeTestPage />} />
           {/* Приватні маршрути */}
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/" element={<MainLayout />}>
@@ -30,11 +31,11 @@ export const Router = () => {
               <Route path="/calendar" element={<CalendarRoute />} />
               <Route
                 path="/calendar/month/:currentDate"
-                element={<CalendarPage variant='month' />}
+                element={<CalendarPage variant="month" />}
               />
               <Route
                 path="/calendar/day/:currentDate"
-                element={<CalendarPage variant='day' />}
+                element={<CalendarPage variant="day" />}
               />
               {/* Аккаунт */}
               <Route path="account" element={<AccountPage />} />
@@ -48,7 +49,7 @@ export const Router = () => {
             <Route path="/register" element={<RegisterPage />} />
           </Route>
 
-          <Route path="*" element={<h1>not found page</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
