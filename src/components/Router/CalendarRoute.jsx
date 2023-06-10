@@ -23,10 +23,10 @@ export const CalendarRoute = () => {
 
   const navigateTo = useMemo(() => {
     if (isValidDate(currentDate)) return null;
-    const currentDate = new Date().toISOString().slice(0, 10); // Get current date in 'YYYY-MM-DD' format
+    const newCurrentDate = new Date().toISOString().slice(0, 10); // Get current date in 'YYYY-MM-DD' format
 
-    if (path.pathname.includes('/day')) return `/calendar/day/${currentDate}`
-    return `/calendar/month/${currentDate}`
+    if (path.pathname.includes('/day')) return `/calendar/day/${newCurrentDate}`
+    return `/calendar/month/${newCurrentDate}`
   }, [currentDate, path]);
 
   return navigateTo
