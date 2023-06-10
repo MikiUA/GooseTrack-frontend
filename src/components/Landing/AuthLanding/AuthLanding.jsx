@@ -1,12 +1,6 @@
-import { CustomIcon, 
-  StyledLink, 
-  StyledHeader, 
-  StyledTitle, 
-  StyledAuthButton, 
-  StyledPicture, 
-  StyledImgAuthNav, 
-  AuthBtnWrapper, 
-  Span } from './AuthLanding.styled';
+import { CustomIcon, StyledLink, StyledHeader, StyledTitle, StyledAuthButton, StyledPicture, StyledImgAuthNav, AuthBtnWrapper, Span } from './AuthLanding.styled';
+
+//import Icon from '../../../utils/Icon/Icon'
 
 const basePath = '../../../images/logoGoose/';
 
