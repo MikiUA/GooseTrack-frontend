@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Checkbox from './Checkbox/Checkbox';
 import {
   TaskForm,
@@ -16,14 +16,36 @@ import {
   TaskFormWrap,
 } from './ModalTaskForm.styled';
 import { CustomTextField, CustomTimeField } from './ModalTaskFormStyle';
+import { useParams } from 'react-router-dom';
 
-const ModalTaskForm = ({ onClose }) => {
+const ModalTaskForm = ({ onClose, handleSubmit }) => {
   const [startValue, setStartValue] = useState(dayjs('2022-04-17T09:00'));
   const [endValue, setEndValue] = useState(dayjs('2022-04-17T14:00'));
   const [selectedOption, setSelectedOption] = useState('');
+  const [formTitle, setFormTitle] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false);
+  const { currentDate } = useParams();
+
+  useEffect(() => {
+    const isValid = formTitle !== '' && selectedOption !== '';
+    setIsFormValid(isValid);
+  }, [formTitle, selectedOption]);
 
   const handleCheckboxChange = value => {
     setSelectedOption(value);
+  };
+
+  const handleFormSubmit = () => {
+    if (isFormValid) {
+      handleSubmit({
+        title: formTitle,
+        start: startValue.format('HH:mm'),
+        end: endValue.format('HH:mm'),
+        priority: selectedOption,
+        date: currentDate,
+        category: 'to-do',
+      });
+    }
   };
 
   return (
@@ -35,6 +57,8 @@ const ModalTaskForm = ({ onClose }) => {
             id="outlined-basic"
             variant="outlined"
             placeholder="Enter text"
+            onChange={event => setFormTitle(event.target.value)}
+            required
           />
         </TaskFormWrap>
         <TaskFormInputWrap>
@@ -63,29 +87,29 @@ const ModalTaskForm = ({ onClose }) => {
         </TaskFormInputWrap>
         <TaskFormCheckboxWrap>
           <Checkbox
-            value="Low"
+            value="low"
             label="Low"
-            checked={selectedOption === 'Low'}
-            onChange={() => handleCheckboxChange('Low')}
+            checked={selectedOption === 'low'}
+            onChange={() => handleCheckboxChange('low')}
             color="#72C2F8"
           />
           <Checkbox
-            value="Medium"
+            value="medium"
             label="Medium"
-            checked={selectedOption === 'Medium'}
-            onChange={() => handleCheckboxChange('Medium')}
+            checked={selectedOption === 'medium'}
+            onChange={() => handleCheckboxChange('medium')}
             color="#F3B249"
           />
           <Checkbox
-            value="High"
+            value="high"
             label="High"
-            checked={selectedOption === 'High'}
-            onChange={() => handleCheckboxChange('High')}
+            checked={selectedOption === 'high'}
+            onChange={() => handleCheckboxChange('high')}
             color="#EA3D65"
           />
         </TaskFormCheckboxWrap>
         <TaskFormButtonWrap>
-          <TaskFormButtonAdd>
+          <TaskFormButtonAdd type="button" onClick={handleFormSubmit}>
             <TaskFormButtonAddSpan>+</TaskFormButtonAddSpan> <span>Add</span>
           </TaskFormButtonAdd>
           <TaskFormButtonCancel onClick={onClose}>Cancel</TaskFormButtonCancel>

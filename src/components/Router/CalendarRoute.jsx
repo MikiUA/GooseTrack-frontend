@@ -1,12 +1,10 @@
 import { Navigate } from 'react-router-dom';
 
-const currentDate = new Date();
+import dayjs from 'dayjs';
 
-const options = { month: 'long' };
-const currentMonth = currentDate.toLocaleString('en-US', options);
-const currentYear = currentDate.getFullYear();
+const currentDate = dayjs();
 
-const monthForLink = currentMonth + currentYear;
+const monthForLink = currentDate.format('YYYY-MM-DD');
 
 export const CalendarRoute = () => {
   return <Navigate to={`/calendar/month/${monthForLink}`} replace />;
