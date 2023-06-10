@@ -9,7 +9,7 @@ import {
     Priority
 } from "./TaskColumnCard.styled";
 
-import img from "../../images/pngegg.png";
+import Icon from "../../../utils/Icon";
 
 
 const TaskColumnCard = ({title, priority, id, task}) => {
@@ -40,7 +40,7 @@ const TaskColumnCard = ({title, priority, id, task}) => {
             <Container>
                 <ContainerInfo>
                     <ContainerUser>
-                        <img src={img} alt="user_photo" width="32" height="32" />
+                        <Icon name="icon-ph_user" width="32" height="32" />
                     </ContainerUser>
                     <Priority backgroundColor={componentStyle.backgroundColor}>{priority}</Priority>
                 </ContainerInfo>
