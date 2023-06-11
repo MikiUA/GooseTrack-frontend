@@ -62,7 +62,7 @@ const TasksColumnsList = () => {
                     key={taskColumnTitle}
                     taskColumnTitle={taskColumnTitle}
                     tasks={todayTasks[taskColumnTitle]} 
-                    category={taskTypes.taskColumnTitle}/>))}  
+                    category={taskTypes[taskColumnTitle]}/>))}  
         </List>
     )
 }
