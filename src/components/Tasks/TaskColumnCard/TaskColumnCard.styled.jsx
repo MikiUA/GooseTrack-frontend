@@ -15,12 +15,12 @@ export const Item = styled.li`
 `;
 
 export const Title = styled.h3`
-    width: 100%;
+    /* width: 100%; */
     padding: 0;
     margin: 0 0 28px 0;
     font-weight: 500;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.29;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -54,7 +54,7 @@ export const Priority = styled.span`
     border-radius: 4px;
     font-weight: 600;
     font-size: 10px;
-    line-height: 12px;
+    line-height: 1.2;
     padding: 4px 12px;
     background-color: ${props => props.backgroundColor};
 `;

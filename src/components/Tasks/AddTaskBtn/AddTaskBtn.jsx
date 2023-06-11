@@ -1,5 +1,4 @@
-import Icon from 'utils/Icon/Icon';
-import { Button } from './AddTaskBtn.styled';
+import { Button, ButtonIcon, ButtonIconStyled, ButtonIconStyledPlus, Container, Text } from './AddTaskBtn.styled';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import ModalTaskForm from '../ModalTaskForm/ModalTaskForm';
@@ -37,12 +36,15 @@ const AddTaskBtn = ({ columnHeadBtn }) => {
   return (
     <>
       {columnHeadBtn ? (
-        <Button type="button">
-          <Icon name="icon-icon" width="20" height="20" />
-        </Button>
+        <ButtonIcon type="button">
+          <ButtonIconStyled name="icon-icon" width="20" height="20" />
+        </ButtonIcon>
       ) : (
-        <Button type="button" onClick={handleToggle}>
-          Add task
+          <Button type="button" onClick={handleToggle}>
+            <Container>
+              <ButtonIconStyledPlus name="icon-plus" width="16" height="16" />
+              <Text>Add task</Text>
+            </Container>
         </Button>
       )}
       <Modal onClose={handleToggle} isOpen={isModalOpen}>

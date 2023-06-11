@@ -1,12 +1,12 @@
-import Icon from "utils/Icon/Icon"
+import { Button, IconStyled } from "./MoveCardBtn.styled";
 
 
 const MoveCardBtn = () => {
     return (
         <li>
-            <button>
-                <Icon name="icon-arrow-circle-broken-right" width="16" height="16"/>
-            </button>
+            <Button>
+                <IconStyled name="icon-arrow-circle-broken-right" width="16" height="16"/>
+            </Button>
         </li>
     )
 }
