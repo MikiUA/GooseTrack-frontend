@@ -4,14 +4,14 @@ import AddTaskBtn from "../AddTaskBtn/AddTaskBtn";
 import { Item } from "./TasksColumn.styled";
 
 
-const TasksColumn = ({taskColumnTitle, tasks}) => {
+const TasksColumn = ({taskColumnTitle, tasks,category}) => {
     return (
         <Item>
             <ColumnHeadBar taskColumnTitle={taskColumnTitle} />
 
             {tasks && <ColumnTasksList tasks={tasks} />}
 
-            <AddTaskBtn />
+            <AddTaskBtn category={category}/>
         </Item>
     )
 }
