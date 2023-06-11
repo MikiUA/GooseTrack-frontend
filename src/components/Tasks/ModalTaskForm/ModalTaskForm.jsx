@@ -18,7 +18,7 @@ import {
 import { CustomTextField, CustomTimeField } from './ModalTaskFormStyle';
 import { useParams } from 'react-router-dom';
 
-const ModalTaskForm = ({ onClose, handleSubmit }) => {
+const ModalTaskForm = ({ onClose, handleSubmit, category }) => {
   const [startValue, setStartValue] = useState(dayjs('2022-04-17T09:00'));
   const [endValue, setEndValue] = useState(dayjs('2022-04-17T14:00'));
   const [selectedOption, setSelectedOption] = useState('');
@@ -43,7 +43,7 @@ const ModalTaskForm = ({ onClose, handleSubmit }) => {
         end: endValue.format('HH:mm'),
         priority: selectedOption,
         date: currentDate,
-        category: 'to-do',
+        category: category,
       });
     }
   };

@@ -63,7 +63,7 @@ const UserForm = ({ data }) => {
     skype: formData.skype,
     phone: formData.phone,
     birthday: formData.birthday,
-    avatar: formData.avatar,
+    avatar: formData.avatarUrl,
   };
 
   const [isFormChanged, setIsFormChanged] = useState(false);
@@ -87,10 +87,6 @@ const UserForm = ({ data }) => {
     data.skype,
     formData,
   ]);
-
-  console.log('local state:', formData);
-  console.log('state:', data);
-  console.log(isFormChanged);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()

@@ -327,9 +327,9 @@ export const Input = styled(OutlinedInput)`
     font-weight: 600;
     border-radius: 8px;
     border: ${props =>
-      props.isError
-        ? `1px solid ${error}`
-        : `1px solid ${accept}` || '1px solid inherit'};
+    props.isError
+      ? `1px solid ${error}`
+      : `1px solid ${accept}` || '1px solid inherit'};
   }
 
   &:hover: {
@@ -387,9 +387,9 @@ export const DateInput = styled(DatePicker)`
     border-radius: 8px;
     border-radius: 8px;
     border: ${props =>
-      props.isError
-        ? `1px solid ${error}`
-        : `1px solid ${accept}` || '1px solid inherit'};
+    props.isError
+      ? `1px solid ${error}`
+      : `1px solid ${accept}` || '1px solid inherit'};
   }
 
   && .MuiInputBase-input {
