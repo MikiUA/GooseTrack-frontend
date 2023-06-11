@@ -7,9 +7,9 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
-  DatePicker,
 } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const theme = createTheme({
   palette: {
@@ -114,6 +114,35 @@ export const Img = styles.img`
   }
 `;
 
+export const AvatarSwgBox = styles.div`
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid ${contrast};
+  background-color: ${main};
+
+  @media (min-width: 768px) {
+    width: 124px;
+    height: 124px;
+  }
+`;
+
+export const AvatarSwg = styles.svg`
+  width: 48px;
+  height: 48px;
+
+  @media (min-width: 768px) {
+    width: 80px;
+    height: 80px;
+  }
+`;
+
 export const AddLabel = styles.label`
   box-sizing: border-box; 
   position: absolute;
@@ -122,6 +151,8 @@ export const AddLabel = styles.label`
   line-height: 1;
   font-size: 14px;
   height: 14px;
+  color: ${main};
+  fill: ${main};
 
   @media (min-width: 768px) {
     top: 106px;
@@ -140,20 +171,34 @@ export const AddButton = styled(Button)`
   padding: 0px;
   min-width: unset;
   min-height: unset;
-  background-color: ${main};
+  background-color: ${contrast};
+  stroke: ${main};
 
   &:hover {
-    background-color: ${contrast};
-    color: ${main};
+    background-color: ${main};
+    stroke: ${contrast};
   }
 
   &:focus {
-    background-color: ${contrast};
-    color: ${main};
+    background-color: ${main};
+    stroke: ${contrast};
   }
   @media (min-width: 768px) {
     width: 24px;
     height: 24px;
+  }
+`;
+
+export const AddSwg = styles.svg`
+  display: inline-block;
+
+  width: 8px;
+  height: 8px;
+  stroke: inherit;
+
+  @media (min-width: 768px) {
+    width: 18px;
+    height: 18px;
   }
 `;
 
@@ -244,11 +289,19 @@ export const Input = styled(OutlinedInput)`
 
   border-radius: 8px;
 
-  &:hover : {
+  && .MuiInputBase-input {
+    padding: 12px 0px 12px 18px;
+    font-size: 14px;
+    line-height: 1.29;
+    height: 18px;
+    font-weight: 600;
+  }
+
+  &:hover: {
     border: 1px solid ${label};
   }
 
-  &:focus : {
+  &:focus: {
     border: 1px solid ${label};
   }
 
@@ -258,10 +311,115 @@ export const Input = styled(OutlinedInput)`
 
   @media (min-width: 768px) {
     width: 354px;
+    height: 46px;
     font-size: 16px;
     line-height: 1.12;
+
+    && .MuiInputBase-input {
+      padding: 13px 0px 13px 18px;
+      font-size: 16px;
+      line-height: 1.12;
+      height: 20px;
+      font-weight: 600;
+    }
   }
 `;
+
+export const DateInput = styled(DatePicker)`
+  box-sizing: border-box;
+  width: 100%;
+  height: 42px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.29;
+
+  && .MuiSvgIcon-root {
+    color: ${label};
+    width: 18px;
+    height: 18px;
+  }
+
+  && .MuiPaper-root {
+    background-color: red;
+  }
+
+  && .MuiInputBase-root {
+    height: 42px;
+    border-radius: 8px;
+  }
+
+  && .MuiInputBase-input {
+    padding: 12px 0px 12px 18px;
+    font-size: 14px;
+    line-height: 1.29;
+    height: 18px;
+    font-weight: 600;
+  }
+
+  &:hover: {
+    border: 1px solid ${label};
+  }
+
+  &:focus: {
+    border: 1px solid ${label};
+  }
+
+  @media (min-width: 375px) {
+    width: 299px;
+  }
+
+  @media (min-width: 768px) {
+    width: 354px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 1.12;
+
+    && .MuiStack-root {
+      height: 46px;
+    }
+
+    && .MuiInputBase-root {
+      height: 46px;
+    }
+
+    && .MuiInputBase-input {
+      padding: 13px 0px 13px 18px;
+      font-size: 16px;
+      line-height: 1.12;
+      height: 20px;
+      font-weight: 600;
+    }
+  }
+`;
+
+// export const DateInput = styles.div`
+//   box-sizing: border-box;
+//   width: 100%;
+//   height: 42px;
+//   font-weight: 600;
+//   font-size: 14px;
+//   line-height: 1.29;
+
+//   border-radius: 8px;
+
+//   &:hover: {
+//     border: 1px solid ${label};
+//   }
+
+//   &:focus: {
+//     border: 1px solid ${label};
+//   }
+
+//   @media (min-width: 375px) {
+//     width: 299px;
+//   }
+
+//   @media (min-width: 768px) {
+//     width: 354px;
+//     font-size: 16px;
+//     line-height: 1.12;
+//   }
+// `;
 
 export const ButtonWrap = styled(Box)`
   display: flex;
