@@ -7,9 +7,13 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
+  TextField,
 } from '@mui/material';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { createTheme } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { RiErrorWarningLine } from 'react-icons/ri';
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 const theme = createTheme({
   palette: {
@@ -21,12 +25,23 @@ const theme = createTheme({
       contrast: '#3E85F3',
       label: '#111111',
       labelNormal: '#00000040',
+      error: '#DA1414',
+      accept: '#3CBC81',
     },
   },
 });
 
-const { light, main, dark, contrast, label, darkText, labelNormal } =
-  theme.palette.primary;
+const {
+  light,
+  main,
+  dark,
+  contrast,
+  label,
+  darkText,
+  labelNormal,
+  error,
+  accept,
+} = theme.palette.primary;
 
 /* <OutlinedInput
   // інші пропси
@@ -271,7 +286,8 @@ export const Label = styled(InputLabel)`
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
-  color: ${label};
+  //   color: ${label};
+  color: ${props => (props.isError ? `${error}` : `${accept}` || `${label}`)};
 
   @media (min-width: 768px) {
     font-size: 14px;
@@ -279,15 +295,29 @@ export const Label = styled(InputLabel)`
   }
 `;
 
+export const StyledIconError = styled(RiErrorWarningLine)`
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: ${error};
+`;
+export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: ${accept};
+`;
+
 export const Input = styled(OutlinedInput)`
   box-sizing: border-box;
+  position: relative;
   width: 100%;
   height: 42px;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
-
-  border-radius: 8px;
 
   && .MuiInputBase-input {
     padding: 12px 0px 12px 18px;
@@ -295,6 +325,11 @@ export const Input = styled(OutlinedInput)`
     line-height: 1.29;
     height: 18px;
     font-weight: 600;
+    border-radius: 8px;
+    border: ${props =>
+    props.isError
+      ? `1px solid ${error}`
+      : `1px solid ${accept}` || '1px solid inherit'};
   }
 
   &:hover: {
@@ -303,6 +338,10 @@ export const Input = styled(OutlinedInput)`
 
   &:focus: {
     border: 1px solid ${label};
+  }
+
+  &:invalid {
+    border: 1px solid red;
   }
 
   @media (min-width: 375px) {
@@ -346,6 +385,11 @@ export const DateInput = styled(DatePicker)`
   && .MuiInputBase-root {
     height: 42px;
     border-radius: 8px;
+    border-radius: 8px;
+    border: ${props =>
+    props.isError
+      ? `1px solid ${error}`
+      : `1px solid ${accept}` || '1px solid inherit'};
   }
 
   && .MuiInputBase-input {
@@ -427,7 +471,7 @@ export const ButtonWrap = styled(Box)`
 `;
 
 export const StyledButton = styled(Button)`
-  && {
+
     box-sizing: border-box;
     width: 100%;
     height: 46px;
@@ -453,5 +497,12 @@ export const StyledButton = styled(Button)`
       height: 48px;
       padding: 15px 0px;
     }
-  }
+`;
+
+export const ErrorInputValue = styles(ErrorMessage)`
+  font-size: 12px;
+  line-height: 1.17;
+  color: ${error};
+  margin-top: 8px;
+  margin-left: 18px;
 `;
