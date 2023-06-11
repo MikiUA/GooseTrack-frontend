@@ -1,123 +1,49 @@
 import moment from 'moment';
-import styled from 'styled-components';
+import { useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { CalendarGrid, GridCell, DateWrap, ToDay } from './ChoosedMonth.styled';
 
-const CalendarGrid = styled.div`
-  display: grid;
-  max-width: 100%;
-  background-color: #ffffff;
-  border: 1px solid rgba(220, 227, 229, 0.5);
-  border-radius: 8px;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  overflow: hidden;
 
-  @media screen and (min-width: 768px) {
-    border: 1px solid rgba(220, 227, 229, 0.8);
-  }
-`;
-
-const GridCell = styled.div`
-  display: flex;
-  font-size: 10px;
-  justify-content: flex-end;
-  padding-bottom: 64px;
-  border: 1px solid rgba(220, 227, 229, 0.5);
-  pointer-events: ${props => (props.isNotCurrMonth ? 'none' : 'auto')};
-  opacity: ${props => (props.isNotCurrMonth ? '0.4' : '1')};
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    border: 1px solid rgba(220, 227, 229, 0.8);
-  }
-`;
-
-const DateWrap = styled.div`
-  display: flex;
-  padding: 4px 6px;
-  justify-content: center;
-  align-items: center;
-
-  font-family: 'Inter';
-  font-style: normal;
-  color: #343434;
-  font-weight: 700;
-
-  @media screen and (min-width: 375px) {
-    margin-top: 8px;
-    margin-right: 4px;
-    font-size: 12px;
-    line-height: 1.17;
-  }
-  @media screen and (min-width: 768px) {
-    margin-top: 14px;
-    margin-right: 14px;
-    font-size: 16px;
-    line-height: 1.12;
-  }
-  @media screen and (min-width: 1440px) {
-  }
-`;
-const ToDay = styled.div`
-  display: flex;
-  padding: 4px 6px;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Inter';
-  font-style: normal;
-  color: #ffffff;
-  font-weight: 700;
-
-  line-height: 1.17;
-  border-radius: 6px;
-  background-color: #3e85f3;
-
-  @media screen and (min-width: 375px) {
-    margin-top: 8px;
-    margin-right: 4px;
-    font-size: 12px;
-    line-height: 1.17;
-  }
-  @media screen and (min-width: 768px) {
-    margin-top: 14px;
-    margin-right: 14px;
-    font-size: 16px;
-    line-height: 1.12;
-  }
-  @media screen and (min-width: 1440px) {
-  }
-`;
-const CalendarTable = ({ startDay }) => {
-  const totalDays = 42;
-  const today = moment().hours(0).minutes(0).seconds(0).milliseconds(0);
-  const day = startDay.subtract(1, 'day');
+const updateValues = (currentDate) => {
+  const today = moment(currentDate).hours(0).minutes(0).seconds(0).milliseconds(0);
   const currentMonth = today.format('M');
-
-  const calendarMap = [...Array(totalDays)].map(() =>
+  const startDay = moment(currentDate).startOf('month').startOf('week');
+  const day = startDay.subtract(1, 'day');
+  const totalDays = 42;
+  const dayArray = [...Array(totalDays)].map(() =>
     day.add(1, 'day').clone()
   );
+  const isToday = (calendarDay) => today.isSame(calendarDay);
+  console.log({ today, startDay, currentMonth })
+  return { currentMonth, dayArray, isToday }
+}
+const CalendarTable = () => {
+  const { currentDate } = useParams();
+  const navigate = useNavigate();
+  const { currentMonth, dayArray, isToday } = useMemo(() => updateValues(currentDate), [currentDate]);
 
   //console.log(moment().format('dddd'));
-  const handlerDayClick = evt => {
-    evt.preventDefault();
-    console.log(evt);
-
-    //evt.target.reset();
+  const navigateToDate = newDate => {
+    const format = newDate.format('YYYY-MM-DD');
+    console.log(isToday(newDate));
+    if (isToday(newDate)) navigate(`/calendar/day/${format}`);
+    else navigate(`/calendar/month/${format}`);
+    // navigate(format);
   };
 
-  const isToday = calendarDay => today.isSame(calendarDay);
   return (
-    <CalendarGrid onClick={handlerDayClick}>
-      {calendarMap.map((calendarDay, idx) => (
-        <GridCell
+    <CalendarGrid>
+      {dayArray.map((calendarDay, idx) => (
+        <GridCell onClick={() => navigateToDate(calendarDay)}
           key={idx + 'cell'}
           isNotCurrMonth={
             calendarDay.format('M') !== currentMonth ? true : false
           }
         >
-          {isToday(calendarDay) && <ToDay>{calendarDay.format('D')}</ToDay>}
-          {!isToday(calendarDay) && (
-            <DateWrap>{calendarDay.format('D')}</DateWrap>
-          )}
+          {isToday(calendarDay)
+            ? <ToDay>{calendarDay.format('D')}</ToDay>
+            : <DateWrap>{calendarDay.format('D')}</DateWrap>
+          }
         </GridCell>
       ))}
     </CalendarGrid>
