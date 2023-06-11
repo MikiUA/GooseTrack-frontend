@@ -32,12 +32,10 @@ export const StyledButton = styled(Button)`
 
 export const FeedbackWrapper = styled(Box)`
   @media screen and (min-width: 375px) {
-    width: 335px;
     max-height: 564px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 468px;
     max-height: 673px;
   }
 `;

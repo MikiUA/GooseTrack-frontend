@@ -21,6 +21,9 @@ export const StyledButtonSave = styled(Button)`
   }
 
   @media screen and (min-width: 768px) {
+    width: 404px;
+    height: 48px;
+
     margin-bottom: 24px;
   }
 `;

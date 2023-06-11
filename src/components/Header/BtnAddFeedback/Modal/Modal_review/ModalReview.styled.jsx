@@ -15,6 +15,8 @@ export const StyledTextField = styled(TextField)`
     }
 
     @media screen and (min-width: 768px) {
+      width: 404px;
+      height: 127px;
     }
   }
 `;
