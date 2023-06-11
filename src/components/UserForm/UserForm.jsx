@@ -46,8 +46,6 @@ const UserForm = ({ data }) => {
   const originalDate = new Date();
   const formattedDate = originalDate.toISOString().slice(0, 10);
 
-  console.log('state:', data);
-
   const [formData, setFormData] = useState({
     name: data?.name || 'User Name',
     email: data?.email || 'email@mail.com',
@@ -101,15 +99,11 @@ const UserForm = ({ data }) => {
     email: Yup.string().email('Invalid email').required('Email is required'),
   });
 
-  const handleSubmit = async (formData, action) => {
+  const handleSubmit = async (initialValues, action) => {
     try {
       setIsLoading(true);
 
-      console.log(formData);
-
-      const { data } = await updateUserInfo(
-        formData // тут мають бути дані з форми
-      );
+      const { data } = await updateUserInfo(initialValues);
 
       dispatch(setUserInfo(data));
 
@@ -119,15 +113,6 @@ const UserForm = ({ data }) => {
       setIsLoading(false);
       console.error('Error occurred during form submission:', error);
     }
-  };
-
-  const handleChange = event => {
-    const { name, value } = event.target;
-    // console.log(name, value);
-    setFormData(prevValues => ({
-      ...prevValues,
-      [name]: value,
-    }));
   };
 
   return (
@@ -193,8 +178,6 @@ const UserForm = ({ data }) => {
                       placeholder={formData.name}
                       as={Input}
                       error={false}
-                      onChange={handleChange}
-                      value={formData.name}
                       iserror={errors.name && touched.name}
                     />
                     {errors.name && touched.name && <StyledIconError />}
