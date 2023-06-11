@@ -48,9 +48,9 @@ const CalendarHeaderCell = styled.div`
     }
   }
 `;
+const daysName = ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'sun'];
 
 const MonthCalendarHead = () => {
-  const daysName = ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'san'];
 
   return (
     <DivCalendarHead>
