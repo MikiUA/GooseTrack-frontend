@@ -1,5 +1,6 @@
 import { StyledUserBox, StyledLink } from './UserInfo.styled';
-
+import { useSelector } from 'react-redux';
+import { getUserInfo } from 'API/userSlice';
 import { Avatar, styled } from '@mui/material';
 
 const StyledAvatar = styled(Avatar)`
@@ -18,10 +19,11 @@ const StyledAvatar = styled(Avatar)`
 `;
 
 export const UserInfo = () => {
+  const userInfo = useSelector(getUserInfo);
   return (
     <StyledUserBox>
-      <StyledLink>User</StyledLink>
-      <StyledAvatar />
+      <StyledLink>{userInfo.name}</StyledLink>
+      <StyledAvatar src={userInfo.avatarUrl} />
     </StyledUserBox>
   );
 };

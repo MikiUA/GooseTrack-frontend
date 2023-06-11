@@ -35,10 +35,10 @@ const Description = () => {
         </StyledPictureDescr>
       </StyledItem>
 
-      <StyledItem additionalClass={true}>
-        <WrapItemText additionalClass={true}>
+      <StyledItem className="sidebarItem">
+        <WrapItemText className="sidebarWrapText">
           <StyledNumberTitle>2.</StyledNumberTitle>
-          <StyledSubtitle additionalClass={true}>sidebar</StyledSubtitle>
+          <StyledSubtitle className='sidebarSub'>sidebar</StyledSubtitle>
           <StyledText>
             GooseTrack offers easy access to your account settings, calendar,
             and filters. The "My Account" section allows you to manage your
@@ -46,7 +46,7 @@ const Description = () => {
             quick and convenient way to view your upcoming events and tasks.
           </StyledText>
         </WrapItemText>
-        <StyledPictureDescr>
+        <StyledPictureDescr className="sidebarImg">
           <source
             media="(min-width: 375px)"
             srcSet={`${basePath}sidebar-mob.png 1x, ${basePath}sidebar-mob@2x.png`}

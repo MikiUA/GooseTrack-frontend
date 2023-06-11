@@ -22,27 +22,15 @@ const authenticationApi = createApi({
       }),
     }),
     logout: builder.mutation({
-      query: body => ({
+      query: () => ({
         url: '/auth/logout',
         method: 'DELETE',
-        body,
-        headers: { Authorization: `Bearer ${jwt}` },
-      }),
-    }),
-    getUserInfo: builder.query({
-      query: () => ({
-        url: '/users',
-        method: 'GET',
         headers: { Authorization: `Bearer ${jwt}` },
       }),
     }),
   }),
 });
 
-export const {
-  useRegistrationMutation,
-  useLoginMutation,
-  useLogoutMutation,
-  useGetUserInfoQuery,
-} = authenticationApi;
+export const { useRegistrationMutation, useLoginMutation, useLogoutMutation } =
+  authenticationApi;
 export default authenticationApi;
