@@ -111,24 +111,6 @@ const UserForm = ({ data }) => {
         formData // тут мають бути дані з форми
       );
 
-      // ? використовувати FormData()
-      //   const userFormData = new FormData();
-      //   userFormData.append('name', formData.name);
-      //   userFormData.append('email', formData.email);
-      //   userFormData.append('avatar', formData.avatarUrl);
-      //   userFormData.append('birthday', formData.birthday);
-      //   userFormData.append('skype', formData.skype);
-      //   console.log('userFormData', userFormData);
-
-      //   const { data } = await updateUserInfo(
-      //     userFormData // тут мають бути дані з форми
-      //   );
-
-      //   if (error) {
-      //     alert(error.data.message);
-      //     return;
-      //   }
-
       dispatch(setUserInfo(data));
 
       setIsLoading(false);
@@ -200,7 +182,7 @@ const UserForm = ({ data }) => {
               </AvatarWrap>
               <InputWrap>
                 <div>
-                  <Label htmlFor="name" isError={errors.name && touched.name}>
+                  <Label htmlFor="name" iserror={errors.name && touched.name}>
                     User Name:
                   </Label>
                   <div style={{ position: 'relative' }}>
@@ -213,7 +195,7 @@ const UserForm = ({ data }) => {
                       error={false}
                       onChange={handleChange}
                       value={formData.name}
-                      isError={errors.name && touched.name}
+                      iserror={errors.name && touched.name}
                     />
                     {errors.name && touched.name && <StyledIconError />}
                     {!errors.name && touched.name && <StyledIconChecked />}
@@ -223,7 +205,7 @@ const UserForm = ({ data }) => {
                 <div>
                   <Label
                     htmlFor="phone"
-                    isError={errors.phone && touched.phone}
+                    iserror={errors.phone && touched.phone}
                   >
                     Phone:
                   </Label>
@@ -234,31 +216,20 @@ const UserForm = ({ data }) => {
                       name="phone"
                       placeholder={formData.phone}
                       as={Input}
-                      isError={errors.phone && touched.phone}
+                      iserror={errors.phone && touched.phone}
                     />
                     {errors.phone && touched.phone && <StyledIconError />}
                     {!errors.phone && touched.phone && <StyledIconChecked />}
                   </div>
-
                   <ErrorInputValue name="phone" component="div" />
                 </div>
                 <div>
                   <Label
                     htmlFor="birthday"
-                    isError={errors.birthday && touched.birthday}
+                    iserror={errors.birthday && touched.birthday}
                   >
                     Birthday:
                   </Label>
-
-                  {/* <Base variant input bitrhday */}
-                  {/* <Field
-                    type="date"
-                    id="birthday"
-                    name="birthday"
-                    placeholder={formData.birthday}
-                    as={Input}
-                  /> */}
-
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer
                       components={['DatePicker']}
@@ -279,13 +250,8 @@ const UserForm = ({ data }) => {
                         slots={{
                           openPickerIcon: KeyboardArrowDownIcon,
                         }}
-                        // slotProps={{
-                        //   popper: {
-                        //     sx: {},
-                        //   },
-                        // }}
-                        renderInput={params => <TextField {...params} />}
-                        isError={errors.birthday && touched.birthday}
+                        textField={params => <TextField {...params} />}
+                        iserror={errors.birthday && touched.birthday}
                       />
                     </DemoContainer>
                   </LocalizationProvider>
@@ -295,7 +261,7 @@ const UserForm = ({ data }) => {
                 <div>
                   <Label
                     htmlFor="skype"
-                    isError={errors.skype && touched.skype}
+                    iserror={errors.skype && touched.skype}
                   >
                     Skype:
                   </Label>
@@ -306,7 +272,7 @@ const UserForm = ({ data }) => {
                       name="skype"
                       placeholder={formData.skype}
                       as={Input}
-                      isError={errors.skype && touched.skype}
+                      iserror={errors.skype && touched.skype}
                     />
                     {errors.skype && touched.skype && <StyledIconError />}
                     {!errors.skype && touched.skype && <StyledIconChecked />}
@@ -316,7 +282,7 @@ const UserForm = ({ data }) => {
                 <div>
                   <Label
                     htmlFor="email"
-                    isError={errors.email && touched.email}
+                    iserror={errors.email && touched.email}
                   >
                     Email:
                   </Label>
@@ -327,7 +293,7 @@ const UserForm = ({ data }) => {
                       name="email"
                       placeholder={formData.email}
                       as={Input}
-                      isError={errors.email && touched.email}
+                      iserror={errors.email && touched.email}
                     />
                     {errors.email && touched.email && <StyledIconError />}
                     {!errors.email && touched.email && <StyledIconChecked />}
