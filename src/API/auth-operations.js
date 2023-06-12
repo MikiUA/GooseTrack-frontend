@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-const BASE_URL = 'https://goosetrack-backend-zk53.onrender.com';
-const jwt = JSON.parse(localStorage.getItem('refreshToken'));
+import { BASE_URL, rjwt } from './apiParams';
 
 const authenticationApi = createApi({
   reducerPath: 'registrationApi',
@@ -21,18 +19,11 @@ const authenticationApi = createApi({
         body,
       }),
     }),
-    refreshToken: builder.query({
-      query: () => ({
-        url: '/auth/refreshToken',
-        method: 'GET',
-        headers: { Authorization: `Bearer ${jwt}` },
-      }),
-    }),
     logout: builder.mutation({
       query: () => ({
         url: '/auth/logout',
         method: 'DELETE',
-        headers: { Authorization: `Bearer ${jwt}` },
+        headers: { Authorization: `Bearer ${rjwt}` },
       }),
     }),
   }),
