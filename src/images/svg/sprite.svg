@@ -2,9 +2,9 @@
     <defs>
         <!-- СТРІЛКА ВПРАВО -->
         <symbol id="icon-arrow-circle-broken-right" viewBox="0 0 32 32">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
+            <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
                 d="M4.451 9.333a13.328 13.328 0 0 1 11.55-6.667c7.364 0 13.333 5.97 13.333 13.333s-5.97 13.333-13.333 13.333a13.329 13.329 0 0 1-11.55-6.667" />
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
+            <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
                 d="M16 21.333 21.333 16 16 10.667M2.667 16h18.667" />
         </symbol>
         <!-- КАЛЕНДАР СІРИЙ -->
@@ -21,7 +21,7 @@
         </symbol>
         <!-- ПЛЮС ДОДАВАННЯ -->
         <symbol id="icon-icon" viewBox="0 0 32 32">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.667"
+            <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.667"
                 d="M16 10.667v10.667M10.667 16h10.667m7.999 0c0 7.364-5.97 13.333-13.333 13.333S2.667 23.363 2.667 16C2.667 8.636 8.637 2.667 16 2.667S29.333 8.637 29.333 16z" />
         </symbol>
         <!-- МІСЯЦЬ -->
@@ -31,7 +31,7 @@
         </symbol>
         <!-- КАРАНДАШ -->
         <symbol id="icon-pencil-01" viewBox="0 0 32 32">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
+            <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
                 d="m3.333 28.667 7.399-2.846c.473-.182.71-.273.931-.392.197-.106.384-.227.56-.364.198-.154.378-.333.736-.692l15.04-15.04A3.77 3.77 0 1 0 22.666 4L7.626 19.04c-.359.359-.538.538-.692.736a3.902 3.902 0 0 0-.364.561c-.119.221-.21.458-.392.931l-2.846 7.399zm0 0 2.744-7.135c.196-.511.295-.766.463-.883a.665.665 0 0 1 .505-.107c.201.038.395.232.782.619l3.012 3.012c.387.387.58.58.619.782a.665.665 0 0 1-.107.505c-.117.168-.372.267-.883.463l-7.135 2.744z" />
         </symbol>
         <!-- СОНЦЕ  -->
@@ -41,7 +41,7 @@
         </symbol>
         <!-- СМІТНИК -->
         <symbol id="icon-trash-04" viewBox="0 0 32 32">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
+            <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
                 d="M12 4h8M4 8h24M6.667 8l.801 12.018c.149 2.231.223 3.347.588 4.243a6 6 0 0 0 3.672 3.435c.919.304 2.037.304 4.273.304 2.236 0 3.354 0 4.273-.304a5.999 5.999 0 0 0 3.671-3.435c.365-.896.439-2.012.588-4.243L25.334 8" />
         </symbol>
         <!-- ЮЗЕР ЧЕК -->
@@ -92,10 +92,16 @@
             <path fill="#cec9c1" style="fill:var(--color3, #cec9c1)"
                 d="M24.741 32c-.38 0-.759-.122-1.084-.365l-7.656-5.739-7.656 5.739c-.317.239-.698.366-1.089.365s-.771-.132-1.087-.373c-.316-.24-.552-.577-.673-.965s-.124-.805-.005-1.194l2.856-9.633-7.588-5.589c-.314-.243-.548-.582-.668-.971s-.119-.807.001-1.196c.121-.388.356-.726.671-.966s.695-.372 1.085-.374l9.398-.015 2.992-9.394c.123-.387.36-.724.677-.962s.697-.367 1.087-.367.771.128 1.087.367.553.575.677.962l2.941 9.394 9.446.015c.391.002.771.133 1.086.374s.55.58.671.968.121.807.002 1.196-.353.728-.668.97l-7.588 5.589 2.855 9.633c.119.389.117.806-.004 1.194s-.357.725-.673.965a1.792 1.792 0 0 1-1.092.373z" />
         </symbol>
+
+        <!--PLUS WITHOUT CIRCLE-->
+        <symbol id="icon-plus">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 1v14M1 8h14"/></svg>
+
         <!-- Add icon -->
         <symbol id="icon-plus" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M16 6.667v18.667"></path>
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M6.667 16h18.667"></path>
+
         </symbol>
     </defs>
 </svg>
