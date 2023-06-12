@@ -55,7 +55,9 @@ export const BtnAddFeedback = () => {
 
   const handleDelete = async id => {
     const res = await deleteFeedback(id);
-    console.log(res);
+    if (!res.error) {
+      refetch();
+    }
   };
 
   const handleReviewChange = event => {
