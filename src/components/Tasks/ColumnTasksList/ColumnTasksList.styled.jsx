@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const List = styled.ul`
-    overflow: auto;
+    overflow-y: auto;
     margin: 0;
     padding: 0;
 

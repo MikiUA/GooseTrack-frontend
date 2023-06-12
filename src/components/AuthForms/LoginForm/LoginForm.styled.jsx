@@ -15,6 +15,8 @@ export const StyledFormInsight = styled(Form)`
   text-align: left;
   border-radius: 8px;
   padding: 40px 24px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 768px) {
     max-width: 480px;
@@ -23,18 +25,19 @@ export const StyledFormInsight = styled(Form)`
 `;
 
 export const StyledTitle = styled.h2`
-  color: #3e85f3;
+  font-family: 'Inter';
+  font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
-  margin-bottom: 32px;
+  color: #3e85f3;
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 24px;
   }
 `;
 export const StyledLabel = styled.label`
-  color: ${props => (props.isError ? 'red' : 'green' || 'inherit')};
+  color: ${props => (props.isError ? 'red' : 'black' || 'inherit')};
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
@@ -66,7 +69,8 @@ export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
 
 export const StyledInput = styled(Field)`
   display: flex;
-  height: 46px;
+  /* height: 46px; */
+  color: #dce3e5;
   border: 1px solid rgba(220, 227, 229, 0.6);
   border-radius: 8px;
   padding: 14px;

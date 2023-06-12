@@ -1,12 +1,12 @@
-import Icon from "utils/Icon/Icon"
+import { Button, IconStyled } from "./EditCardBtn.styled";
 
 
 const EditCardBtn = () => {
     return (
         <li>
-            <button>
-                <Icon name="icon-pencil-01" width="16" height="16"/>
-            </button>
+            <Button>
+                <IconStyled name="icon-pencil-01" width="16" height="16"/>
+            </Button>
         </li>
     )
 }

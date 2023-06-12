@@ -1,9 +1,11 @@
 import { StyledButtonSave } from './ModalButtonSave.styled';
 
-export const ModalButtonSave = () => {
+export const ModalButtonSave = ({ onClick }) => {
   return (
     <>
-      <StyledButtonSave>Save</StyledButtonSave>
+      <StyledButtonSave type="button" onClick={onClick}>
+        Save
+      </StyledButtonSave>
     </>
   );
 };

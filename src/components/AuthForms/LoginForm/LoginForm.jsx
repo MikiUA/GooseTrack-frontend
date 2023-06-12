@@ -59,11 +59,8 @@ const LoginForm = () => {
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string().email('Invalid email address').required('Required'),
-        password: Yup.string()
-          .required('No password provided.')
-          .min(8, 'Password is too short - should be 8 chars minimum.')
-          .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
+        email: Yup.string().email().required(),
+        password: Yup.string().required().min(6),
       })}
       onSubmit={handleSubmit}
     >
@@ -96,7 +93,7 @@ const LoginForm = () => {
             <StyledInput
               type="password"
               name="password"
-              placeholder="......."
+              placeholder={'\u2022'.repeat(7)}
             />
             {formik.errors.password && formik.touched.password && (
               <StyledIconError color="red" />
