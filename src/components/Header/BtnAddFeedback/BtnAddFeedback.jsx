@@ -64,6 +64,10 @@ export const BtnAddFeedback = () => {
     const newReview = event.target.value;
     setReview(newReview);
   };
+
+  const handleModalUpdated = () => {
+    refetch();
+  };
   return (
     <>
       {pageTitle === 'Calendar' && (
@@ -81,7 +85,11 @@ export const BtnAddFeedback = () => {
               <CircularProgress sx={{ color: 'white' }} />
             </Box>
           ) : (
-            <FeedbackList data={data} req={handleDelete} />
+            <FeedbackList
+              data={data}
+              req={handleDelete}
+              onModalUpdated={handleModalUpdated}
+            />
           )}
         </FeedbackWrapper>
       </Modal>
