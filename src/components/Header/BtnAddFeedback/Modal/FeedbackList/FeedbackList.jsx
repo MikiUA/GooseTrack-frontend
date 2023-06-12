@@ -1,6 +1,5 @@
 import Modal from 'components/Modal/Modal';
 import { useState } from 'react';
-import Icon from 'utils/Icon/Icon';
 import { EditModalValue } from './EditModalValue/EditModalValue';
 
 import {
@@ -17,7 +16,7 @@ import {
   StyledFeedbackButton,
 } from './FeedbackList.styled';
 
-export const FeedbackList = ({ data, req }) => {
+export const FeedbackList = ({ data, req, onModalUpdated }) => {
   const [selectedFeedback, setSelectedFeedback] = useState(null);
 
   const [isModalOpen, setIsOpenModal] = useState(false);
@@ -83,6 +82,8 @@ export const FeedbackList = ({ data, req }) => {
           <EditModalValue
             selectedFeedback={selectedFeedback}
             itemId={selectedFeedback._id}
+            onModalUpdated={onModalUpdated}
+            onClose={handleToggle}
           />
         )}
       </Modal>

@@ -8,6 +8,7 @@ export const BackdropStyle = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 12;
 `;
 const fadeInAnimation = keyframes`
   from {
@@ -27,7 +28,7 @@ export const ModalStyle = styled.div`
   max-height: 80vh;
   background-color: #ffffff;
   padding: 48px 18px 40px;
-
+  z-index: 12;
   position: absolute;
   top: 50%;
   left: 50%;
