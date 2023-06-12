@@ -1,9 +1,9 @@
 import moment from 'moment';
 import { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { CalendarGrid, GridCell, DateWrap, ToDay } from './ChoosedMonth.styled';
+import { CalendarGrid, GridCell, DateBtn } from './ChoosedMonth.styled';
 import { useAllTaskQuery } from 'API/taskUtils';
-import TaskListInBlock from './TaskListInBlock'
+import TaskList from './TaskList/TaskList'
 
 
 const updateValues = (currentDate) => {
@@ -29,18 +29,21 @@ const tasksObject = (taskArr) => {
   }
   return object;
 }
+const getStartEndDates=(currentDate)=>{
+  const startDate = moment(currentDate).startOf('month').startOf('week').format('YYYY-MM-DD');
+  const endDate = moment(currentDate).endOf('month').endOf('week').format('YYYY-MM-DD');
+  return {startDate,endDate};
+}
 const CalendarTable = () => {
   const { currentDate } = useParams();
-  const { data } = useAllTaskQuery(({ startDate: '2010-01-01', endDate: '2030-01-01' }));
+  const { data } = useAllTaskQuery((getStartEndDates(currentDate)));
 
   const navigate = useNavigate();
   const { currentMonth, dayArray, isToday } = useMemo(() => updateValues(currentDate), [currentDate]);
   const tasks = useMemo(() => tasksObject(data), [data]);
   const navigateToDate = newDate => {
     const format = newDate.format('YYYY-MM-DD');
-
-    if (isToday(newDate)) navigate(`/calendar/day/${format}`);
-    else navigate(`/calendar/month/${format}`);
+    navigate(`/calendar/day/${format}`);
     // navigate(format);
   };
 
@@ -53,11 +56,9 @@ const CalendarTable = () => {
             calendarDay.format('M') !== currentMonth ? true : false
           }
         >
-          {isToday(calendarDay)
-            ? <ToDay>{calendarDay.format('D')}</ToDay>
-            : <DateWrap>{calendarDay.format('D')}</DateWrap>
-          }
-          <TaskListInBlock taskArr={tasks[calendarDay.format('YYYY-MM-DD')]} />
+          
+          <TaskList taskArr={tasks[calendarDay.format('YYYY-MM-DD')]} />
+          <DateBtn variant={isToday(calendarDay)?'contained':'text'}>{calendarDay.format('D')}</DateBtn>
         </GridCell>
       ))}
     </CalendarGrid>

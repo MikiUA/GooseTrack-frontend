@@ -1,4 +1,4 @@
-const TaskListInBlock = ({ taskArr = [] }) => {
+const TaskList = ({ taskArr = [] }) => {
   return (
     <>
       {taskArr.map(task => {
@@ -7,4 +7,4 @@ const TaskListInBlock = ({ taskArr = [] }) => {
     </>
   );
 };
-export default TaskListInBlock;
+export default TaskList;

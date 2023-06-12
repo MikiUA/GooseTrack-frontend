@@ -1,12 +1,13 @@
-import styled from 'styled-components';
+import { Box, styled as styledMUI } from '@mui/material';
 
-const DivCalendarHead = styled.div`
+export const DivCalendarHead = styledMUI(Box)(({theme})=>`
   display: flex;
   justify-content: space-between;
   max-width: 100%;
   margin-bottom: 14px;
   padding: 18px;
-  background-color: #ffffff;
+  background-color: ${theme.palette.background.paper};
+  color: ${theme.palette.text.primary};
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-radius: 8px;
 
@@ -17,10 +18,10 @@ const DivCalendarHead = styled.div`
   @media screen and (min-width: 1440px) {
     padding: 14px 60px;
   }
-`;
+`);
 
-const CalendarHeaderCell = styled.div`
-  color: ${props => (props.isWeekDay ? '#3E85F3;' : '#343434')};
+export const CalendarHeaderCell = styledMUI(Box)(({isWeekDay,theme})=>`
+  color: ${isWeekDay ? theme.palette.text.primary : '#3E85F3'};
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -47,20 +48,4 @@ const CalendarHeaderCell = styled.div`
       margin-right: 122px;
     }
   }
-`;
-const daysName = ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'sun'];
-
-const MonthCalendarHead = () => {
-
-  return (
-    <DivCalendarHead>
-      {daysName.map((day, idx) => (
-        <CalendarHeaderCell key={idx} isWeekDay={idx >= 5 ? true : false}>
-          {day}
-        </CalendarHeaderCell>
-      ))}
-    </DivCalendarHead>
-  );
-};
-
-export default MonthCalendarHead;
+`);
