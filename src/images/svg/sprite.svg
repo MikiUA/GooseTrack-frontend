@@ -99,7 +99,7 @@
 
         </symbol>
         <!-- Add icon -->
-        <symbol id="icon-plus" viewBox="0 0 32 32">
+        <symbol id="icon-add" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M16 6.667v18.667"></path>
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M6.667 16h18.667"></path>
 
