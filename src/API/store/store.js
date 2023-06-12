@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authenticationApi from 'API/auth-operations';
+import feedbackApi from 'API/feedbackApi';
 import taskUtils from 'API/taskUtils';
 import userInfo from 'API/userInfo';
 import { userInfoSlice } from 'API/userSlice';
@@ -21,19 +22,16 @@ const persistConfig = {
   version: 1,
   storage,
 };
-
-const persistedReducer = persistReducer(
-  persistConfig,
-  combineReducers({
-    [authenticationApi.reducerPath]: authenticationApi.reducer,
-    [userInfo.reducerPath]: userInfo.reducer,
-    [taskUtils.reducerPath]: taskUtils.reducer,
-    currentUser: userInfoSlice.reducer,
-  })
-);
+const rootReducer = combineReducers({
+  [authenticationApi.reducerPath]: authenticationApi.reducer,
+  [taskUtils.reducerPath]: taskUtils.reducer,
+  [userInfo.reducerPath]: userInfo.reducer,
+  [feedbackApi.reducerPath]: feedbackApi.reducer,
+  currentUser: persistReducer(persistConfig, userInfoSlice.reducer),
+});
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -42,7 +40,8 @@ export const store = configureStore({
     }).concat(
       authenticationApi.middleware,
       userInfo.middleware,
-      taskUtils.middleware
+      taskUtils.middleware,
+      feedbackApi.middleware
     ),
 });
 

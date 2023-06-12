@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const List = styled.ul`
     display: flex;
+    flex-direction: row;
     overflow: auto;
     padding: 0 0 34px 0;
     margin: -16px 0 0 -16px;

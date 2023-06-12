@@ -18,7 +18,7 @@ const StyledAvatar = styled(Avatar)`
   }
 `;
 
-export const UserInfo = () => {
+export const UserInfo = ({ data }) => {
   const userInfo = useSelector(getUserInfo);
   return (
     <StyledUserBox>

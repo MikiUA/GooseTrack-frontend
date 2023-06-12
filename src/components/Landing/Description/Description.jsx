@@ -30,7 +30,7 @@ const Description = () => {
             srcSet={`${basePath}calendar-desk.png 1x, ${basePath}calendar-desk@2x.png`}
           />
           <StyledImg>
-            <img src={require('../../../images/MainPage/calendar-desk.png')} alt="Calendar" />
+            <img src={require('../../../images/MainPage/calendar-desk@2x.png')} alt="Calendar" />
           </StyledImg>
         </StyledPictureDescr>
       </StyledItem>
@@ -60,7 +60,7 @@ const Description = () => {
             srcSet={`${basePath}sidebar-desk.png, ${basePath}sidebar-desk@2x.png`}
           />
           <StyledImg>
-            <img src={require('../../../images/MainPage/sidebar-desk.png')} alt="Sidebar" />
+            <img src={require('../../../images/MainPage/sidebar-desk@2x.png')} alt="Sidebar" />
           </StyledImg>
         </StyledPictureDescr>
       </StyledItem>
@@ -89,7 +89,7 @@ const Description = () => {
             srcSet={`${basePath}all-in-desk.png, ${basePath}all-in-desk@2x.png`}
           />
           <StyledImg>
-            <img src={require('../../../images/MainPage/calendar-desk.png')} alt="One" />
+            <img src={require('../../../images/MainPage/all-in-desk@2x.png')} alt="One" />
           </StyledImg>
         </StyledPictureDescr>
       </StyledItem>

@@ -31,12 +31,12 @@ const AuthLanding = () => {
           
         />
         <StyledImgAuthNav>
-           <img src={require('../../../images/logoGoose/logo-GOOSE-desk.png')} alt="Logo goose" /> 
+           <img src={require('../../../images/logoGoose/logo-GOOSE-desk@2x.png')} alt="Logo goose" /> 
          
         </StyledImgAuthNav>
       </StyledPicture>
       <StyledTitle>G<Span>oo</Span>seTrack</StyledTitle>
-      <AuthBtnWrapper>
+      <AuthBtnWrapper >
         <StyledAuthButton to="login">
           Log in        
           <CustomIcon name='icon-log-in-01' width='16' height='16' />

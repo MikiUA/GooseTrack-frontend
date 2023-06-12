@@ -92,7 +92,7 @@ const RegisterForm = () => {
               name="password"
               fullWidth
               variant="outlined"
-              type="text"
+              type="password"
               placeholder="Enter password"
             />
             <Box mt={8}>

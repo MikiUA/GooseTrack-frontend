@@ -12,7 +12,10 @@ const getThemeOptions = (mode) => ({
                 sidebar: "#13151A",
             },
             borderGray: '#FFFFFF26',
-            customLightBlueButton: {},//Leave this or Errors will arise
+            customLightBlueButton: {
+                background: '#3E85F3',
+                text: '#fff'
+            },
         } : {
             background: {
                 default: '#F7F6F9',
