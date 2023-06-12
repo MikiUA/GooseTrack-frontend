@@ -1,4 +1,7 @@
 import styled from '@emotion/styled';
+import { styled as styledMui } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+
 
 export const PeriodPaginationWrapper = styled.div`
   display: flex;
@@ -25,7 +28,7 @@ export const ButtonsWrapper = styled.div`
   display: flex;
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styledMui(Button)(({ theme }) => `
   padding: 0;
   display: flex;
   justify-content: center;
@@ -34,7 +37,8 @@ export const StyledLink = styled.a`
   width: 36px;
   border: 1px solid rgba(220, 227, 229, 0.8);
   font-size: 18px;
-  background-color: #ffffff;
+  background-color: ${theme.palette.background.paper};
+  color:${theme.palette.text.primary};
   cursor: pointer;
 
   &:first-of-type {
@@ -59,4 +63,4 @@ export const StyledLink = styled.a`
     pointer-events: none;
     opacity: 0.5;
   }
-`;
+`);

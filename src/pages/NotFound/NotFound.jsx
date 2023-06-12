@@ -1,39 +1,36 @@
-import {  
-    CustomIcon,
-    StyledHeader, 
-    StyledTitle, 
-    StyledAuthButton,  
-    StyledAuthSpan, 
-    StyledPicture, 
-    StyledImgAuthNav,
-    AuthBtnWrapper,   
-    TitleWrapper,
-    Span,
-    StyledTitleSec,
-  } from './NotFound.styled';
-  
-  const basePath = '../../../images/logoGoose/';
+import {
+  CustomIcon,
+  StyledHeader,
+  StyledTitle,
+  StyledAuthButton,
+  StyledAuthSpan,
+  StyledPicture,
+  StyledImgAuthNav,
+  AuthBtnWrapper,
+  TitleWrapper,
+  Span,
+  StyledTitleSec,
+} from './NotFound.styled';
+
+const basePath = '../../../images/logoGoose/';
 
 const NotFound = () => {
-
-    return ( 
-        <StyledHeader>
-        <StyledPicture>
-         <source
+  return (
+    <StyledHeader>
+      <StyledPicture>
+        <source
           media="(min-width: 375px)"
           srcSet={`${basePath}logoGOOSE-mob.png 1x, ${basePath}logoGOOSEmob@2x.png 2x`}
-          
         />
         <source
           media="(min-width: 768px)"
           srcSet={`${basePath}logo-GOOSE-tab.png 1x, ${basePath}logo-GOOSE-tab@2x.png 2x`}
-          
         />
         <source
           media="(min-width: 1440px)"
           srcSet={`${basePath}logo-GOOSE-desk.png 1x, ${basePath}logo-GOOSE-desk@2x.png 2x`}
-          
         />
+
        <StyledImgAuthNav>
        <img src={require('../../../images/logoGoose/logo-GOOSE-desk@2x.png 2x')} alt="Logo goose, page not found" /> 
        </StyledImgAuthNav>
