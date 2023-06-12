@@ -114,7 +114,13 @@ export const StyledAuthButton = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center; 
-  
+
+  &:hover,
+  &:focus {
+    fill:  #ff6c00;
+    background-color: #ff6c00;
+    color: #ffffff;
+  }  
 `;
 
 export const StyledAuthSpan = styled.img`

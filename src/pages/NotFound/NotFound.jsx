@@ -35,7 +35,7 @@ const NotFound = () => {
           
         />
        <StyledImgAuthNav>
-       <img src={require('../../../images/logoGoose/logo-GOOSE-desk.png')} alt="Logo goose, page not found" /> 
+       <img src={require('../../../images/logoGoose/logo-GOOSE-desk@2x.png 2x')} alt="Logo goose, page not found" /> 
        </StyledImgAuthNav>
         </StyledPicture>
         <TitleWrapper>
