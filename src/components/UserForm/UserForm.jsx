@@ -75,21 +75,7 @@ const UserForm = ({ data }) => {
   const handleSubmit = async formData => {
     try {
       setIsLoading(true);
-      // console.log('formData.name:', formData.name);
-      // console.log('formData.email:', formData.email);
-      // console.log('formData.avatarUrl:', formData.avatarUrl);
-      // console.log('formData.birthday:', formData.birthday);
-      // console.log('formData.skype:', formData.skype);
-
-      const userFormData = new FormData();
-      userFormData.append('name', formData.name);
-      userFormData.append('email', formData.email);
-      userFormData.append('avatar', formData.avatarUrl);
-      userFormData.append('birthday', formData.birthday);
-      userFormData.append('skype', formData.skype);
-      console.log('userFormData', userFormData);
-
-      const { data } = await updateUserInfo(userFormData);
+      const { data } = await updateUserInfo(formData);
 
       dispatch(setUserInfo(data));
 
