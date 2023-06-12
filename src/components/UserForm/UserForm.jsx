@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import {
   StyledButton,
   Container,
@@ -37,14 +36,15 @@ import { TextField } from 'formik-mui';
 import { useUpdateUserInfoMutation } from 'API/userInfo';
 import { setUserInfo } from 'API/userSlice';
 import { Box, CircularProgress } from '@mui/material';
+import {
+  formattedDate,
+  validationSchema,
+} from './Validation Schema/ValidationSchema';
 
 const UserForm = ({ data }) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [updateUserInfo] = useUpdateUserInfoMutation();
-
-  const originalDate = new Date();
-  const formattedDate = originalDate.toISOString().slice(0, 10);
 
   const [formData, setFormData] = useState({
     name: data?.name || 'User Name',
@@ -67,43 +67,30 @@ const UserForm = ({ data }) => {
   const [isFormChanged, setIsFormChanged] = useState(false);
 
   useEffect(() => {
-    const isChanged =
-      formData.name !== data.name ||
-      formData.email !== data.email ||
-      formData.phone !== data.phone ||
-      formData.skype !== data.skype ||
-      formData.birthday !== data.birthday ||
-      formData.avatarUrl !== data.avatarUrl;
+    const isChanged = !Object.is(formData, data);
 
     setIsFormChanged(isChanged);
-  }, [
-    data.avatarUrl,
-    data.birthday,
-    data.email,
-    data.name,
-    data.phone,
-    data.skype,
-    formData,
-  ]);
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(1, 'Name must be at least 1 characters')
-      .max(16, 'Name must be at most 16 characters')
-      .required('Name is required'),
-    phone: Yup.string().required('Phone is required'),
-    birthday: Yup.date()
-      .max(originalDate, 'Birthday must be earlier than today')
-      .required('Birthday is required'),
-    skype: Yup.string().required('Skype is required'),
-    email: Yup.string().email('Invalid email').required('Email is required'),
-  });
-
-  const handleSubmit = async (initialValues, action) => {
+  }, [data, formData]);
+  console.log(formData.birthday);
+  const handleSubmit = async formData => {
+    console.log(formData.birthday);
     try {
       setIsLoading(true);
+      // console.log('formData.name:', formData.name);
+      // console.log('formData.email:', formData.email);
+      // console.log('formData.avatarUrl:', formData.avatarUrl);
+      // console.log('formData.birthday:', formData.birthday);
+      // console.log('formData.skype:', formData.skype);
 
-      const { data } = await updateUserInfo(initialValues);
+      const userFormData = new FormData();
+      userFormData.append('name', formData.name);
+      userFormData.append('email', formData.email);
+      userFormData.append('avatar', formData.avatarUrl);
+      userFormData.append('birthday', formData.birthday);
+      userFormData.append('skype', formData.skype);
+      console.log('userFormData', userFormData);
+
+      const { data } = await updateUserInfo(userFormData);
 
       dispatch(setUserInfo(data));
 
@@ -222,10 +209,10 @@ const UserForm = ({ data }) => {
                         id="birthday"
                         name="birthday"
                         value={dayjs(formData.birthday)}
-                        onChange={newValue =>
+                        onChange={e =>
                           setFormData({
                             ...formData,
-                            birthday: newValue.format('YYYY-MM-DD'),
+                            birthday: e.format('YYYY-MM-DD'),
                           })
                         }
                         format="DD/MM/YYYY"
