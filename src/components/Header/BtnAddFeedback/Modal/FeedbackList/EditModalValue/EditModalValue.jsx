@@ -27,6 +27,7 @@ export const EditModalValue = ({
     if (!res.error) {
       onModalUpdated();
     }
+    onClose();
   };
 
   return (
