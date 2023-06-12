@@ -97,6 +97,7 @@
         <symbol id="icon-plus">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 1v14M1 8h14"/></svg>
 
+        </symbol>
         <!-- Add icon -->
         <symbol id="icon-plus" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M16 6.667v18.667"></path>

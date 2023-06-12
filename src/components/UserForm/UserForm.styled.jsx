@@ -7,8 +7,10 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
+  //eslint-disable-next-line
   TextField,
 } from '@mui/material';
+//eslint-disable-next-line
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { createTheme } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -32,13 +34,13 @@ const theme = createTheme({
 });
 
 const {
-  light,
+  // light,
   main,
-  dark,
+  // dark,
   contrast,
   label,
   darkText,
-  labelNormal,
+  // labelNormal,
   error,
   accept,
 } = theme.palette.primary;
