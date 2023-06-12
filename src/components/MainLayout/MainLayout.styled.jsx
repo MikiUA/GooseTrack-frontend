@@ -5,6 +5,7 @@ export const WrapperMain = styled(Box)(
   ({ theme }) => `
   display:flex;
   min-height: 100vh;
+  //  width: 100vw;
   background-color:${theme.palette.background.default};
   color:${theme.palette.text.primary}
 `
