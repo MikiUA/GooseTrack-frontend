@@ -39,7 +39,7 @@ import { Box, CircularProgress } from '@mui/material';
 import {
   formattedDate,
   validationSchema,
-} from './Validation Schema/ValidationSchema';
+} from './ValidationSchema/ValidationSchema';
 
 const UserForm = ({ data }) => {
   const dispatch = useDispatch();

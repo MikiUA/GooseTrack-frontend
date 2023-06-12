@@ -2,9 +2,14 @@ import { useState } from 'react';
 import { ModalRating } from '../../Modal_rating/ModalRating';
 import { ModalReview } from '../../Modal_review/ModalReview';
 import { useUpdateFeedbackMutation } from 'API/feedbackApi';
-import { ChangeButtonSave } from './EditModalValue.styled';
+import { ChangeButtonCancel, ChangeButtonSave } from './EditModalValue.styled';
 
-export const EditModalValue = ({ selectedFeedback, itemId }) => {
+export const EditModalValue = ({
+  selectedFeedback,
+  itemId,
+  onModalUpdated,
+  onClose,
+}) => {
   const [editedRating, setEditedRating] = useState(selectedFeedback.rating);
   const [editedReview, setEditedReview] = useState(
     String(selectedFeedback.message)
@@ -18,12 +23,16 @@ export const EditModalValue = ({ selectedFeedback, itemId }) => {
 
   const handleSubmit = async itemId => {
     const res = await updateFeedback({ id: itemId, body: feedbackData });
-    console.log(res);
+
+    if (!res.error) {
+      onModalUpdated();
+    }
+    onClose();
   };
 
   return (
     <>
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
         <ModalRating
           setRating={setEditedRating}
           value={editedRating}
@@ -33,9 +42,14 @@ export const EditModalValue = ({ selectedFeedback, itemId }) => {
           value={editedReview}
           onChange={event => setEditedReview(event.target.value)}
         />
-        <ChangeButtonSave type="button" onClick={() => handleSubmit(itemId)}>
-          Edit
-        </ChangeButtonSave>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <ChangeButtonSave type="button" onClick={() => handleSubmit(itemId)}>
+            Edit
+          </ChangeButtonSave>
+          <ChangeButtonCancel type="button" onClick={onClose}>
+            Cancel
+          </ChangeButtonCancel>
+        </div>
       </div>
     </>
   );

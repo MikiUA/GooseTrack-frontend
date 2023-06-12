@@ -6,7 +6,7 @@ export const StyledContainer = styled(Box)`
   width: 60vw;
   height: 100vh;
   position: fixed;
-  z-index: 5555555;
+  z-index: 11;
   margin: 0;
   flex-direction: column;
   justify-content: space-between;
@@ -23,7 +23,7 @@ export const StyledContainer = styled(Box)`
 `;
 
 export const StyledBox = styled(Box)`
-  z-index: 5555555;
+  z-index: 11;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
