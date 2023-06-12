@@ -93,7 +93,7 @@ const LoginForm = () => {
             <StyledInput
               type="password"
               name="password"
-              placeholder="......."
+              placeholder={'\u2022'.repeat(7)}
             />
             {formik.errors.password && formik.touched.password && (
               <StyledIconError color="red" />
