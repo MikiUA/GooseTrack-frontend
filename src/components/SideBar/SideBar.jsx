@@ -1,11 +1,11 @@
 import {
+  Overlay,
   StyleHeagerText,
   StyledBox,
   StyledButtonClose,
   StyledButtonLogout,
   StyledContainer,
   StyledHeader,
-  StyledImgAuthNav,
   StyledLink,
   StyledPicture,
   StyledUser,
@@ -13,15 +13,9 @@ import {
 } from './SideBar.styled';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CloseIcon from '@mui/icons-material/Close';
-// import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-// import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { useLogoutMutation } from 'API/auth-operations';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from 'API/userSlice';
-// import { UserNav } from './UserNav/UserNav';
-
-// import { ReactComponent as LeftArrow } from '../../imagesMainPage/svg/leftarrow.svg';
-// import { ReactComponent as RightArrow } from '../../imagesMainPage/svg/rightarrow.svg';
 
 const basePath = '../../images/logoGoose/';
 
@@ -59,12 +53,10 @@ const SideBar = ({ onClose, isOpen }) => {
               media="(min-width: 1440px)"
               srcSet={`${basePath}logo-GOOSE-desk.png 1x, ${basePath}logo-GOOSE-desk@2x.png 2x`}
             />
-            <StyledImgAuthNav>
-              <img
-                src={require('../../images/logoGoose/logo-GOOSE-desk.png')}
-                alt="Logo goose"
-              />
-            </StyledImgAuthNav>
+            <img
+              src={require('../../images/logoGoose/logo-GOOSE-desk.png')}
+              alt="Logo goose"
+            />
           </StyledPicture>
           <StyleHeagerText> GooseTrack</StyleHeagerText>
 
@@ -76,10 +68,10 @@ const SideBar = ({ onClose, isOpen }) => {
         </StyledHeader>
         <StyledUser>User Panel</StyledUser>
         <StyledLink to="/account">
-          <UserNavTitle>My account</UserNavTitle>
+          <UserNavTitle onClick={onClose}>My account</UserNavTitle>
         </StyledLink>
         <StyledLink to="/calendar">
-          <UserNavTitle> Calendar</UserNavTitle>
+          <UserNavTitle onClick={onClose}> Calendar</UserNavTitle>
         </StyledLink>
       </StyledBox>
       <StyledButtonLogout
@@ -89,6 +81,7 @@ const SideBar = ({ onClose, isOpen }) => {
       >
         Log out
       </StyledButtonLogout>
+      {isOpen && <Overlay onClick={onClose} />}
     </StyledContainer>
   );
 };

@@ -52,3 +52,25 @@ export const SideButton = styled(IconButton)(`
   }
 
 `);
+
+export const WrapperHeader = styled(Box)`
+  @media screen and (min-width: 375px) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 335px;
+    height: 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    max-width: 704px;
+    height: 42px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 100%;
+    max-width: 1100px;
+    height: 42px;
+  }
+`;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledBox = styled.div`
+  x-index: 3;
   @media screen and (min-width: 375px) {
     width: 100%;
     max-width: 335px;
