@@ -15,7 +15,7 @@ const getThemeOptions = (mode) => ({
             customLightBlueButton: {
                 background: '#3E85F3',
                 text: '#fff'
-            },//Leave this or Errors will arise
+            },
         } : {
             background: {
                 default: '#F7F6F9',

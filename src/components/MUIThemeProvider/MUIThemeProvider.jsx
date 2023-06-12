@@ -1,11 +1,12 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React, { createContext, useMemo } from "react";
 import getThemeOptions from "./getThemeOptions";
+import useLocalStorage from "hooks/useLocalStorage";
 
 const ColorModeContext = createContext();
 
 export default function MuiThemeProvider({ children }) {
-    const [mode, setMode] = React.useState('light');
+    const [mode, setMode] = useLocalStorage('themeMode','light');
     const colorMode = React.useMemo(
         () => ({
             // The dark mode switch would invoke this method
@@ -15,7 +16,7 @@ export default function MuiThemeProvider({ children }) {
                 );
             },
         }),
-        [],
+        [setMode],
     );
     // Update the theme only if the mode changes
     const theme = React.useMemo(() => createTheme(getThemeOptions(mode)), [mode]);
