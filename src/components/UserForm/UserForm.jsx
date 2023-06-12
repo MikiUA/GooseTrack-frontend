@@ -71,9 +71,8 @@ const UserForm = ({ data }) => {
 
     setIsFormChanged(isChanged);
   }, [data, formData]);
-  console.log(formData.birthday);
+
   const handleSubmit = async formData => {
-    console.log(formData.birthday);
     try {
       setIsLoading(true);
       // console.log('formData.name:', formData.name);
