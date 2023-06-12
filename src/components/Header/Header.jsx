@@ -4,6 +4,7 @@ import { ThemeTogger } from './ThemeTogger/ThemeTogger';
 import { UserInfo } from './UserInfo/UserInfo';
 
 import { StyledBox, StyledWrapper, UserBox } from './Header.styled';
+
 import { useCurrentUserInfoQuery } from 'API/userInfo';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from 'API/userSlice';
@@ -21,6 +22,7 @@ export const Header = () => {
   if (!data) {
     return null;
   }
+
   return (
     <StyledBox>
       <StyledWrapper>
