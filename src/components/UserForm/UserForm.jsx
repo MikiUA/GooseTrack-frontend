@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import {
   StyledButton,
   Container,
@@ -37,16 +36,15 @@ import { TextField } from 'formik-mui';
 import { useUpdateUserInfoMutation } from 'API/userInfo';
 import { setUserInfo } from 'API/userSlice';
 import { Box, CircularProgress } from '@mui/material';
+import {
+  formattedDate,
+  validationSchema,
+} from './Validation Schema/ValidationSchema';
 
 const UserForm = ({ data }) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [updateUserInfo] = useUpdateUserInfoMutation();
-
-  const originalDate = new Date();
-  const formattedDate = originalDate.toISOString().slice(0, 10);
-
-  console.log('state:', data);
 
   const [formData, setFormData] = useState({
     name: data?.name || 'User Name',
@@ -69,65 +67,15 @@ const UserForm = ({ data }) => {
   const [isFormChanged, setIsFormChanged] = useState(false);
 
   useEffect(() => {
-    const isChanged =
-      formData.name !== data.name ||
-      formData.email !== data.email ||
-      formData.phone !== data.phone ||
-      formData.skype !== data.skype ||
-      formData.birthday !== data.birthday ||
-      formData.avatarUrl !== data.avatarUrl;
+    const isChanged = !Object.is(formData, data);
 
     setIsFormChanged(isChanged);
-  }, [
-    data.avatarUrl,
-    data.birthday,
-    data.email,
-    data.name,
-    data.phone,
-    data.skype,
-    formData,
-  ]);
+  }, [data, formData]);
 
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(1, 'Name must be at least 1 characters')
-      .max(16, 'Name must be at most 16 characters')
-      .required('Name is required'),
-    phone: Yup.string().required('Phone is required'),
-    birthday: Yup.date()
-      .max(originalDate, 'Birthday must be earlier than today')
-      .required('Birthday is required'),
-    skype: Yup.string().required('Skype is required'),
-    email: Yup.string().email('Invalid email').required('Email is required'),
-  });
-
-  const handleSubmit = async (formData, action) => {
+  const handleSubmit = async formData => {
     try {
       setIsLoading(true);
-
-      console.log(formData);
-
-      const { data } = await updateUserInfo(
-        formData // тут мають бути дані з форми
-      );
-
-      // ? використовувати FormData()
-      //   const userFormData = new FormData();
-      //   userFormData.append('name', formData.name);
-      //   userFormData.append('email', formData.email);
-      //   userFormData.append('avatar', formData.avatarUrl);
-      //   userFormData.append('birthday', formData.birthday);
-      //   userFormData.append('skype', formData.skype);
-      //   console.log('userFormData', userFormData);
-
-      //   const { data } = await updateUserInfo(
-      //     userFormData // тут мають бути дані з форми
-      //   );
-
-      //   if (error) {
-      //     alert(error.data.message);
-      //     return;
-      //   }
+      const { data } = await updateUserInfo(formData);
 
       dispatch(setUserInfo(data));
 
@@ -137,15 +85,6 @@ const UserForm = ({ data }) => {
       setIsLoading(false);
       console.error('Error occurred during form submission:', error);
     }
-  };
-
-  const handleChange = event => {
-    const { name, value } = event.target;
-    // console.log(name, value);
-    setFormData(prevValues => ({
-      ...prevValues,
-      [name]: value,
-    }));
   };
 
   return (
@@ -200,7 +139,7 @@ const UserForm = ({ data }) => {
               </AvatarWrap>
               <InputWrap>
                 <div>
-                  <Label htmlFor="name" isError={errors.name && touched.name}>
+                  <Label htmlFor="name" iserror={errors.name && touched.name}>
                     User Name:
                   </Label>
                   <div style={{ position: 'relative' }}>
@@ -211,9 +150,7 @@ const UserForm = ({ data }) => {
                       placeholder={formData.name}
                       as={Input}
                       error={false}
-                      onChange={handleChange}
-                      value={formData.name}
-                      isError={errors.name && touched.name}
+                      iserror={errors.name && touched.name}
                     />
                     {errors.name && touched.name && <StyledIconError />}
                     {!errors.name && touched.name && <StyledIconChecked />}
@@ -223,7 +160,7 @@ const UserForm = ({ data }) => {
                 <div>
                   <Label
                     htmlFor="phone"
-                    isError={errors.phone && touched.phone}
+                    iserror={errors.phone && touched.phone}
                   >
                     Phone:
                   </Label>
@@ -234,31 +171,20 @@ const UserForm = ({ data }) => {
                       name="phone"
                       placeholder={formData.phone}
                       as={Input}
-                      isError={errors.phone && touched.phone}
+                      iserror={errors.phone && touched.phone}
                     />
                     {errors.phone && touched.phone && <StyledIconError />}
                     {!errors.phone && touched.phone && <StyledIconChecked />}
                   </div>
-
                   <ErrorInputValue name="phone" component="div" />
                 </div>
                 <div>
                   <Label
                     htmlFor="birthday"
-                    isError={errors.birthday && touched.birthday}
+                    iserror={errors.birthday && touched.birthday}
                   >
                     Birthday:
                   </Label>
-
-                  {/* <Base variant input bitrhday */}
-                  {/* <Field
-                    type="date"
-                    id="birthday"
-                    name="birthday"
-                    placeholder={formData.birthday}
-                    as={Input}
-                  /> */}
-
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer
                       components={['DatePicker']}
@@ -268,10 +194,10 @@ const UserForm = ({ data }) => {
                         id="birthday"
                         name="birthday"
                         value={dayjs(formData.birthday)}
-                        onChange={newValue =>
+                        onChange={e =>
                           setFormData({
                             ...formData,
-                            birthday: newValue.format('YYYY-MM-DD'),
+                            birthday: e.format('YYYY-MM-DD'),
                           })
                         }
                         format="DD/MM/YYYY"
@@ -279,13 +205,8 @@ const UserForm = ({ data }) => {
                         slots={{
                           openPickerIcon: KeyboardArrowDownIcon,
                         }}
-                        // slotProps={{
-                        //   popper: {
-                        //     sx: {},
-                        //   },
-                        // }}
-                        renderInput={params => <TextField {...params} />}
-                        isError={errors.birthday && touched.birthday}
+                        textField={params => <TextField {...params} />}
+                        iserror={errors.birthday && touched.birthday}
                       />
                     </DemoContainer>
                   </LocalizationProvider>
@@ -295,7 +216,7 @@ const UserForm = ({ data }) => {
                 <div>
                   <Label
                     htmlFor="skype"
-                    isError={errors.skype && touched.skype}
+                    iserror={errors.skype && touched.skype}
                   >
                     Skype:
                   </Label>
@@ -306,7 +227,7 @@ const UserForm = ({ data }) => {
                       name="skype"
                       placeholder={formData.skype}
                       as={Input}
-                      isError={errors.skype && touched.skype}
+                      iserror={errors.skype && touched.skype}
                     />
                     {errors.skype && touched.skype && <StyledIconError />}
                     {!errors.skype && touched.skype && <StyledIconChecked />}
@@ -316,7 +237,7 @@ const UserForm = ({ data }) => {
                 <div>
                   <Label
                     htmlFor="email"
-                    isError={errors.email && touched.email}
+                    iserror={errors.email && touched.email}
                   >
                     Email:
                   </Label>
@@ -327,7 +248,7 @@ const UserForm = ({ data }) => {
                       name="email"
                       placeholder={formData.email}
                       as={Input}
-                      isError={errors.email && touched.email}
+                      iserror={errors.email && touched.email}
                     />
                     {errors.email && touched.email && <StyledIconError />}
                     {!errors.email && touched.email && <StyledIconChecked />}
