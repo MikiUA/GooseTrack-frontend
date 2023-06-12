@@ -1,6 +1,6 @@
 //UserForm
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import {
   StyledButton,
@@ -34,7 +34,7 @@ import sprite from 'images/svg/sprite.svg';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { TextField } from 'formik-mui';
 import { useUpdateUserInfoMutation } from 'API/userInfo';
-import { setUserInfo } from 'API/userSlice';
+import { getUserInfo, setUserInfo } from 'API/userSlice';
 import { Box, CircularProgress } from '@mui/material';
 import {
   formattedDate,
@@ -45,7 +45,8 @@ const UserForm = ({ data }) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [updateUserInfo] = useUpdateUserInfoMutation();
-
+  const [date, setDate] = useState('');
+  const userInfo = useSelector(getUserInfo);
   const [formData, setFormData] = useState({
     name: data?.name || 'User Name',
     email: data?.email || 'email@mail.com',
@@ -75,9 +76,13 @@ const UserForm = ({ data }) => {
   const handleSubmit = async formData => {
     try {
       setIsLoading(true);
-      const { data } = await updateUserInfo(formData);
+      formData.birthday = date;
 
-      dispatch(setUserInfo(data));
+      const { data } = await updateUserInfo(formData);
+      console.log(data);
+      if (data) {
+        dispatch(setUserInfo(data));
+      }
 
       setIsLoading(false);
       setIsFormChanged(false);
@@ -127,13 +132,13 @@ const UserForm = ({ data }) => {
                   <AddLabel htmlFor="avatar">
                     <AddButton variant="outlined" component="svg">
                       <AddSwg>
-                        <use href={`${sprite}#icon-plus`}></use>
+                        <use href={`${sprite}#icon-add`}></use>
                       </AddSwg>
                     </AddButton>
                   </AddLabel>
                 </ImgWrap>
                 <UserWrap>
-                  <UserName>{formData.name}</UserName>
+                  <UserName>{userInfo.name}</UserName>
                   <User>User</User>
                 </UserWrap>
               </AvatarWrap>
@@ -194,12 +199,7 @@ const UserForm = ({ data }) => {
                         id="birthday"
                         name="birthday"
                         value={dayjs(formData.birthday)}
-                        onChange={e =>
-                          setFormData({
-                            ...formData,
-                            birthday: e.format('YYYY-MM-DD'),
-                          })
-                        }
+                        onChange={e => setDate(e.format('YYYY-MM-DD'))}
                         format="DD/MM/YYYY"
                         maxDate={dayjs(formattedDate)}
                         slots={{
