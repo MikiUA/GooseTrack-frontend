@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ModalRating } from '../../Modal_rating/ModalRating';
 import { ModalReview } from '../../Modal_review/ModalReview';
 import { useUpdateFeedbackMutation } from 'API/feedbackApi';
+import { ChangeButtonSave } from './EditModalValue.styled';
 
 export const EditModalValue = ({ selectedFeedback, itemId }) => {
   const [editedRating, setEditedRating] = useState(selectedFeedback.rating);
@@ -32,9 +33,9 @@ export const EditModalValue = ({ selectedFeedback, itemId }) => {
           value={editedReview}
           onChange={event => setEditedReview(event.target.value)}
         />
-        <button type="button" onClick={() => handleSubmit(itemId)}>
-          Save
-        </button>
+        <ChangeButtonSave type="button" onClick={() => handleSubmit(itemId)}>
+          Edit
+        </ChangeButtonSave>
       </div>
     </>
   );
