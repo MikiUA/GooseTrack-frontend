@@ -14,7 +14,7 @@ const userInfo = createApi({
         headers: { Authorization: `Bearer ${jwt}` },
       }),
     }),
-    updateUserInfo: builder.query({
+    updateUserInfo: builder.mutation({
       query: body => ({
         url: '/users',
         method: 'PATCH',
@@ -25,6 +25,6 @@ const userInfo = createApi({
   }),
 });
 
-export const { useCurrentUserInfoQuery, useLazyUpdateUserInfoQuery } = userInfo;
+export const { useCurrentUserInfoQuery, useUpdateUserInfoMutation } = userInfo;
 
 export default userInfo;

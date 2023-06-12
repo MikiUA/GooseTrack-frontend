@@ -21,19 +21,15 @@ const persistConfig = {
   version: 1,
   storage,
 };
-
-const persistedReducer = persistReducer(
-  persistConfig,
-  combineReducers({
-    [authenticationApi.reducerPath]: authenticationApi.reducer,
-    [userInfo.reducerPath]: userInfo.reducer,
-    [taskUtils.reducerPath]: taskUtils.reducer,
-    currentUser: userInfoSlice.reducer,
-  })
-);
+const rootReducer = combineReducers({
+  [authenticationApi.reducerPath]: authenticationApi.reducer,
+  [taskUtils.reducerPath]: taskUtils.reducer,
+  [userInfo.reducerPath]: userInfo.reducer,
+  currentUser: persistReducer(persistConfig, userInfoSlice.reducer),
+});
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
