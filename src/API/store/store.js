@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authenticationApi from 'API/auth-operations';
+import feedbackApi from 'API/feedbackApi';
 import taskUtils from 'API/taskUtils';
 import userInfo from 'API/userInfo';
 import { userInfoSlice } from 'API/userSlice';
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   [authenticationApi.reducerPath]: authenticationApi.reducer,
   [taskUtils.reducerPath]: taskUtils.reducer,
   [userInfo.reducerPath]: userInfo.reducer,
+  [feedbackApi.reducerPath]: feedbackApi.reducer,
   currentUser: persistReducer(persistConfig, userInfoSlice.reducer),
 });
 
@@ -38,7 +40,8 @@ export const store = configureStore({
     }).concat(
       authenticationApi.middleware,
       userInfo.middleware,
-      taskUtils.middleware
+      taskUtils.middleware,
+      feedbackApi.middleware
     ),
 });
 
