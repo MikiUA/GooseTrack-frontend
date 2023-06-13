@@ -58,9 +58,6 @@ export const SliderItem = styled.li`
   overflow: hidden;
   display: ${({ index, currentSlide }) =>
     index === currentSlide ? 'block' : 'none'};
-  /* transform: scale(${({ isArrowClicked }) =>
-    isArrowClicked ? '1.1' : '1'});
-  transition: transform 0.3s ease; */
 
   @media (min-width: 768px) {
     max-width: 580px;
@@ -95,6 +92,9 @@ export const SliderUserPhoto = styled.img`
 export const HeaderUserWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  @media (min-width: 768px) {
+    width: 447px;
+  }
 `;
 
 export const SliderUserTitle = styled.h4`
@@ -112,17 +112,13 @@ export const SliderUserTitle = styled.h4`
 export const SliderUserDescr = styled.p`
   margin: 0;
   padding: 0;
-  width: 287px;
+  width: 100%;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   color: rgba(17, 17, 17, 0.7);
-
-  @media (min-width: 768px) {
-    width: 447px;
-  }
 `;
 
 export const SliderContainer = styled.div`
