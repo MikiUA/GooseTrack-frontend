@@ -2,27 +2,28 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import styles from 'styled-components';
 
-const CalendarHeadBox = styled.div`
+const CalendarHeadBox = styles.div`
   width: 100%;
   margin-top: 24px;
   margin-bottom: 14px;
-  background-color: #fff;
-  border: 1px solid #dce3e5;
+  background: #ffffff;
+  border: 1px solid rgba(220, 227, 229, 0.5);
   border-radius: 8px;
 `;
-const CalendarHeadList = styled.ul`
+const CalendarHeadList = styles.ul`
+padding:0;
   display: flex;
   justify-content: space-around;
   margin: 14px, 19, 5px;
 `;
-const CalendarHeadItem = styled.li`
+const CalendarHeadItem = styles.li`
   text-align: center;
   list-style: none;
 `;
 
-const CalendarDay = styled.p`
+const CalendarDay = styles.p`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -31,40 +32,56 @@ const CalendarDay = styled.p`
   text-transform: uppercase;
   text-align: center;
   overflow: hidden;
-  font-size: 0;
-  &:first-letter {
-    font-size: 16px;
+
+
+  @media screen and (max-width:767px) {
+    font-size: 0;
+    &:first-letter {
+      font-size: 16px;
+    }
   }
 `;
-const CalendarDayBtn = styled.button`
-  font-family: 'Inter';
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.12;
+const CalendarDayBtn = styles.button`
+border:none;
+background:none;
+padding:0;
+text-align:center;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 1.17;
+color: #343434;
+width: 20px;
+height: 22px;
+
+  :hover,
+  :focus {
+    color: #FFFFFF;
+    background: #3E85F3;
+    border-radius: 6px;
+  }
 `;
 
 const daysName = ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'sun'];
 
-
 function addDays(date, days) {
-    const result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
-    
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
 }
 
 const DayCalendarHead = () => {
-    const { currentDate } = useParams();
-    const [dateStr, setDateStr] = useState(currentDate);
-    
-//   const [preDays, setPreDays] = useState([]);
-//   const [postDays, setpostDays] = useState([]);
-//   const [year, month, day] = currentDate.split('-');
-//   console.log(currentDate)
-  useEffect(()=>{
-    setDateStr(currentDate)
-       
-    },[currentDate])
+  const { currentDate } = useParams();
+  const [dateStr, setDateStr] = useState(currentDate);
+
+  //   const [preDays, setPreDays] = useState([]);
+  //   const [postDays, setpostDays] = useState([]);
+  //   const [year, month, day] = currentDate.split('-');
+  //   console.log(currentDate)
+  useEffect(() => {
+    setDateStr(currentDate);
+  }, [currentDate]);
   const date = new Date(dateStr);
   const americanWeekDay = date.getDay();
   const monthDate = date;
@@ -73,50 +90,51 @@ const DayCalendarHead = () => {
   const pre = [];
   const post = [];
   for (let i = weekDay - 1; i >= 1; i--) {
-      pre.push(addDays(dateStr, -i));
-    }
-    let diff = 1;
-    let dayOfWeek = weekDay + 1;
-    while (dayOfWeek <= 7) {
-        post.push(addDays(dateStr, diff));
-        dayOfWeek++;
-        diff++;
-    }
+    pre.push(addDays(dateStr, -i));
+  }
+  let diff = 1;
+  let dayOfWeek = weekDay + 1;
+  while (dayOfWeek <= 7) {
+    post.push(addDays(dateStr, diff));
+    dayOfWeek++;
+    diff++;
+  }
 
-    // console.log(addDays(dateStr, 40))
-    const navigate = useNavigate();
-    const handleNavigate = calendarDay => {
-        
-        const paddedNumber = calendarDay.getDate().toString().padStart(2,"0")
-        const formarDay = calendarDay.length === 2 ? calendarDay : paddedNumber
-        // console.log(formarDay)
-            // console.log(calendarDay.getFullYear())
-           const month = calendarDay.getMonth() + 1 
-        //    const adsfsdfsd  = calendarDay.getDate()
-        const newURLDay = `${calendarDay.getFullYear()}-${month < 10 ? `0${month}` : month}-${formarDay}`
-        console.log(newURLDay)
-        const newPath = `/calendar/day/${newURLDay}`;
-        setDateStr(newURLDay)
-        navigate(newPath);
+  // console.log(addDays(dateStr, 40))
+  const navigate = useNavigate();
+  const handleNavigate = calendarDay => {
+    const paddedNumber = calendarDay.getDate().toString().padStart(2, '0');
+    const formarDay = calendarDay.length === 2 ? calendarDay : paddedNumber;
+    // console.log(formarDay)
+    // console.log(calendarDay.getFullYear())
+    const month = calendarDay.getMonth() + 1;
+    //    const adsfsdfsd  = calendarDay.getDate()
+    const newURLDay = `${calendarDay.getFullYear()}-${
+      month < 10 ? `0${month}` : month
+    }-${formarDay}`;
+    console.log(newURLDay);
+    const newPath = `/calendar/day/${newURLDay}`;
+    setDateStr(newURLDay);
+    navigate(newPath);
 
-        // console.log(newPath)
-    };
+    // console.log(newPath)
+  };
 
-
-    const allDays = [...pre, monthDate, ...post]
-    // console.log(allDays)
-
+  const allDays = [...pre, monthDate, ...post];
+  // console.log(allDays)
 
   return (
     <CalendarHeadBox>
       <CalendarHeadList>
-                {allDays.map((date, index) => (
-                    <CalendarHeadItem key={index}>
-                        <CalendarDay>{daysName[index]}</CalendarDay>
-                        <CalendarDayBtn type='button' onClick={() => handleNavigate(date)}>{date.getDate()}</CalendarDayBtn>
-                    </CalendarHeadItem>
-                ))}
-            </CalendarHeadList>
+        {allDays.map((date, index) => (
+          <CalendarHeadItem key={index}>
+            <CalendarDay>{daysName[index]}</CalendarDay>
+            <CalendarDayBtn type="button" onClick={() => handleNavigate(date)}>
+              {date.getDate()}
+            </CalendarDayBtn>
+          </CalendarHeadItem>
+        ))}
+      </CalendarHeadList>
     </CalendarHeadBox>
   );
 };
