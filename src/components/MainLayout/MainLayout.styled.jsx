@@ -38,9 +38,7 @@ export const WrapperPageContent = styled(Box)(
   flex-direction:column;
   align-items:center;
 
-  @media screen and (min-width: 375px) {
-    padding-top:24px;
-  }
+  padding-top:24px;
 
   @media screen and (min-width: 1440px) {
     padding-top:40px;
@@ -59,24 +57,22 @@ export const SideButton = styled(IconButton)(`
 `);
 
 export const WrapperHeader = styled(Box)`
-  @media screen and (min-width: 375px) {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100vw;
-    // max-width: 335px;
-    height: 32px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 335px;
+  height: 32px;
+  gap: 30px;
 
   @media screen and (min-width: 768px) {
     width: 100vw;
-    // max-width: 704px;
+    max-width: 704px;
     height: 42px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 80%;
-    // max-width: 1100px;
+    max-width: 1100px;
     height: 42px;
   }
 `;

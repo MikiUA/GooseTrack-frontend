@@ -1,4 +1,4 @@
-import { StyledHeader, StyledIcon } from './HeaderPageName.styled';
+import { StyledHeader } from './HeaderPageName.styled';
 import { useLocation } from 'react-router-dom';
 
 export const HeaderPageName = () => {
@@ -20,7 +20,6 @@ export const HeaderPageName = () => {
   return (
     <div>
       <StyledHeader>{pageTitle}</StyledHeader>
-      <StyledIcon />
     </div>
   );
 };
