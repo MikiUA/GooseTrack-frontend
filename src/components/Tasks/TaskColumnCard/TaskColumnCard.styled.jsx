@@ -58,3 +58,9 @@ export const Priority = styled.span`
     padding: 4px 12px;
     background-color: ${props => props.backgroundColor};
 `;
+
+export const Img = styled.img`
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+`

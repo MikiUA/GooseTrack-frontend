@@ -5,7 +5,7 @@ export const List = styled.ul`
 display: flex;
 flex-direction: row;
 overflow-x: auto;
-min-width: 335px;
+max-width: 335px;
 padding: 0 0 34px 0;
 gap: 16px;
 /* margin: -16px 0 0 -16px; */
