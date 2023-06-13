@@ -5,14 +5,14 @@ export const WrapperMain = styled(Box)(
   ({ theme }) => `
   display:flex;
   min-height: 100vh;
-  //  width: 100vw;
+   width: 100vw;
   background-color:${theme.palette.background.default};
   color:${theme.palette.text.primary}
 `
 );
 
 export const WrapperSideBarContent = styled(Box)(
-  ({ theme }) => `
+  ({ theme, data }) => `
   border-right:1px solid ${theme.palette.borderGray};
   background-color:${theme.palette.background.sidebar};
   color:${theme.palette.text.primary}
@@ -23,8 +23,8 @@ export const WrapperSideBarContent = styled(Box)(
     display: flex;
     justify-content: end;
 
-    min-width: 289px;
-    width: calc((100vw - 1440px) / 2 + 289px);
+    // min-width: 289px;
+    // width: calc((100vw - 1440px) / 2 + 289px);
   }
 `
 );
@@ -33,6 +33,7 @@ export const WrapperPageContent = styled(Box)(
   ({ theme }) => `
   display:flex;
   flex-grow:1;
+  
   background-color:${theme.palette.background.default};
   flex-direction:column;
   align-items:center;
@@ -43,6 +44,9 @@ export const WrapperPageContent = styled(Box)(
 
   @media screen and (min-width: 1440px) {
     padding-top:40px;
+
+    flex-wrap:wrap;
+    align-content:flex-end;
   }
 `
 );
@@ -58,20 +62,21 @@ export const WrapperHeader = styled(Box)`
   @media screen and (min-width: 375px) {
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 335px;
+    justify-content: space-around;
+    width: 100vw;
+    // max-width: 335px;
     height: 32px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 100%;
-    max-width: 704px;
+    width: 100vw;
+    // max-width: 704px;
     height: 42px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 100%;
-    max-width: 1100px;
+    width: 80%;
+    // max-width: 1100px;
     height: 42px;
   }
 `;
