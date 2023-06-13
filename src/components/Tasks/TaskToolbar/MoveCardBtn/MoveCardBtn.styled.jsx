@@ -33,11 +33,11 @@ export const BtnWrap = styled.div`
 export const Wrapper = styled.div`
   position: absolute;
   flex-direction: column;
-  gap: 12px;
-  width: 100px;
+  gap: 5px;
+  width: 110px;
 
   top: -50px;
-  right: -45px;
+  right: -55px;
   border: transparent;
   border-radius: 8px;
 
@@ -48,11 +48,11 @@ export const Wrapper = styled.div`
 
 export const LabelStyled = styled.div`
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px;
+  background-color: #e3f3ff;
+  transition: box-shadow 0.3s ease-in;
   &:hover,
   &:focus {
-    transform: scale(1.1);
+    box-shadow: 2px 2px 4px #1565c0;
   }
 `;
