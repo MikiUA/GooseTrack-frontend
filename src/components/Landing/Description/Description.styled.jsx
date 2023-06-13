@@ -9,6 +9,7 @@ export const StyledList = styled.ul`
 list-style: none;
 padding: 0px;
 margin: 0px;
+
 `
 
 export const StyledItem = styled.li`
@@ -22,10 +23,11 @@ flex-direction: column;
 
 @media screen and (min-width: 1440px) {
 display: flex;
-gap: 228px;
+gap: 300px;
 justify-content: center;
 align-items: center;
 flex-direction: row;
+
 
 &.sidebarItem {  
   flex-direction: row-reverse;
