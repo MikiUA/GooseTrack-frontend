@@ -38,9 +38,9 @@ export const SliderList = styled.ul`
   overflow: hidden;
 
   @media (min-width: 1440px) {
-    flex-direction: row;
-    gap: 124px;
-    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: ${({ dataLength }) => (dataLength % 2 === 0 ? '32px' : '0')};
   }
   & > li:not(:last-child) {
     margin-right: 10px;
@@ -50,6 +50,7 @@ export const SliderList = styled.ul`
 export const SliderItem = styled.li`
   box-sizing: border-box;
   padding: 24px;
+  width: 100%;
   max-width: 335px;
   height: 194px;
   border: 1px solid rgba(17, 17, 17, 0.1);
@@ -57,20 +58,21 @@ export const SliderItem = styled.li`
   overflow: hidden;
   display: ${({ index, currentSlide }) =>
     index === currentSlide ? 'block' : 'none'};
-    transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')});
-  transition: transform 0.3s ease; 
 
-   @media (min-width: 768px) {
+  @media (min-width: 768px) {
     max-width: 580px;
     height: 187px;
   }
 
   @media (min-width: 1440px) {
-    @media (min-width: 1440px) {
-      display: ${({ index, currentSlide }) =>
-        index === currentSlide ? 'block' : 'none'};
-    }
-    display: block;
+    width: calc((100% - 124px) / 2);
+    max-width: none;
+    height: 187px;
+    display: ${({ index, currentSlide, dataLength }) =>
+      (index === currentSlide || index === currentSlide + 1) &&
+      (index !== dataLength - 1 || dataLength % 2 === 0)
+        ? 'block'
+        : 'none'};
   }
 `;
 
@@ -90,6 +92,9 @@ export const SliderUserPhoto = styled.img`
 export const HeaderUserWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  @media (min-width: 768px) {
+    width: 447px;
+  }
 `;
 
 export const SliderUserTitle = styled.h4`
@@ -107,17 +112,13 @@ export const SliderUserTitle = styled.h4`
 export const SliderUserDescr = styled.p`
   margin: 0;
   padding: 0;
-  width: 287px;
+  width: 100%;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   color: rgba(17, 17, 17, 0.7);
-
-  @media (min-width: 768px) {
-    width: 447px;
-  }
 `;
 
 export const SliderContainer = styled.div`
@@ -173,6 +174,4 @@ export const SliderArWrap = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-
- 
 `;

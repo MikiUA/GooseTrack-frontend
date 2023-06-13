@@ -1,18 +1,27 @@
 import TaskToolbar from "../TaskToolbar/TaskToolbar";
 import TaskModal from "../TaskModal/TaskModal";
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getUserInfo } from '../../../API/userSlice';
 import {
     Item,
     Title,
     Container,
     ContainerInfo,
     ContainerUser,
-    Priority
+    Priority, 
+    Img
 } from "./TaskColumnCard.styled";
 
-import Icon from "utils/Icon/Icon";
+// import Icon from "utils/Icon/Icon";
 
 
-const TaskColumnCard = ({title, priority, id, task}) => {
+const TaskColumnCard = ({title, priority, id, task, firstLetter}) => {
+
+    const { avatarUrl } = useSelector(getUserInfo);
+
+  useEffect(() => {
+  }, [avatarUrl]);
 
     let componentStyle;
 
@@ -40,7 +49,8 @@ const TaskColumnCard = ({title, priority, id, task}) => {
             <Container>
                 <ContainerInfo>
                     <ContainerUser>
-                        <Icon name="icon-ph_user" width="32" height="32" />
+                        {avatarUrl ? <Img src={avatarUrl} alt="user_photo"/> : {firstLetter}}
+                        {/* <Icon name="icon-ph_user" width="32" height="32" /> */}
                     </ContainerUser>
                     <Priority backgroundColor={componentStyle.backgroundColor}>{priority}</Priority>
                 </ContainerInfo>
