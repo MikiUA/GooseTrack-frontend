@@ -17,7 +17,7 @@ const DeleteCardBtn = ({ id }) => {
             console.error(error);
         }
     }
-  };
+
 
   return (
     <li>
