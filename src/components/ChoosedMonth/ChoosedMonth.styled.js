@@ -1,5 +1,5 @@
-import { Box, Button, styled as styledMUI } from "@mui/material";
-import styled from "styled-components";
+import { Box, Button, styled as styledMUI } from '@mui/material';
+import styled from 'styled-components';
 
 export const StyledWrapCalendar = styled.div`
   @media screen and (max-width: 374px) {
@@ -31,11 +31,19 @@ export const CalendarGrid = styled.div`
   }
 `;
 
-export const GridCell = styledMUI(Box)(({isNotCurrMonth,theme})=>`
+export const GridCell = styledMUI(Box)(
+  ({ isNotCurrMonth, theme }) => `
+  // display: flex;
+  // font-size: 10px;
+  // justify-content: flex-end;
+  // padding-bottom: 64px;
+  box-sizing: border-box;
   display: flex;
+  width: 48px;
+  height: 94px;
+  flex-direction: column;
+  justify-content: flex-start;
   font-size: 10px;
-  justify-content: flex-end;
-  padding-bottom: 64px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   border: 1px solid ${theme.palette.borderGray};
   background-color: ${theme.palette.background.paper};
@@ -46,14 +54,26 @@ export const GridCell = styledMUI(Box)(({isNotCurrMonth,theme})=>`
 
   @media screen and (min-width: 768px) {
     border: 1px solid rgba(220, 227, 229, 0.8);
+    width: 100px;
+    height: 144px;
   }
-`);
+    @media screen and (min-width: 1440px) {
+    width: 155px;
+    height: 125px;
+  }
+`
+);
 
-export const DateBtn= styledMUI(Button)`
-display: flex;
-padding: 4px 6px;
-justify-content: center;
-align-items: center;
+export const DateBtn = styledMUI(Button)`
+// display: flex;
+// padding: 4px 6px;
+// justify-content: center;
+// align-items: center;
+ box-sizing: border-box;
+ min-width: 0;
+margin-left: auto;
+  padding: 4px 6px;
+  align-items: center;
 
 font-family: 'Inter';
 font-style: normal;
