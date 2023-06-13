@@ -12,7 +12,6 @@ export const SliderTitle = styled.h3`
   line-height: 1.14;
   text-transform: uppercase;
   color: #3e85f3;
-  display: inline-flex;
 
   @media screen and (min-width: 768px) {
     font-size: 40px;
@@ -39,9 +38,9 @@ export const SliderList = styled.ul`
   overflow: hidden;
 
   @media (min-width: 1440px) {
-    flex-direction: row;
-    gap: 124px;
-    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: ${({ dataLength }) => (dataLength % 2 === 0 ? '32px' : '0')};
   }
   /* & > li:not(:last-child) {
     margin-right: 10px;
@@ -51,6 +50,7 @@ export const SliderList = styled.ul`
 export const SliderItem = styled.li`
   box-sizing: border-box;
   padding: 24px;
+  width: 100%;
   max-width: 335px;
   height: 194px;
   border: 1px solid rgba(17, 17, 17, 0.1);
@@ -60,6 +60,7 @@ export const SliderItem = styled.li`
     index === currentSlide ? 'block' : 'none'};
   transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')});
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
   @media (min-width: 768px) {
     max-width: 580px;
@@ -94,6 +95,9 @@ export const SliderUserPhoto = styled.img`
 export const HeaderUserWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  @media (min-width: 768px) {
+    width: 447px;
+  }
 `;
 
 export const SliderUserTitle = styled.h4`
@@ -111,17 +115,13 @@ export const SliderUserTitle = styled.h4`
 export const SliderUserDescr = styled.p`
   margin: 0;
   padding: 0;
-  width: 287px;
+  width: 100%;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   color: rgba(17, 17, 17, 0.7);
-
-  @media (min-width: 768px) {
-    width: 447px;
-  }
 `;
 
 export const SliderContainer = styled.div`

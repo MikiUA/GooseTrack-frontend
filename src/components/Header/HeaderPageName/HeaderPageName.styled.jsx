@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.h1`
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 1440px) {
     display: block;
     font-family: Inter;
     font-weight: 700;
@@ -9,9 +9,7 @@ export const StyledHeader = styled.h1`
     line-height: 1;
   }
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1439px) {
     display: none;
   }
 `;
-
-export const StyledIcon = styled.h1``;

@@ -7,7 +7,7 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
-  //eslint-disable-next-line
+//eslint-disable-next-line
   TextField,
 } from '@mui/material';
 //eslint-disable-next-line
@@ -289,7 +289,7 @@ export const Label = styled(InputLabel)`
   font-size: 12px;
   line-height: 1.17;
   //   color: ${label};
-  color: ${props => (props.isError ? `${error}` : `${accept}` || `${label}`)};
+  color: ${props => (props.iserror ? `${error}` : `${accept}` || `${label}`)};
 
   @media (min-width: 768px) {
     font-size: 14px;
@@ -329,9 +329,9 @@ export const Input = styled(OutlinedInput)`
     font-weight: 600;
     border-radius: 8px;
     border: ${props =>
-    props.isError
-      ? `1px solid ${error}`
-      : `1px solid ${accept}` || '1px solid inherit'};
+      props.iserror
+        ? `1px solid ${error}`
+        : `1px solid ${accept}` || '1px solid inherit'};
   }
 
   &:hover: {
@@ -389,9 +389,9 @@ export const DateInput = styled(DatePicker)`
     border-radius: 8px;
     border-radius: 8px;
     border: ${props =>
-    props.isError
-      ? `1px solid ${error}`
-      : `1px solid ${accept}` || '1px solid inherit'};
+      props.iserror
+        ? `1px solid ${error}`
+        : `1px solid ${accept}` || '1px solid inherit'};
   }
 
   && .MuiInputBase-input {
