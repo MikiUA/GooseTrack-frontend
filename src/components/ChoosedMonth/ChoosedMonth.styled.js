@@ -31,7 +31,9 @@ export const CalendarGrid = styled.div`
   }
 `;
 
-export const GridCell = styledMUI(Box)(
+export const GridCell = styledMUI(Box, {
+  shouldForwardProp: props => props !== 'isNotCurrMonth',
+})(
   ({ isNotCurrMonth, theme }) => `
   // display: flex;
   // font-size: 10px;

@@ -11,14 +11,15 @@ const updateValues = currentDate => {
     .minutes(0)
     .seconds(0)
     .milliseconds(0);
+
   const currentMonth = today.format('M');
   const startDay = moment(currentDate).startOf('month').startOf('week');
 
   const day = startDay.subtract(1, 'day');
   const totalDays = 42;
   const dayArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
-  const isToday = calendarDay => today.isSame(calendarDay);
-  //console.log(currentMonth, dayArray, isToday(10));
+  const isToday = calendarDay =>
+    today.isSame(calendarDay) & today.isSame(moment().format('YYYY-MM-DD'));
 
   return { currentMonth, dayArray, isToday };
 };
