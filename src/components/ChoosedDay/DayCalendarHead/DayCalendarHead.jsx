@@ -42,8 +42,9 @@ const CalendarDay = styles.p`
   }
 `;
 const CalendarDayBtn = styles.button`
+border-radius: 6px;
+background-color: ${props => (props.isCurrentBtn ? `#3E85F3` : `#FFF`)};
 border:none;
-background:none;
 padding:0;
 text-align:center;
 font-family: 'Inter';
@@ -52,11 +53,13 @@ font-weight: 700;
 font-size: 12px;
 line-height: 1.17;
 color: #343434;
+color: ${props => (props.isCurrentBtn ? `#FFF` : `#343434`)};
 width: 20px;
 height: 22px;
 
   :hover,
-  :focus {
+  focus
+   {
     color: #FFFFFF;
     background: #3E85F3;
     border-radius: 6px;
@@ -84,6 +87,7 @@ const DayCalendarHead = () => {
   }, [currentDate]);
   const date = new Date(dateStr);
   const americanWeekDay = date.getDay();
+
   const monthDate = date;
   const weekDay = americanWeekDay === 0 ? 7 : americanWeekDay;
 
@@ -119,18 +123,23 @@ const DayCalendarHead = () => {
 
     // console.log(newPath)
   };
-
+  console.log(date.getDate())
   const allDays = [...pre, monthDate, ...post];
   // console.log(allDays)
 
   return (
     <CalendarHeadBox>
       <CalendarHeadList>
-        {allDays.map((date, index) => (
+        {allDays.map((data, index) => (
           <CalendarHeadItem key={index}>
             <CalendarDay>{daysName[index]}</CalendarDay>
-            <CalendarDayBtn type="button" onClick={() => handleNavigate(date)}>
-              {date.getDate()}
+            <CalendarDayBtn 
+            type="button" 
+            onClick={() => handleNavigate(data)}
+            
+            isCurrentBtn={data.getDate() === date.getDate()}
+            >
+              {data.getDate()}
             </CalendarDayBtn>
           </CalendarHeadItem>
         ))}
