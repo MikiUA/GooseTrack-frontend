@@ -1,20 +1,18 @@
 import { Box, Button, styled } from '@mui/material';
 
 export const StyledButton = styled(Button)`
-  @media screen and (min-width: 375px) {
-    padding: 8px 20px;
+  padding: 8px 20px;
 
-    width: 97px;
-    height: 32px;
+  width: 97px;
+  height: 32px;
 
-    background: #3e85f3;
-    border-radius: 10px;
+  background: #3e85f3;
+  border-radius: 10px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-  }
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
 
   @media screen and (min-width: 768px) {
     padding: 12px 32px;

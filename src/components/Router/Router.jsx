@@ -5,6 +5,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { CalendarRoute } from './CalendarRoute';
 import ThemeTestPage from 'components/MUIThemeProvider/ThemeTestPage';
+import { Loader } from 'components/Loader/Loader';
 
 const MainLayout = lazy(() => import('../MainLayout/MainLayout'));
 const AccountPage = lazy(() => import('../../pages/AccountPage/AccountPage'));
@@ -19,7 +20,7 @@ const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 export const Router = () => {
   return (
     <BrowserRouter basename="/GooseTrack-frontend">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/themeTest" element={<ThemeTestPage />} />
           {/* Приватні маршрути */}
@@ -27,8 +28,14 @@ export const Router = () => {
             <Route path="/" element={<MainLayout />}>
               {/* Аккаунт */}
               <Route path="account" element={<AccountPage />} />
-              <Route path="calendar/month/:currentDate" element={<CalendarRoute />} />
-              <Route path="calendar/day/:currentDate" element={<CalendarRoute />} />
+              <Route
+                path="calendar/month/:currentDate"
+                element={<CalendarRoute />}
+              />
+              <Route
+                path="calendar/day/:currentDate"
+                element={<CalendarRoute />}
+              />
               <Route path="calendar/*" element={<CalendarRoute />} />
             </Route>
           </Route>
