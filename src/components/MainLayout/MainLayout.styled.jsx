@@ -43,8 +43,7 @@ export const WrapperPageContent = styled(Box)(
   @media screen and (min-width: 1440px) {
     padding-top:40px;
 
-    flex-wrap:wrap;
-    align-content:flex-end;
+  
   }
 `
 );
