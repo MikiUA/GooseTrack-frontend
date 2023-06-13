@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import {
   SliderTitle,
@@ -19,103 +19,61 @@ import {
 
 import Icon from '../../../utils/Icon/Icon';
 
-const reviews = [
-  {
-    id: '1',
-    name: 'Olena Doe 11',
-    photo: 'https://avatars.githubusercontent.com/u/106928450?s=40&v=4',
-    rating: '4',
-    description:
-      'GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended.',
-  },
-  {
-    id: '2',
-    name: 'Alexander Hubbard 11',
-    photo: 'https://avatars.githubusercontent.com/u/106928450?s=40&v=4',
-    rating: '4',
-    description:
-      'GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended.',
-  },
-  {
-    id: '3',
-    name: 'Olena Doe 22',
-    photo: 'https://avatars.githubusercontent.com/u/106928450?s=40&v=4',
-    rating: '3',
-    description:
-      'GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended.',
-  },
-  {
-    id: '4',
-    name: 'Olena Doe 33',
-    photo: 'https://avatars.githubusercontent.com/u/106928450?s=40&v=4',
-    rating: '5',
-    description:
-      'GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended.',
-  },
-];
 
-const Slider = () => {
+const Slider = ({data}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isArrowClicked, setArrowClicked] = useState(false);
 
   const handlePrevSlide = () => {
     setCurrentSlide(prevSlide =>
-      prevSlide === 0 ? reviews.length - 1 : prevSlide - 1
+      prevSlide === 0 ? data.length - 1 : prevSlide - 1
     );
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide(prevSlide => (prevSlide + 1) % reviews.length);
+    setCurrentSlide(prevSlide => (prevSlide + 1) % data.length);
   };
 
   const handleArrowClick = () => {
     setArrowClicked(true);
 
-    // Через некоторое время сбросить состояние isArrowClicked обратно
+    
     setTimeout(() => {
       setArrowClicked(false);
     }, 500);
   };
-  useEffect(() => {
-    const interval = setInterval(handleNextSlide, 3000);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  // const allReviews = useSelector(selectAllReviews);
-  // const reviews = allReviews.slice(0, 10).reverse();
-
+  
+ 
   return (
     <StyledSlider>
       <SliderTitle>Reviews</SliderTitle>
       <SliderContainer>
         <SliderList>
-          {reviews.map((review, index) => (
+          {data.data.result.map((item, index) => (
             <SliderItem
-              key={index}
+              key={item._id}
               index={index}
-              currentSlide={currentSlide}
-              isArrowClicked={isArrowClicked}
+              currentSlide={currentSlide}  
+              isArrowClicked={isArrowClicked}            
             >
               <SliderHeaderUser>
-                <SliderUserPhoto src={review.photo} alt={review.name} />
+                <SliderUserPhoto src={item.avatarUrl} alt={item.name} />
                 <HeaderUserWrapper>
-                  <SliderUserTitle>{review.name}</SliderUserTitle>
+                  <SliderUserTitle>{item.name}</SliderUserTitle>
                   <SliderUserRating>
                     {Array.from({ length: 5 }, (_, index) => (
                       <Icon
                         key={index}
                         width={14}
                         height={14}
-                        name={index < review.rating ? 'icon-Vector' : 'icon--'}
+                        name={index < item.rating ? 'icon-Vector' : 'icon--'}
                       />
                     ))}
                   </SliderUserRating>
                 </HeaderUserWrapper>
               </SliderHeaderUser>
-              <SliderUserDescr>{review.description}</SliderUserDescr>
+              <SliderUserDescr>{item.message}</SliderUserDescr>
             </SliderItem>
           ))}
         </SliderList>

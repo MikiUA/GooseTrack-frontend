@@ -12,7 +12,7 @@ import {
   StyledTitleSec,
 } from './NotFound.styled';
 
-const basePath = '../../../images/logoGoose/';
+const basePath = '../../images/logoGoose/';
 
 const NotFound = () => {
   return (
