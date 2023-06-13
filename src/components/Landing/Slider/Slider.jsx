@@ -25,21 +25,25 @@ const Slider = () => {
 
   const { data, isLoading } = useGetAllFeedbacksQuery();
 
-  const handlePrevSlide = () => {
+const handlePrevSlide = () => {
     const totalSlides = data.data.result.length;
     if (currentSlide === 0) {
+      setCurrentSlide(totalSlides - 2);
+    } else if (currentSlide === 1) {
       setCurrentSlide(totalSlides - 1);
     } else {
-      setCurrentSlide(prevSlide => prevSlide - 1);
+      setCurrentSlide(prevSlide => prevSlide - 2);
     }
   };
 
-  const handleNextSlide = () => {
+const handleNextSlide = () => {
     const totalSlides = data.data.result.length;
-    if (currentSlide === totalSlides - 1) {
+    if (currentSlide === totalSlides - 2) {
       setCurrentSlide(0);
+    } else if (currentSlide === totalSlides - 1) {
+      setCurrentSlide(1);
     } else {
-      setCurrentSlide(prevSlide => prevSlide + 1);
+      setCurrentSlide(prevSlide => prevSlide + 2);
     }
   };
 
@@ -55,7 +59,6 @@ const Slider = () => {
     <>
       {!isLoading && (
         <StyledSlider>
-          <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
           <SliderTitle>Reviews</SliderTitle>
           <SliderContainer>
             <SliderList>
@@ -108,7 +111,6 @@ const Slider = () => {
               />
             </BtnArrow>
           </SliderArWrap>
-          </div>
         </StyledSlider>
       )}
     </>
