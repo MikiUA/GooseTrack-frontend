@@ -123,9 +123,9 @@ export const StyledAuthButton = styled(NavLink)`
 `;
 
 export const StyledAuthSpan = styled.img`
-  width: 13.5px;
+  /* width: 13.5px;
   height: 13.5px;
-  margin-left: 8px;
+  margin-left: 8px; */
 `;
 
 export const StyledLink = styled(NavLink)`
