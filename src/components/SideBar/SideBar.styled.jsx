@@ -115,8 +115,8 @@ export const StyledUser = styled(Typography)`
     line-height: 24px;
   }
 `;
-export const StyledLink = styled(NavLink)(
-  ({ theme }) => `
+export const StyledLink = styled(Button)(
+  ({ theme, active }) => `
   fill: none;
   display: flex;
 align-items: center;
@@ -130,6 +130,7 @@ justify-content: start;
   max-height: 40px;
   margin-bottom: 18px;
   color: rgba(52, 52, 52, 0.5);
+ background-color: ${active ? '#e3f3ff' : theme.palette.primary.main};
   text-decoration: none;
   font-size: 16px;
   line-height: 1.21;

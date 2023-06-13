@@ -17,12 +17,20 @@ import { useLogoutMutation } from 'API/auth-operations';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from 'API/userSlice';
 import { LogoIcon } from './SidebarImg.styled';
+import { useLocation } from 'react-router-dom';
+import { useMemo } from 'react';
 
 const basePath = '../../images/logoGoose/';
 
 const SideBar = ({ onClose, isOpen }) => {
   const [logout] = useLogoutMutation();
   const dispatch = useDispatch();
+  const path = useLocation();
+
+  const isAccount = useMemo(() => {
+    if (path.pathname.includes('/account')) return true;
+    return false;
+  }, [path]);
 
   const logOut = () => {
     try {
@@ -70,10 +78,14 @@ const SideBar = ({ onClose, isOpen }) => {
         <StyledUser>User Panel</StyledUser>
 
         <StyledLink to="/account">
-          <UserNavTitle onClick={onClose}>My account</UserNavTitle>
+          <UserNavTitle onClick={onClose} active={isAccount}>
+            My account
+          </UserNavTitle>
         </StyledLink>
         <StyledLink to="/calendar">
-          <UserNavTitle onClick={onClose}> Calendar</UserNavTitle>
+          <UserNavTitle onClick={onClose} active={isAccount}>
+            Calendar
+          </UserNavTitle>
         </StyledLink>
       </StyledBox>
       <StyledButtonLogout
