@@ -7,11 +7,8 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
-//eslint-disable-next-line
-  TextField,
 } from '@mui/material';
-//eslint-disable-next-line
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { ErrorMessage } from 'formik';
 import { createTheme } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { RiErrorWarningLine } from 'react-icons/ri';
@@ -34,31 +31,13 @@ const theme = createTheme({
 });
 
 const {
-  // light,
   main,
-  // dark,
   contrast,
   label,
   darkText,
-  // labelNormal,
   error,
   accept,
 } = theme.palette.primary;
-
-/* <OutlinedInput
-  // інші пропси
-  sx={{
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: labelNormal, // колір рамки віджета
-    },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: label, // колір рамки віджета при наведенні
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: label, // колір рамки віджета при фокусуванні
-    },
-  }}
-/>; */
 
 export const Container = styled(Paper)`
   && {
@@ -380,10 +359,6 @@ export const DateInput = styled(DatePicker)`
     height: 18px;
   }
 
-  && .MuiPaper-root {
-    background-color: red;
-  }
-
   && .MuiInputBase-root {
     height: 42px;
     border-radius: 8px;
@@ -437,35 +412,6 @@ export const DateInput = styled(DatePicker)`
     }
   }
 `;
-
-// export const DateInput = styles.div`
-//   box-sizing: border-box;
-//   width: 100%;
-//   height: 42px;
-//   font-weight: 600;
-//   font-size: 14px;
-//   line-height: 1.29;
-
-//   border-radius: 8px;
-
-//   &:hover: {
-//     border: 1px solid ${label};
-//   }
-
-//   &:focus: {
-//     border: 1px solid ${label};
-//   }
-
-//   @media (min-width: 375px) {
-//     width: 299px;
-//   }
-
-//   @media (min-width: 768px) {
-//     width: 354px;
-//     font-size: 16px;
-//     line-height: 1.12;
-//   }
-// `;
 
 export const ButtonWrap = styled(Box)`
   display: flex;
