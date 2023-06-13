@@ -5,7 +5,7 @@ import Icon from '../../utils/Icon/Icon';
 export const StyledContainer = styled(Box)(
   ({ theme, data }) => `
  display:  ${data ? 'flex' : 'none'};
-  width: 50vw;
+  width: 225px;
   height: 100vh;
   position: fixed;
   z-index: 11;
@@ -14,13 +14,13 @@ export const StyledContainer = styled(Box)(
   justify-content: space-between;
   background-color: ${theme.palette.background.sidebar};
   @media screen and (min-width: 768px) {
-    width: 38vw;
+     width: 289px;
     padding: 24px 32px;
   }
   @media screen and (min-width: 1440px) {
     position: relative;
     display: flex;
-    width: 20vw;
+   
     padding: 32px 24px;
   }
 
@@ -79,7 +79,7 @@ export const StyledPicture = styled(Box)`
   }
 `;
 
-export const StyledButtonClose = styled(Button)`
+export const StyledButtonClose = styled(Icon)`
   opacity: 1;
   width: 24px;
   height: 24px;
@@ -93,7 +93,7 @@ export const StyledButtonClose = styled(Button)`
     background-color: transparent;
   }
   @media screen and (min-width: 768px) {
-    margin-left: 36px;
+    margin-left: 66px;
     width: 36px;
     height: 36px;
   }
@@ -126,8 +126,8 @@ justify-content: start;
  
   padding: 16px 20px;
   border-radius: 8px;
-  max-width: 185px;
-  height: 40px;
+  max-width: 145px;
+  max-height: 40px;
   margin-bottom: 18px;
   color: rgba(52, 52, 52, 0.5);
   text-decoration: none;
@@ -152,7 +152,8 @@ justify-content: start;
     font-size: 16px;
     line-height: 1.19;
     margin-bottom: 16px;
-    height: 56px;
+    max-width: 215px;
+    // height: 56px;
     padding: 18px 20px;
   }
 `
@@ -172,8 +173,8 @@ export const UserNavTitle = styled(Typography)(
     // margin-bottom: 32px;
   }
    &:hover {
-    // color: ${theme.palette.primary.main};
-    // background-color: #e3f3ff;
+    color: ${theme.palette.primary.main};
+    background-color: #e3f3ff;
   }
 `
 );
