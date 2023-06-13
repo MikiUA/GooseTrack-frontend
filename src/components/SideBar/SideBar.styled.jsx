@@ -1,11 +1,10 @@
 import { Typography, styled, Box, Button } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import Icon from '../../utils/Icon/Icon';
 
 export const StyledContainer = styled(Box)(
   ({ theme, data }) => `
  display:  ${data ? 'flex' : 'none'};
-  width: 50vw;
+  width: 225px;
   height: 100vh;
   position: fixed;
   z-index: 11;
@@ -14,13 +13,13 @@ export const StyledContainer = styled(Box)(
   justify-content: space-between;
   background-color: ${theme.palette.background.sidebar};
   @media screen and (min-width: 768px) {
-    width: 38vw;
+     width: 289px;
     padding: 24px 32px;
   }
   @media screen and (min-width: 1440px) {
     position: relative;
     display: flex;
-    width: 20vw;
+   
     padding: 32px 24px;
   }
 
@@ -93,7 +92,7 @@ export const StyledButtonClose = styled(Button)`
     background-color: transparent;
   }
   @media screen and (min-width: 768px) {
-    margin-left: 36px;
+    margin-left: 66px;
     width: 36px;
     height: 36px;
   }
@@ -102,20 +101,20 @@ export const StyledButtonClose = styled(Button)`
     opacity: 0;
   }
 `;
-export const StyledUser = styled(Typography)`
+export const StyledUser = styled(Typography)(({theme})=>`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: #34343480;
+  color: ${theme.palette.mode==='dark'?'rgba(250, 250, 250, 0.3)':'#34343480'};
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 24px;
   }
-`;
-export const StyledLink = styled(NavLink)(
+`);
+export const StyledLink = styled(Button)(
   ({ theme }) => `
   fill: none;
   display: flex;
@@ -126,10 +125,10 @@ justify-content: start;
  
   padding: 16px 20px;
   border-radius: 8px;
-  max-width: 185px;
-  height: 40px;
+  max-width: 145px;
+  max-height: 40px;
   margin-bottom: 18px;
-  color: rgba(52, 52, 52, 0.5);
+  color:${(theme.palette.mode === 'dark' ? 'white' : 'gray')};
   text-decoration: none;
   font-size: 16px;
   line-height: 1.21;
@@ -137,6 +136,10 @@ justify-content: start;
     color: rgba(62, 133, 243, 1);
     background-color: #e3f3ff;
   }
+  &:disabled {
+    background-color:${theme.palette.customLightBlueButton.background};
+    color:${theme.palette.customLightBlueButton.text};
+}
   :hover,
   :focus {
     color: ${theme.palette.primary.main};
@@ -152,7 +155,8 @@ justify-content: start;
     font-size: 16px;
     line-height: 1.19;
     margin-bottom: 16px;
-    height: 56px;
+    max-width: 215px;
+    // height: 56px;
     padding: 18px 20px;
   }
 `
@@ -172,8 +176,8 @@ export const UserNavTitle = styled(Typography)(
     // margin-bottom: 32px;
   }
    &:hover {
-    // color: ${theme.palette.primary.main};
-    // background-color: #e3f3ff;
+    color: ${theme.palette.primary.main};
+    background-color: #e3f3ff;
   }
 `
 );

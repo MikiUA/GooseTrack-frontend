@@ -17,12 +17,21 @@ import { useLogoutMutation } from 'API/auth-operations';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from 'API/userSlice';
 import { LogoIcon } from './SidebarImg.styled';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useMemo } from 'react';
 
 const basePath = '../../images/logoGoose/';
 
 const SideBar = ({ onClose, isOpen }) => {
   const [logout] = useLogoutMutation();
   const dispatch = useDispatch();
+  const path = useLocation();
+  const navigate=useNavigate();
+
+  const isAccount = useMemo(() => {
+    if (path.pathname.includes('/account')) return true;
+    return false;
+  }, [path]);
 
   const logOut = () => {
     try {
@@ -69,11 +78,15 @@ const SideBar = ({ onClose, isOpen }) => {
         </StyledHeader>
         <StyledUser>User Panel</StyledUser>
 
-        <StyledLink to="/account">
-          <UserNavTitle onClick={onClose}>My account</UserNavTitle>
+        <StyledLink disabled={isAccount} onClick={()=>navigate('/account')}>
+          <UserNavTitle onClick={onClose}>
+            My account
+          </UserNavTitle>
         </StyledLink>
-        <StyledLink to="/calendar">
-          <UserNavTitle onClick={onClose}> Calendar</UserNavTitle>
+        <StyledLink disabled={!isAccount} onClick={()=>navigate('/calendar')}>
+          <UserNavTitle onClick={onClose}>
+            Calendar
+          </UserNavTitle>
         </StyledLink>
       </StyledBox>
       <StyledButtonLogout
