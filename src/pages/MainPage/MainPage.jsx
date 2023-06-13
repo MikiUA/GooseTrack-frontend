@@ -1,6 +1,6 @@
 import AuthLanding from '../../components/Landing/AuthLanding/AuthLanding';
 import Description from '../../components/Landing/Description/Description';
-import MySlider from '../../components/Landing/Slider/Slider';
+import Slider from '../../components/Landing/Slider/Slider';
 import { Wrapper } from './MainPage.styled';
 
 const MainPage = () => {
@@ -9,7 +9,7 @@ const MainPage = () => {
       <AuthLanding />
       <Wrapper>
         <Description />
-        <MySlider />
+        <Slider />
       </Wrapper>
     </>
   );
