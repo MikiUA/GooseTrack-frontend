@@ -35,10 +35,6 @@ export const GridCell = styledMUI(Box, {
   shouldForwardProp: props => props !== 'isNotCurrMonth',
 })(
   ({ isNotCurrMonth, theme }) => `
-  // display: flex;
-  // font-size: 10px;
-  // justify-content: flex-end;
-  // padding-bottom: 64px;
   box-sizing: border-box;
   display: flex;
   width: 48px;
@@ -66,20 +62,17 @@ export const GridCell = styledMUI(Box, {
 `
 );
 
-export const DateBtn = styledMUI(Button)`
-// display: flex;
-// padding: 4px 6px;
-// justify-content: center;
-// align-items: center;
- box-sizing: border-box;
- min-width: 0;
-margin-left: auto;
+export const DateBtn = styledMUI(Button)(
+  ({ theme }) => `
+  box-sizing: border-box;
+  min-width: 0;
+  margin-left: auto;
   padding: 4px 6px;
   align-items: center;
 
 font-family: 'Inter';
 font-style: normal;
-color: #343434;
+  color: ${theme.palette.text.primary};
 font-weight: 700;
 
 @media screen and (min-width: 375px) {
@@ -96,4 +89,5 @@ font-weight: 700;
 }
 @media screen and (min-width: 1440px) {
 }
-`;
+`
+);

@@ -10,7 +10,6 @@ const MonthCalendarHead = () => {
     <DivCalendarHead>
       {daysName.map((day, idx) => (
         <CalendarHeaderCell key={idx} isWeekDay={idx < 5 ? false : true}>
-          {console.log('CalendarHeaderCell: ', <CalendarHeaderCell />)}
           {day}
         </CalendarHeaderCell>
       ))}

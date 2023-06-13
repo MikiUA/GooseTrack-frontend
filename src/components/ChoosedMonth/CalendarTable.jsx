@@ -18,9 +18,8 @@ const updateValues = currentDate => {
   const day = startDay.subtract(1, 'day');
   const totalDays = 42;
   const dayArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
-  const isToday = calendarDay =>
-    today.isSame(calendarDay) & today.isSame(moment().format('YYYY-MM-DD'));
-
+  const isToday = calendarDay => today.isSame(calendarDay);
+  //     today.isSame(calendarDay) & today.isSame(moment().format('YYYY-MM-DD'));
   return { currentMonth, dayArray, isToday };
 };
 const tasksObject = taskArr => {
