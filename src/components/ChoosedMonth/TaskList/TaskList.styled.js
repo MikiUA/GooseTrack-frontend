@@ -2,8 +2,14 @@ import styled from 'styled-components';
 
 export const TasksContainer = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${props => (props.manyTasks ? 'row' : 'column')};
+  flex-wrap: ${props => (props.manyTasks ? 'wrap' : 'nowrap')};
+  align-content: center;
   justify-content: center;
+  & > li {
+    width: ${props => (props.manyTasks ? '16px' : 'auto')};
+    height: ${props => (props.manyTasks ? 'fit-content;' : 'auto')};
+  }
   height: 100%;
   margin: 0;
   padding-left: 2px;
