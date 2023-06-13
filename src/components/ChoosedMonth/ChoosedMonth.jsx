@@ -3,7 +3,7 @@
 import moment from 'moment';
 
 import CalendarTable from './CalendarTable';
-import MonthCalendarHead from './MonthCalendarHead';
+import MonthCalendarHead from './MonthCalendarHead/MonthCalendarHead';
 import { StyledWrapCalendar } from './ChoosedMonth.styled';
 
 moment.updateLocale('en', { week: { dow: 1 } });

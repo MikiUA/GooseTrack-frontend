@@ -1,13 +1,17 @@
-import { useRefreshTokenQuery } from "API/auth-operations";
+import { useEffect } from "react";
 import MuiThemeProvider from "./MUIThemeProvider/MUIThemeProvider";
 import { Router } from "./Router/Router";
-import { useEffect } from "react";
+import useRefreshUser from "hooks/useRefreshUser";
 
 export function App() {
-    const {data,isLoading}=useRefreshTokenQuery();
+    const {isLoading,refreshUser }= useRefreshUser()
+    
     useEffect(()=>{
-        if(data && data.token) localStorage.setItem('token', JSON.stringify(data.token));
-    },[data]);
+        const token=localStorage.getItem('refreshToken');
+        if (!token) return
+        refreshUser();
+        //eslint-disable-next-line
+    },[])
     return ( isLoading?<>Loading</>:
         <MuiThemeProvider>
             <Router />

@@ -6,6 +6,7 @@ import {
   WrapperMain,
   WrapperPageContent,
   WrapperSideBarContent,
+  WrapperHeader,
 } from './MainLayout.styled';
 import { Header } from 'components/Header/Header';
 import SideBar from 'components/SideBar/SideBar';
@@ -18,21 +19,22 @@ const MainLayout = () => {
     <>
       <WrapperMain>
         <WrapperSideBarContent data={isMenuOpen ? 'true' : undefined}>
-          {isMenuOpen ? null : (
-            <SideButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleToggle}
-            >
-              <MenuIcon />
-            </SideButton>
-          )}
-
           <SideBar onClose={handleToggle} isOpen={isMenuOpen} />
         </WrapperSideBarContent>
         <WrapperPageContent>
-          <Header />
+          <WrapperHeader>
+            {isMenuOpen ? null : (
+              <SideButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleToggle}
+              >
+                <MenuIcon />
+              </SideButton>
+            )}
+            <Header />
+          </WrapperHeader>
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
           </Suspense>

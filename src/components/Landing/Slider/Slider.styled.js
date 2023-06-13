@@ -145,6 +145,12 @@ export const IconArrow = styled(Icon)`
   justify-content: center;
   display: flex;
   fill: #3e85f3;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    fill: #ffffff;
+  }
 `;
 
 export const BtnArrow = styled.button`
@@ -153,9 +159,11 @@ export const BtnArrow = styled.button`
   padding: 5px 12px;
   background-color: #dcebf7;
   outline: transparent;
+
   &:hover,
   &:focus {
     cursor: pointer;
+    background-color: #3e85f3;
   }
 `;
 
