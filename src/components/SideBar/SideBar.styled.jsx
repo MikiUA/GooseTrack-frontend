@@ -1,5 +1,4 @@
 import { Typography, styled, Box, Button } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import Icon from '../../utils/Icon/Icon';
 
 export const StyledContainer = styled(Box)(
@@ -102,21 +101,21 @@ export const StyledButtonClose = styled(Button)`
     opacity: 0;
   }
 `;
-export const StyledUser = styled(Typography)`
+export const StyledUser = styled(Typography)(({theme})=>`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: #34343480;
+  color: ${theme.palette.mode==='dark'?'rgba(250, 250, 250, 0.3)':'#34343480'};
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 24px;
   }
-`;
+`);
 export const StyledLink = styled(Button)(
-  ({ theme, active }) => `
+  ({ theme }) => `
   fill: none;
   display: flex;
 align-items: center;
@@ -129,8 +128,7 @@ justify-content: start;
   max-width: 145px;
   max-height: 40px;
   margin-bottom: 18px;
-  color: rgba(52, 52, 52, 0.5);
- background-color: ${active ? '#e3f3ff' : theme.palette.primary.main};
+  color:${(theme.palette.mode === 'dark' ? 'white' : 'gray')};
   text-decoration: none;
   font-size: 16px;
   line-height: 1.21;
@@ -138,6 +136,10 @@ justify-content: start;
     color: rgba(62, 133, 243, 1);
     background-color: #e3f3ff;
   }
+  &:disabled {
+    background-color:${theme.palette.customLightBlueButton.background};
+    color:${theme.palette.customLightBlueButton.text};
+}
   :hover,
   :focus {
     color: ${theme.palette.primary.main};
