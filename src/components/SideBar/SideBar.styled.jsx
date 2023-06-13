@@ -18,6 +18,7 @@ export const StyledContainer = styled(Box)(
     padding: 24px 32px;
   }
   @media screen and (min-width: 1440px) {
+    position: relative;
     display: flex;
     width: 20vw;
     padding: 32px 24px;
@@ -118,22 +119,26 @@ export const StyledLink = styled(NavLink)(
   ({ theme }) => `
   fill: none;
   display: flex;
-
-  align-items: center;
+align-items: center;
+  justify-content: center;
+font-weight: 600;
+justify-content: start;
+ 
   padding: 16px 20px;
   border-radius: 8px;
   max-width: 185px;
-  max-height: 40px;
-  text-decoration: none;
-  color: rgba(52, 52, 52, 0.5);
+  height: 40px;
   margin-bottom: 18px;
+  color: rgba(52, 52, 52, 0.5);
+  text-decoration: none;
   font-size: 16px;
   line-height: 1.21;
     &:active {
     color: rgba(62, 133, 243, 1);
     background-color: #e3f3ff;
   }
-  &:hover {
+  :hover,
+  :focus {
     color: ${theme.palette.primary.main};
     background-color: #e3f3ff;
   }

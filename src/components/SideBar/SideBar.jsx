@@ -16,6 +16,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useLogoutMutation } from 'API/auth-operations';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from 'API/userSlice';
+import { LogoIcon } from './SidebarImg.styled';
 
 const basePath = '../../images/logoGoose/';
 
@@ -53,7 +54,7 @@ const SideBar = ({ onClose, isOpen }) => {
               media="(min-width: 1440px)"
               srcSet={`${basePath}logo-GOOSE-desk.png 1x, ${basePath}logo-GOOSE-desk@2x.png 2x`}
             />
-            <img
+            <LogoIcon
               src={require('../../images/logoGoose/logo-GOOSE-desk.png')}
               alt="Logo goose"
             />
@@ -67,6 +68,7 @@ const SideBar = ({ onClose, isOpen }) => {
           ></StyledButtonClose>
         </StyledHeader>
         <StyledUser>User Panel</StyledUser>
+
         <StyledLink to="/account">
           <UserNavTitle onClick={onClose}>My account</UserNavTitle>
         </StyledLink>
