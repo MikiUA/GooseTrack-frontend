@@ -78,6 +78,9 @@ export const StyledInput = styled(Field)`
   &::placeholder {
     color: #dce3e5;
   }
+  &:hover {
+    transform: scale(1.02);
+  }
 
   &:focus {
     outline: none;
@@ -107,6 +110,10 @@ export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 11px;
+  &:hover,
+  :focus {
+    transform: scale(1.02);
+  }
   @media screen and (min-width: 768px) {
     margin-top: 48px;
   }
