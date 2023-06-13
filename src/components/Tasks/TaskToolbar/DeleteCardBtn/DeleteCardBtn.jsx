@@ -11,12 +11,9 @@ const DeleteCardBtn = ({ id }) => {
 
     const [deleteTask] = useDeleteTaskByIdMutation();
 
-    const handleDelete = async ({ task_id }) => {
+    const handleDelete = async (id) => {
         try {
-            console.log(task_id)
-            const res = await deleteTask( task_id )
-            console.log(res)
-
+           await deleteTask( id )
         } catch (error) {
             console.error(error);
         }

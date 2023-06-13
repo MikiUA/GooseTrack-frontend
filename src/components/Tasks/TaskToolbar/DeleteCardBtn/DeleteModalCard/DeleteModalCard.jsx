@@ -1,3 +1,5 @@
+import { CancelBtn, Container, ContainerBtn, DeleteBtn, Title } from "./DeleteModalCard.styled";
+
 
 const DeleteModalCard = ({ onClose, handleDelete, id }) => {
     
@@ -6,17 +8,17 @@ const DeleteModalCard = ({ onClose, handleDelete, id }) => {
     }
 
     return (
-        <>
-            <h1>Do you really want to delete this task?</h1>
-            <div >
-                <button onClick={deleteTask}>
+        <Container>
+            <Title>Do you really want to delete this task?</Title>
+            <ContainerBtn>
+                <DeleteBtn onClick={deleteTask}>
                 Delete
-                </button>
-                <button onClick={onClose}>
+                </DeleteBtn>
+                <CancelBtn onClick={onClose}>
                 Cancel
-                </button>
-            </div>
-        </>
+                </CancelBtn>
+            </ContainerBtn>
+        </Container>
     )
 }
 
