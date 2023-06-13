@@ -7,6 +7,7 @@ import {
   IconStyled,
   InputStyled,
   LabelStyled,
+  BtnStyledText,
 } from './MoveCardBtn.styled';
 import { useState, useRef, useEffect } from 'react';
 
@@ -31,8 +32,10 @@ const MoveCardBtn = ({ id, category }) => {
     const updatedData = {
       category: categories,
     };
-    const updatedTask = await updateTaskPropertiesById(taskId, updatedData);
-    console.log(updatedTask);
+    await updateTaskPropertiesById({
+      id: taskId,
+      body: updatedData,
+    });
   };
 
   const chouseCatRef = useRef(null);
@@ -86,15 +89,8 @@ const MoveCardBtn = ({ id, category }) => {
                         width="16"
                         height="16"
                       />
-                      {categories}
+                      <BtnStyledText> {categories}</BtnStyledText>
                     </Button>
-
-                    <InputStyled
-                      type="radio"
-                      value={categories}
-                      checked={selectedOption}
-                      onChange={handleOptionChange}
-                    />
                   </LabelStyled>
                 </div>
               )

@@ -25,7 +25,7 @@ const taskUtils = createApi({
       invalidatesTags: ['tasks'],
     }),
     updateTaskById: builder.mutation({
-      query: (id, body) => ({
+      query: ({ id, body }) => ({
         url: `/tasks/${id}`,
         method: 'PUT',
         body,
@@ -34,7 +34,7 @@ const taskUtils = createApi({
       invalidatesTags: ['tasks'],
     }),
     updateTaskPropertiesById: builder.mutation({
-      query: (id, body) => ({
+      query: ({ id, body }) => ({
         url: `/tasks/${id}`,
         method: 'PATCH',
         body,

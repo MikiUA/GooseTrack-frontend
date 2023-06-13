@@ -6,26 +6,25 @@ export const Button = styled.button`
   border: none;
   padding: 0;
   background-color: rgba(0, 0, 0, 0);
+  display: flex;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.01);
+  }
 `;
 
 export const IconStyled = styled(Icon)`
   stroke: #111;
   transition: linear 0.3s;
-
+  cursor: pointer;
   &:hover,
   &:focus {
+    scale: 1.1;
     stroke: #3e85f3;
   }
 `;
-export const ToolBarItem = styled.svg`
-  /* stroke: var(--close-btn-color); */
-  fill: transparent;
-  width: 16px;
-  height: 16px;
-  :hover {
-    /* stroke: var(--color-button-period-type); */
-  }
-`;
+
 export const Wraper = styled.div`
   display: flex;
   align-items: center;
@@ -37,6 +36,9 @@ export const BtnStyled = styled.button`
   background-color: transparent;
   border: none;
 `;
+export const BtnStyledText = styled.span`
+  margin-left: 4px;
+`;
 export const BtnWrap = styled.div`
   background-color: transparent;
   position: relative;
@@ -45,13 +47,14 @@ export const ChouseCat = styled.div`
   position: absolute;
   /* background-color: var(--primary-background-color); */
   flex-direction: column;
-  gap: 14px;
-  width: 115px;
-  height: 70px;
-  top: -30px;
+  gap: 12px;
+  width: 100px;
+
+  top: -50px;
+  right: -45px;
   border: transparent;
   border-radius: 8px;
-  padding: 14px;
+
   font-family: Inter;
   font-style: Medium;
   font-size: 12px;
@@ -62,9 +65,14 @@ export const InputStyled = styled.input`
   width: 0;
   height: 0;
 `;
-export const LabelStyled = styled.label`
+export const LabelStyled = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &:hover,
+  &:focus {
+    scale: 1.1;
+    stroke: #3e85f3;
+  }
 `;
