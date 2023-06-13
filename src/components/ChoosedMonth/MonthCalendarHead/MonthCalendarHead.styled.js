@@ -1,6 +1,7 @@
 import { Box, styled as styledMUI } from '@mui/material';
 
-export const DivCalendarHead = styledMUI(Box)(({theme})=>`
+export const DivCalendarHead = styledMUI(Box)(
+  ({ theme }) => `
   display: flex;
   justify-content: space-between;
   max-width: 100%;
@@ -18,10 +19,14 @@ export const DivCalendarHead = styledMUI(Box)(({theme})=>`
   @media screen and (min-width: 1440px) {
     padding: 14px 60px;
   }
-`);
+`
+);
 
-export const CalendarHeaderCell = styledMUI(Box)(({isWeekDay,theme})=>`
-  color: ${isWeekDay ? theme.palette.text.primary : '#3E85F3'};
+export const CalendarHeaderCell = styledMUI(Box, {
+  shouldForwardProp: props => props !== 'isWeekDay',
+})(
+  ({ isWeekDay, theme }) => `
+  color: ${isWeekDay ? '#3E85F3' : theme.palette.text.primary};
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -48,4 +53,5 @@ export const CalendarHeaderCell = styledMUI(Box)(({isWeekDay,theme})=>`
       margin-right: 122px;
     }
   }
-`);
+`
+);
