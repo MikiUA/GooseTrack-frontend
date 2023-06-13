@@ -58,9 +58,6 @@ export const SliderItem = styled.li`
   overflow: hidden;
   display: ${({ index, currentSlide }) =>
     index === currentSlide ? 'block' : 'none'};
-  /* transform: scale(${({ isArrowClicked }) =>
-    isArrowClicked ? '1.1' : '1'});
-  transition: transform 0.3s ease; */
 
   @media (min-width: 768px) {
     max-width: 580px;

@@ -25,26 +25,18 @@ const Slider = () => {
 
   const { data, isLoading } = useGetAllFeedbacksQuery();
 
-const handlePrevSlide = () => {
+  const handlePrevSlide = () => {
     const totalSlides = data.data.result.length;
-    if (currentSlide === 0) {
-      setCurrentSlide(totalSlides - 2);
-    } else if (currentSlide === 1) {
-      setCurrentSlide(totalSlides - 1);
-    } else {
-      setCurrentSlide(prevSlide => prevSlide - 2);
-    }
+    setCurrentSlide(prevSlide =>
+      prevSlide === 0 ? totalSlides - 2 : prevSlide - 1
+    );
   };
 
-const handleNextSlide = () => {
+  const handleNextSlide = () => {
     const totalSlides = data.data.result.length;
-    if (currentSlide === totalSlides - 2) {
-      setCurrentSlide(0);
-    } else if (currentSlide === totalSlides - 1) {
-      setCurrentSlide(1);
-    } else {
-      setCurrentSlide(prevSlide => prevSlide + 2);
-    }
+    setCurrentSlide(prevSlide =>
+      prevSlide === totalSlides - 2 ? 0 : prevSlide + 1
+    );
   };
 
   const handleArrowClick = () => {
@@ -68,7 +60,6 @@ const handleNextSlide = () => {
                   index={index}
                   currentSlide={currentSlide}
                   isArrowClicked={isArrowClicked}
-                  dataLength={data.data.result.length}
                 >
                   <SliderHeaderUser>
                     <SliderUserPhoto src={item.avatarUrl} alt={item.name} />
