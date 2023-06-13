@@ -5,6 +5,7 @@ import Icon from 'utils/Icon/Icon';
 export const Button = styled.button`
     cursor: pointer;
     border: none;
+    padding: 0;
     background-color: rgba(0, 0, 0, 0);
 `
 

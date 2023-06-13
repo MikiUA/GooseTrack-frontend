@@ -46,8 +46,8 @@ const NotFound = () => {
             <StyledAuthSpan/>
             </StyledAuthButton>
                   
-            </AuthBtnWrapper>
-        </StyledHeader>
+           </AuthBtnWrapper>
+         </StyledHeader>
    
      )
 }   
