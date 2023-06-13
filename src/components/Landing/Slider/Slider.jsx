@@ -25,7 +25,7 @@ const Slider = () => {
 
   const { data, isLoading } = useGetAllFeedbacksQuery();
 
-  const handlePrevSlide = () => {
+const handlePrevSlide = () => {
     const totalSlides = data.data.result.length;
     if (currentSlide === 0) {
       setCurrentSlide(totalSlides - 2);
@@ -36,7 +36,7 @@ const Slider = () => {
     }
   };
 
-  const handleNextSlide = () => {
+const handleNextSlide = () => {
     const totalSlides = data.data.result.length;
     if (currentSlide === totalSlides - 2) {
       setCurrentSlide(0);
