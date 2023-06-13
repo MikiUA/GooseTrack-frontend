@@ -37,7 +37,6 @@ const TasksColumnsList = () => {
 
   return (
     <List>
-      {' '}
       {Object.keys(taskTypes).map(taskColumnTitle => (
         <TasksColumn
           key={taskColumnTitle}
