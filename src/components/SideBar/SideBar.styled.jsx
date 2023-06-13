@@ -79,7 +79,7 @@ export const StyledPicture = styled(Box)`
   }
 `;
 
-export const StyledButtonClose = styled(Icon)`
+export const StyledButtonClose = styled(Button)`
   opacity: 1;
   width: 24px;
   height: 24px;
