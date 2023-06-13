@@ -14,7 +14,7 @@ export const StyledFeedbacksList = styled.ul`
   margin: 0;
   flex-direction: column;
   list-style-type: none;
-  padding: 14px;
+  padding: 10px;
 `;
 
 export const StyledFeedbacksItem = styled.li`
@@ -23,10 +23,16 @@ export const StyledFeedbacksItem = styled.li`
   align-items: flex-start;
 
   :not(:first-child) {
-    margin-top: 14px;
+    @media screen and (min-width: 375px) {
+      margin-top: 14px;
+    }
 
     @media screen and (min-width: 768px) {
       margin-top: 20px;
+    }
+
+    :first-child {
+      margin-top: 10px;
     }
   }
 `;
@@ -39,11 +45,8 @@ export const StyledFeedbacksAvatar = styled.img`
   margin-right: 12px;
 
   @media screen and (min-width: 768px) {
-    display: block;
-    border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-right: 12px;
   }
 `;
 
@@ -66,12 +69,12 @@ export const StyledFeedbacksUsername = styled.h4`
 `;
 
 export const StyledFeedbacksRating = styled(Icon)`
-
+  @media screen and (min-width: 375px) {
     width: 14px;
     height: 14px;
     use
     margin-right: 6px;
-
+  }
 
   @media screen and (min-width: 768px) {
     margin-right: 8px;
@@ -79,7 +82,9 @@ export const StyledFeedbacksRating = styled(Icon)`
 `;
 
 export const StyledFeedbacksHeader = styled.div`
-  display: flex;
+  @media screen and (min-width: 375px) {
+    display: flex;
+  }
 `;
 
 export const StyledFeedbacksText = styled.p`
@@ -90,16 +95,21 @@ export const StyledFeedbacksText = styled.p`
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 1.33px;
+  line-height: 16px;
+  /* or 133% */
 
   color: rgba(17, 17, 17, 0.7);
+
+  :last-child {
+    margin-bottom: 10px;
+  }
 
   @media screen and (min-width: 768px) {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 1.29px;
+    line-height: 18px;
     /* or 129% */
 
     color: rgba(17, 17, 17, 0.7);
@@ -113,13 +123,14 @@ export const StyledFeedbacksButtons = styled.div`
 `;
 
 export const StyledFeedbackButton = styled.button`
-  cursor: pointer;
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
 
-  :first-child {
-    margin-right: 10px;
-  }
+    :first-child {
+      @media screen and (min-width: 375px) {
+        margin-right: 10px;
+      }
 
   @media screen and (min-width: 768px) {
     cursor: pointer;
