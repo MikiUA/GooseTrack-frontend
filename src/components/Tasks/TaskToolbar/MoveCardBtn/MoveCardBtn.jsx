@@ -28,7 +28,10 @@ const MoveCardBtn = ({ id, category }) => {
   };
 
   const handleUpdate = async (taskId, categories) => {
-    const updatedTask = await updateTaskPropertiesById(taskId, categories);
+    const updatedData = {
+      category: categories,
+    };
+    const updatedTask = await updateTaskPropertiesById(taskId, updatedData);
     console.log(updatedTask);
   };
 
