@@ -55,12 +55,18 @@ export const BtnAddFeedback = () => {
 
   const handleDelete = async id => {
     const res = await deleteFeedback(id);
-    console.log(res);
+    if (!res.error) {
+      refetch();
+    }
   };
 
   const handleReviewChange = event => {
     const newReview = event.target.value;
     setReview(newReview);
+  };
+
+  const handleModalUpdated = () => {
+    refetch();
   };
   return (
     <>
@@ -79,7 +85,11 @@ export const BtnAddFeedback = () => {
               <CircularProgress sx={{ color: 'white' }} />
             </Box>
           ) : (
-            <FeedbackList data={data} req={handleDelete} />
+            <FeedbackList
+              data={data}
+              req={handleDelete}
+              onModalUpdated={handleModalUpdated}
+            />
           )}
         </FeedbackWrapper>
       </Modal>

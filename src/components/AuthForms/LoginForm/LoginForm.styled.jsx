@@ -70,7 +70,7 @@ export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
 export const StyledInput = styled(Field)`
   display: flex;
   /* height: 46px; */
-  color: #dce3e5;
+  /* color: #dce3e5; */
   border: 1px solid rgba(220, 227, 229, 0.6);
   border-radius: 8px;
   padding: 14px;

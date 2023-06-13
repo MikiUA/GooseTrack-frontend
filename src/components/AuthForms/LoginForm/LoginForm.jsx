@@ -34,6 +34,8 @@ const LoginForm = () => {
 
       if (error) {
         alert(error.data.message);
+
+        setIsLoading(false);
         return;
       }
 

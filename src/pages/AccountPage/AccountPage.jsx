@@ -7,6 +7,7 @@ const AccountPage = () => {
   if (!data) {
     return <h2>Loading</h2>;
   }
+
   return (
     <>
       <UserForm data={data} />
