@@ -14,8 +14,14 @@ export const StyledLoginFormWrapper = styled.div`
   transform: translate(-50%, -50%);
   min-width: 335px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   @media (min-width: 768px) {
     width: 480px;
+  }
+  @media (max-width: 375px) {
+    width: fit-content;
+    text-align: center;
   }
 `;
 

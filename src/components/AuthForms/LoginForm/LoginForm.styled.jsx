@@ -7,7 +7,7 @@ export const StyledForm = styled(Formik)`
   max-width: 335px;
 `;
 export const StyledFormInsight = styled(Form)`
-  max-width: 287px;
+  width: 287px;
   display: flex;
   background-color: #ffffff;
   flex-direction: column;
@@ -19,8 +19,11 @@ export const StyledFormInsight = styled(Form)`
   margin-right: auto;
 
   @media screen and (min-width: 768px) {
-    max-width: 480px;
+    width: 400px;
     padding: 40px;
+  }
+  @media (max-width: 375px) {
+    width: fit-content;
   }
 `;
 
@@ -69,11 +72,12 @@ export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
 
 export const StyledInput = styled(Field)`
   display: flex;
-  /* height: 46px; */
-  /* color: #dce3e5; */
   border: 1px solid rgba(220, 227, 229, 0.6);
   border-radius: 8px;
   padding: 14px;
+  &::placeholder {
+    color: #dce3e5;
+  }
 
   &:focus {
     outline: none;
