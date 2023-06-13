@@ -43,7 +43,7 @@ const AddTaskBtn = ({ columnHeadBtn, category }) => {
   return (
     <>
       {columnHeadBtn ? (
-        <ButtonIcon type="button">
+        <ButtonIcon type="button" onClick={handleToggle}>
           <ButtonIconStyled name="icon-icon" width="20" height="20" />
         </ButtonIcon>
       ) : (

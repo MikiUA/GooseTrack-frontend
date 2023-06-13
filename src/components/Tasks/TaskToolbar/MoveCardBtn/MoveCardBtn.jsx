@@ -3,9 +3,8 @@ import {
   BtnWrap,
   BtnStyled,
   Button,
-  ChouseCat,
+  Wrapper,
   IconStyled,
-  InputStyled,
   LabelStyled,
   BtnStyledText,
 } from './MoveCardBtn.styled';
@@ -13,7 +12,7 @@ import { useState, useRef, useEffect } from 'react';
 
 const MoveCardBtn = ({ id, category }) => {
   const [updateTaskPropertiesById] = useUpdateTaskPropertiesByIdMutation();
-  const [selectedOption, setSelectedOption] = useState('');
+
   const [isClicked, setIsClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -22,10 +21,6 @@ const MoveCardBtn = ({ id, category }) => {
   const handleClick = () => {
     setIsClicked(prevIsClicked => !prevIsClicked);
     setIsVisible(false);
-  };
-
-  const handleOptionChange = e => {
-    setSelectedOption(e.target.value);
   };
 
   const handleUpdate = async (taskId, categories) => {
@@ -38,7 +33,7 @@ const MoveCardBtn = ({ id, category }) => {
     });
   };
 
-  const chouseCatRef = useRef(null);
+  const wrapperRef = useRef(null);
   const btnWrapRef = useRef(null);
 
   useEffect(() => {
@@ -74,8 +69,8 @@ const MoveCardBtn = ({ id, category }) => {
           </BtnStyled>
         )}
 
-        <ChouseCat
-          ref={chouseCatRef}
+        <Wrapper
+          ref={wrapperRef}
           style={isClicked ? { display: 'flex' } : { display: 'none' }}
         >
           {categoryTask.map(categories => {
@@ -96,7 +91,7 @@ const MoveCardBtn = ({ id, category }) => {
               )
             );
           })}
-        </ChouseCat>
+        </Wrapper>
       </BtnWrap>
     </>
   );
