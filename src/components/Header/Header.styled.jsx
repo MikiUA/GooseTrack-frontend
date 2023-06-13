@@ -22,20 +22,13 @@ export const StyledBox = styled.div`
 `;
 
 export const StyledWrapper = styled.div`
-  @media screen and (min-width: 375px) {
-    display: flex;
-    align-items: center;
-    max-height: 100%;
-  }
+  display: flex;
+  align-items: center;
+  max-height: 100%;
 `;
 
 export const UserBox = styled.div`
-  @media screen and (min-width: 375px) {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
-
-  @media screen and (min-width: 768px) {
-  }
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 `;

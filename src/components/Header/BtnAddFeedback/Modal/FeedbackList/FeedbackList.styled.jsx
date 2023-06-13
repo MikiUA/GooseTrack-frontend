@@ -2,35 +2,28 @@ import styled from 'styled-components';
 import Icon from 'utils/Icon/Icon';
 
 export const StyledFeedbacksBox = styled.div`
-  @media screen and (min-width: 375px) {
-    overflow-y: auto;
-    max-height: 200px;
+  overflow-y: auto;
+  max-height: 200px;
 
-    background: rgba(227, 243, 255, 0.5);
-    border-radius: 8px;
-  }
+  background: rgba(227, 243, 255, 0.5);
+  border-radius: 8px;
 `;
 
 export const StyledFeedbacksList = styled.ul`
-  @media screen and (min-width: 375px) {
-    display: flex;
-    margin: 0;
-    flex-direction: column;
-    list-style-type: none;
-    padding: 14px;
-  }
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 14px;
 `;
 
 export const StyledFeedbacksItem = styled.li`
-  @media screen and (min-width: 375px) {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-  }
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
   :not(:first-child) {
-    @media screen and (min-width: 375px) {
-      margin-top: 14px;
-    }
+    margin-top: 14px;
 
     @media screen and (min-width: 768px) {
       margin-top: 20px;
@@ -39,12 +32,11 @@ export const StyledFeedbacksItem = styled.li`
 `;
 
 export const StyledFeedbacksAvatar = styled.img`
-  @media screen and (min-width: 375px) {
-    display: block;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-  }
+  display: block;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
 
   @media screen and (min-width: 768px) {
     display: block;
@@ -56,18 +48,16 @@ export const StyledFeedbacksAvatar = styled.img`
 `;
 
 export const StyledFeedbacksUsername = styled.h4`
-  @media screen and (min-width: 375px) {
-    display: block;
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
 
-    color: #343434;
-  }
+  color: #343434;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -76,12 +66,12 @@ export const StyledFeedbacksUsername = styled.h4`
 `;
 
 export const StyledFeedbacksRating = styled(Icon)`
-  @media screen and (min-width: 375px) {
+
     width: 14px;
     height: 14px;
     use
     margin-right: 6px;
-  }
+
 
   @media screen and (min-width: 768px) {
     margin-right: 8px;
@@ -89,32 +79,27 @@ export const StyledFeedbacksRating = styled(Icon)`
 `;
 
 export const StyledFeedbacksHeader = styled.div`
-  @media screen and (min-width: 375px) {
-    display: flex;
-  }
+  display: flex;
 `;
 
 export const StyledFeedbacksText = styled.p`
-  @media screen and (min-width: 375px) {
-    margin-top: 12px;
-    margin-bottom: 0;
+  margin-top: 12px;
+  margin-bottom: 0;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    /* or 133% */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33px;
 
-    color: rgba(17, 17, 17, 0.7);
-  }
+  color: rgba(17, 17, 17, 0.7);
 
   @media screen and (min-width: 768px) {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.29px;
     /* or 129% */
 
     color: rgba(17, 17, 17, 0.7);
@@ -122,25 +107,20 @@ export const StyledFeedbacksText = styled.p`
 `;
 
 export const StyledFeedbacksButtons = styled.div`
-  @media screen and (min-width: 375px) {
-    position: absolute;
-    top: 0;
-    right: 0px;
-  }
+  position: absolute;
+  top: 0;
+  right: 0px;
 `;
 
 export const StyledFeedbackButton = styled.button`
-  @media screen and (min-width: 375px) {
-    cursor: pointer;
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
 
-    :first-child {
-      @media screen and (min-width: 375px) {
-        margin-right: 10px;
-      }
-
+  :first-child {
+    margin-right: 10px;
   }
+
   @media screen and (min-width: 768px) {
     cursor: pointer;
     border: none;
