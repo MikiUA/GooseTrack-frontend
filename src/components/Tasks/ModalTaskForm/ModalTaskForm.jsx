@@ -45,6 +45,7 @@ const ModalTaskForm = ({ onClose, handleSubmit, category }) => {
         date: currentDate,
         category: category,
       });
+      onClose();
     }
   };
 
