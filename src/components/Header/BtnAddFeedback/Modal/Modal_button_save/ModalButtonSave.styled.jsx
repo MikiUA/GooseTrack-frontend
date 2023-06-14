@@ -8,7 +8,6 @@ export const StyledButtonSave = styled(Button)`
 
   margin-bottom: 20px;
 
-  background: #3e85f3;
   border-radius: 8px;
 
   font-family: 'Inter';
@@ -17,8 +16,6 @@ export const StyledButtonSave = styled(Button)`
   font-size: 14px;
   line-height: 18px;
   text-align: center;
-
-  color: #ffffff;
 
   @media screen and (min-width: 768px) {
     width: 404px;

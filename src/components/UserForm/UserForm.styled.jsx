@@ -7,11 +7,8 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
-//eslint-disable-next-line
-  TextField,
 } from '@mui/material';
-//eslint-disable-next-line
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { ErrorMessage } from 'formik';
 import { createTheme } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { RiErrorWarningLine } from 'react-icons/ri';
@@ -34,31 +31,15 @@ const theme = createTheme({
 });
 
 const {
-  // light,
   main,
-  // dark,
   contrast,
   label,
   darkText,
-  // labelNormal,
   error,
   accept,
 } = theme.palette.primary;
 
-/* <OutlinedInput
-  // інші пропси
-  sx={{
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: labelNormal, // колір рамки віджета
-    },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: label, // колір рамки віджета при наведенні
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: label, // колір рамки віджета при фокусуванні
-    },
-  }}
-/>; */
+
 
 export const Container = styled(Paper)`
   && {
@@ -380,10 +361,6 @@ export const DateInput = styled(DatePicker)`
     height: 18px;
   }
 
-  && .MuiPaper-root {
-    background-color: red;
-  }
-
   && .MuiInputBase-root {
     height: 42px;
     border-radius: 8px;
@@ -438,34 +415,100 @@ export const DateInput = styled(DatePicker)`
   }
 `;
 
-// export const DateInput = styles.div`
-//   box-sizing: border-box;
-//   width: 100%;
-//   height: 42px;
-//   font-weight: 600;
-//   font-size: 14px;
-//   line-height: 1.29;
-
-//   border-radius: 8px;
-
-//   &:hover: {
-//     border: 1px solid ${label};
-//   }
-
-//   &:focus: {
-//     border: 1px solid ${label};
-//   }
-
-//   @media (min-width: 375px) {
-//     width: 299px;
-//   }
-
-//   @media (min-width: 768px) {
-//     width: 354px;
-//     font-size: 16px;
-//     line-height: 1.12;
-//   }
-// `;
+export const PopperDateStyles = {
+  '& .MuiDateCalendar-root': {
+    width: '327px',
+    height: '354px',
+  },
+  '& .MuiPaper-root': {
+    padding: '9px 0px 19px',
+    backgroundColor: '#3E85F3',
+    borderRadius: '16px',
+  },
+  '& .MuiPickersCalendarHeader-root': {
+    position: 'relative',
+    justifyContent: 'center',
+  },
+  '& .MuiPickersCalendarHeader-labelContainer': {
+    margin: 0,
+    color: '#FFFFFF',
+    fontWeight: 600,
+    fontSize: '20px',
+    lineHeight: 1.2,
+  },
+  '& .MuiButtonBase-root.MuiIconButton-root.MuiPickersCalendarHeader-switchViewButton':
+    { display: 'none' },
+  '& .MuiPickersDay-root': {
+    color: '#FFFFFF',
+    fontWeight: 400,
+    fontSize: '18px',
+    lineHeight: 1.33,
+  },
+  '& .MuiPickersArrowSwitcher-spacer': {
+    display: 'none',
+  },
+  '& .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeEnd.MuiIconButton-sizeMedium.MuiPickersArrowSwitcher-button':
+    {
+      position: 'absolute',
+      left: '35px',
+      top: '9px',
+      color: '#FFFFFF',
+      width: '18px',
+      height: '18px',
+    },
+  '& .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeStart.MuiIconButton-sizeMedium.MuiPickersArrowSwitcher-button':
+    {
+      position: 'absolute',
+      top: '9px',
+      right: '35px',
+      color: '#FFFFFF',
+      width: '18px',
+      height: '18px',
+    },
+  '& .MuiDayCalendar-header': {
+    borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+  },
+  '& .MuiTypography-root.MuiTypography-caption.MuiDayCalendar-weekDayLabel': {
+    color: '#FFFFFF',
+    fontWeight: 600,
+    fontSize: '14px',
+    lineHeight: 1.28,
+  },
+  '& .MuiPickersDay-root.MuiPickersDay-today': {
+    border: 'none',
+  },
+  '& .MuiPickersYear-yearButton': {
+    color: '#FFFFFF',
+    fontWeight: 600,
+    fontSize: '14px',
+    lineHeight: 1.28,
+  },
+  '& .MuiPickersYear-yearButton.Mui-selected': {
+    backgroundColor: '#FFFFFF',
+    color: '#3E85F3',
+    borderRadius: '24px',
+  },
+  '& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected': {
+    backgroundColor: '#FFFFFF',
+    color: '#3E85F3',
+    borderRadius: '24px',
+    width: '32px',
+    height: '32px',
+  },
+  '& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected.MuiPickersDay-today': {
+    backgroundColor: '#FFFFFF',
+    color: '#3E85F3',
+    borderRadius: '24px',
+    width: '32px',
+    height: '32px',
+  },
+  '& .MuiButtonBase-root.MuiPickersDay-root.Mui-disabled': {
+    color: 'rgba(17, 17, 17, 0.15);',
+  },
+  '& .MuiPickersYear-root.Mui-disabled': {
+    color: 'rgba(17, 17, 17, 0.15);',
+  },
+};
 
 export const ButtonWrap = styled(Box)`
   display: flex;

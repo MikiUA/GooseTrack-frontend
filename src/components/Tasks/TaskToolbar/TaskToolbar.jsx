@@ -3,10 +3,10 @@ import EditCardBtn from './EditCardBtn/EditCardBtn';
 import DeleteCardBtn from './DeleteCardBtn/DeleteCardBtn';
 import { List } from './TaskToolbar.styled';
 
-const TaskToolbar = ({ id, task }) => {
+const TaskToolbar = ({ id, category }) => {
   return (
     <List>
-      <MoveCardBtn id={id} task={task} />
+      <MoveCardBtn id={id} category={category} />
       <EditCardBtn id={id} />
       <DeleteCardBtn id={id} />
     </List>

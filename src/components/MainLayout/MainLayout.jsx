@@ -10,6 +10,7 @@ import {
 } from './MainLayout.styled';
 import { Header } from 'components/Header/Header';
 import SideBar from 'components/SideBar/SideBar';
+import { Loader } from 'components/Loader/Loader';
 
 const MainLayout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ const MainLayout = () => {
             )}
             <Header />
           </WrapperHeader>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
         </WrapperPageContent>
