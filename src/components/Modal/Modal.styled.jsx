@@ -23,7 +23,6 @@ const fadeInAnimation = keyframes`
 
 export const ModalStyle = styled.div`
   max-width: 300px;
-  min-height: 335px;
   max-height: 80vh;
   background-color: #ffffff;
   padding: 48px 18px 40px;
