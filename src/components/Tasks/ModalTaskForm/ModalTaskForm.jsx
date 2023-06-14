@@ -6,7 +6,8 @@ import Checkbox from './Checkbox/Checkbox';
 import {
   TaskForm,
   TaskFormButtonAdd,
-  TaskFormButtonAddSpan,
+  TaskFormButtonAddIconBox,
+  TaskFormButtonAddIcon,
   TaskFormButtonCancel,
   TaskFormButtonWrap,
   TaskFormCheckboxWrap,
@@ -111,7 +112,10 @@ const ModalTaskForm = ({ onClose, handleSubmit, category }) => {
         </TaskFormCheckboxWrap>
         <TaskFormButtonWrap>
           <TaskFormButtonAdd type="button" onClick={handleFormSubmit}>
-            <TaskFormButtonAddSpan>+</TaskFormButtonAddSpan> <span>Add</span>
+            <TaskFormButtonAddIconBox>
+              <TaskFormButtonAddIcon name="icon-plus-white" />
+            </TaskFormButtonAddIconBox>
+            <span>Add</span>
           </TaskFormButtonAdd>
           <TaskFormButtonCancel onClick={onClose}>Cancel</TaskFormButtonCancel>
         </TaskFormButtonWrap>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Icon from '../../../utils/Icon/Icon';
 
 export const TaskForm = styled.form`
   display: flex;
@@ -46,10 +47,13 @@ export const TaskFormCheckboxWrap = styled.div`
 
 export const TaskFormButtonWrap = styled.div`
   display: flex;
+  align-items: center;
+
   gap: 14px;
 `;
 
 export const TaskFormButtonAdd = styled.button`
+  display: flex;
   width: 135px;
   height: 42px;
   display: flex;
@@ -75,8 +79,22 @@ export const TaskFormButtonAdd = styled.button`
   }
 `;
 
-export const TaskFormButtonAddSpan = styled.span`
+export const TaskFormButtonAddIconBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
   margin-right: 10px;
+  padding: 0;
+`;
+
+export const TaskFormButtonAddIcon = styled(Icon)`
+  width: 18px;
+  height: 18px;
 `;
 
 export const TaskFormButtonCancel = styled.button`
@@ -87,7 +105,6 @@ export const TaskFormButtonCancel = styled.button`
   align-items: center;
   padding: 8px 16px 8px 20px;
   border: none;
-  width: 118px;
   height: 42px;
   font-family: 'Inter';
   font-style: normal;
