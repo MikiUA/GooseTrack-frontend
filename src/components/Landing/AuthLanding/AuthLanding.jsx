@@ -39,7 +39,7 @@ const AuthLanding = () => {
       <AuthBtnWrapper >
         <StyledAuthButton to="login">
           Log in        
-          <CustomIcon name='icon-log-in-01' width='16' height='16' />
+          <CustomIcon className='login-span' name='icon-log-in-01' width='16' height='16' />
         </StyledAuthButton>
         <StyledLink to="register">Sign up</StyledLink>
       </AuthBtnWrapper>
