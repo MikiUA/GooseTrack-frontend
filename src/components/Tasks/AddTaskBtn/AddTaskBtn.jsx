@@ -1,5 +1,5 @@
 import {
-  Button,
+  ButtonAdd,
   ButtonIcon,
   ButtonIconStyled,
   ButtonIconStyledPlus,
@@ -47,12 +47,12 @@ const AddTaskBtn = ({ columnHeadBtn, category }) => {
           <ButtonIconStyled name="icon-icon" width="20" height="20" />
         </ButtonIcon>
       ) : (
-        <Button type="button" onClick={handleToggle}>
+        <ButtonAdd type="button" onClick={handleToggle}>
           <Container>
             <ButtonIconStyledPlus name="icon-plus" width="16" height="16" />
             <Text onClose={handleToggle}>Add task</Text>
           </Container>
-        </Button>
+        </ButtonAdd>
       )}
       <Modal onClose={handleToggle} isOpen={isModalOpen}>
         <ModalTaskForm
