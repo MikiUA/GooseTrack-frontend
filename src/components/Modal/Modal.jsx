@@ -14,10 +14,14 @@ const Modal = ({ onClose, children, isOpen }) => {
       window.removeEventListener('keydown', handleEscape);
     };
   }, [onClose]);
-
-  const handleClose = e => {
+  const handleMouseDown = e => {
     if (e.target === e.currentTarget) {
       onClose();
+    }
+  };
+  const handleMouseUp = e => {
+    if (e.target !== e.currentTarget) {
+      return;
     }
   };
 
@@ -26,7 +30,11 @@ const Modal = ({ onClose, children, isOpen }) => {
   }
 
   return ReactDOM.createPortal(
-    <BackdropStyle className="backdrop" onClick={handleClose}>
+    <BackdropStyle
+      className="backdrop"
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+    >
       <ModalStyle>
         {children}
         <StyledIcon onClick={onClose} />
