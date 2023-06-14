@@ -30,7 +30,7 @@ const EditCardBtn = ({ id, title, start, end, priority, date }) => {
         id,
       });
     } catch (error) {
-      console.error(error);
+      console.error('Error', error);
     }
   };
 

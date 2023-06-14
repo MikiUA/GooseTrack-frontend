@@ -80,7 +80,7 @@ const UserForm = ({ data }) => {
       formData.birthday = date;
 
       const { data } = await updateUserInfo(formData);
-      console.log(data);
+
       if (data) {
         dispatch(setUserInfo(data));
       }
