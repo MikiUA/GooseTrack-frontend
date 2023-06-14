@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import dayjs from 'dayjs';
+import { useEffect, useState } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import {
   TaskForm,
+  TaskFormButtonAdd,
+  TaskFormButtonAddSpan,
+  TaskFormButtonCancel,
   TaskFormCheckboxWrap,
   TaskFormInputWrap,
   TaskFormLabel,
@@ -11,142 +14,129 @@ import {
   TaskFormWrap,
 } from '../../../ModalTaskForm/ModalTaskForm.styled';
 import Checkbox from '../../../ModalTaskForm/Checkbox/Checkbox';
-import { CustomTextField, CustomTimeField } from '../../../ModalTaskForm/ModalTaskFormStyle';
-import { IconStyled, TaskFormButtonWrap, TaskFormButton } from "./EditModalCard.styled";
+import {
+  CustomTextField,
+  CustomTimeField,
+} from '../../../ModalTaskForm/ModalTaskFormStyle';
+import { TaskFormButtonWrap } from './EditModalCard.styled';
+import { useUpdateTaskPropertiesByIdMutation } from 'API/taskUtils';
 
-const EditModalCard = ({ onClose, handleSubmit, currentTask, id }) => {
+const EditModalCard = ({ onClose, currentTask }) => {
+  const [updateTaskPropertiesById] = useUpdateTaskPropertiesByIdMutation();
+  const [startValue, setStartValue] = useState(
+    dayjs(`2022-04-17T${currentTask.start}`)
+  );
+  const [endValue, setEndValue] = useState(
+    dayjs(`2022-04-17T${currentTask.end}`)
+  );
+  const [selectedOption, setSelectedOption] = useState(currentTask.priority);
+  const [formTitle, setFormTitle] = useState(currentTask.title);
 
-    const [title, setTitle] = useState(currentTask.title);
-    const [start, setStart] = useState(currentTask.start);
-    const [end, setEnd] = useState(currentTask.end);
-    // const [selectedOption, setSelectedOption] = useState(currentTask.priority);
-    const [priority, setPriority] = useState(currentTask.priority);
-    const { currentDate } = useParams();
+  const [isFormValid, setIsFormValid] = useState(false);
 
-    const TaskNew = {};
+  useEffect(() => {
+    const isValid = formTitle !== '' && selectedOption !== '';
+    setIsFormValid(isValid);
+  }, [formTitle, selectedOption]);
 
-    useEffect(() => {
-        const isActivRadioButton = document.getElementsByName('priority');
-        for (let i = 0; i < isActivRadioButton.length; i += 1) {
-        if (isActivRadioButton[i].id === TaskNew.priority) {
-            isActivRadioButton[i].setAttribute('checked', 'on');
-        }
-        }
-    });
-
-    for (let i = 0; i < currentTask.length; i += 1) {
-        if (currentTask[i].id === id) {
-        TaskNew.title = currentTask[i].title;
-        TaskNew.start = currentTask[i].start;
-        TaskNew.end = currentTask[i].end;
-        TaskNew.priority = currentTask[i].priority;
-        }
-        }
-    
-    const handleChange = event => {
-
-        const { name, id, value } = event.target;
-        if (name === 'title') {
-        setTitle(value);
-        }
-        if (name === 'start') {
-        setStart(value);
-        }
-        if (name === 'end') {
-        setEnd(value);
-        }
-        if (name === 'priority') {
-        setPriority(id);
-        }
-    };
-
-      const handleFormSubmit = () => {
-      handleSubmit({
-        title: title,
-        start: start,
-        end: end,
-        priority: priority,
-        date: currentDate,
-      });
-      onClose();
+  const handleFormTitleChange = event => {
+    setFormTitle(event.target.value);
   };
 
+  const handleCheckboxChange = value => {
+    setSelectedOption(value);
+  };
 
-    return (
-        <div>
-        <TaskForm onSubmit={handleFormSubmit}>
-            <TaskFormWrap>
-            <TaskFormLabel htmlFor="title">Title</TaskFormLabel>
-            <CustomTextField
-                id="title"
-                variant="outlined"
-                placeholder="Enter text"
-                onChange={handleChange}
-                name="title"
-                required
-                value={title}
-            />
-            </TaskFormWrap>
-            <TaskFormInputWrap>
-            <TaskFormLabelWrap>
-                <TaskFormLabel htmlFor="start">Start</TaskFormLabel>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <CustomTimeField
-                    id="start"
-                    value={start}
-                    onChange={handleChange}
-                    format="HH:mm"
-                    name="start"
-                />
-                </LocalizationProvider>
-            </TaskFormLabelWrap>
-            <TaskFormLabelWrap>
-                <TaskFormLabel htmlFor="end">End</TaskFormLabel>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <CustomTimeField
-                    id="end"
-                    value={end}
-                    onChange={handleChange}
-                    format="HH:mm"
-                    name="end"
-                />
-                </LocalizationProvider>
-            </TaskFormLabelWrap>
-            </TaskFormInputWrap>
-            <TaskFormCheckboxWrap>
-            <Checkbox
-                id="low"
-                value="low"
-                label="Low"
-                onChange={handleChange}
-                color="#72C2F8"
-                name="priority"
-            />
-                <Checkbox
-                id="medium"
-                value="medium"
-                label="Medium"
-                onChange={handleChange}
-                color="#F3B249"
-                name="priority"
-            />
-                <Checkbox
-                id="high"
-                value="high"
-                label="High"
-                onChange={handleChange}
-                color="#EA3D65"
-                name="priority"
-            />
-            </TaskFormCheckboxWrap>
-            <TaskFormButtonWrap>
-            <TaskFormButton type="submit">
-                <IconStyled name="icon-pencil-01" width="16" height="16" /> <span>Edit</span>
-            </TaskFormButton>
-            </TaskFormButtonWrap>
-        </TaskForm>
-        </div>
-    )
-}
+  const newFormValue = {
+    title: formTitle,
+    start: startValue.format('HH:mm'),
+    end: endValue.format('HH:mm'),
+    priority: selectedOption,
+  };
+  const handleFormSubmit = async () => {
+    try {
+      if (isFormValid) {
+        await updateTaskPropertiesById({
+          id: currentTask.id,
+          body: newFormValue,
+        });
+
+        onClose();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <div>
+      <TaskForm>
+        <TaskFormWrap>
+          <TaskFormLabel htmlFor="outlined-basic">Title</TaskFormLabel>
+          <CustomTextField
+            id="outlined-basic"
+            variant="outlined"
+            value={formTitle}
+            onChange={handleFormTitleChange}
+            required
+          />
+        </TaskFormWrap>
+        <TaskFormInputWrap>
+          <TaskFormLabelWrap>
+            <TaskFormLabel htmlFor="start">Start</TaskFormLabel>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <CustomTimeField
+                id="start"
+                value={startValue}
+                onChange={newValue => setStartValue(newValue)} // Update the startValue state
+                format="HH:mm"
+              />
+            </LocalizationProvider>
+          </TaskFormLabelWrap>
+          <TaskFormLabelWrap>
+            <TaskFormLabel htmlFor="end">End</TaskFormLabel>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <CustomTimeField
+                id="end"
+                value={endValue} // Update the value prop to endValue
+                onChange={newValue => setEndValue(newValue)} // Update the endValue state
+                format="HH:mm"
+              />
+            </LocalizationProvider>
+          </TaskFormLabelWrap>
+        </TaskFormInputWrap>
+        <TaskFormCheckboxWrap>
+          <Checkbox
+            value="low"
+            label="Low"
+            checked={selectedOption === 'low'}
+            onChange={() => handleCheckboxChange('low')}
+            color="#72C2F8"
+          />
+          <Checkbox
+            value="medium"
+            label="Medium"
+            checked={selectedOption === 'medium'}
+            onChange={() => handleCheckboxChange('medium')}
+            color="#F3B249"
+          />
+          <Checkbox
+            value="high"
+            label="High"
+            checked={selectedOption === 'high'}
+            onChange={() => handleCheckboxChange('high')}
+            color="#EA3D65"
+          />
+        </TaskFormCheckboxWrap>
+        <TaskFormButtonWrap>
+          <TaskFormButtonAdd type="button" onClick={handleFormSubmit}>
+            <TaskFormButtonAddSpan>+</TaskFormButtonAddSpan> <span>Add</span>
+          </TaskFormButtonAdd>
+          <TaskFormButtonCancel onClick={onClose}>Cancel</TaskFormButtonCancel>
+        </TaskFormButtonWrap>
+      </TaskForm>
+    </div>
+  );
+};
 
 export default EditModalCard;

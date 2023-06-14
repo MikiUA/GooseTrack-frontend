@@ -5,8 +5,6 @@ import Modal from 'components/Modal/Modal';
 import { Button, IconStyled } from './EditCardBtn.styled';
 
 const EditCardBtn = ({ id, title, start, end, priority, date }) => {
-    
-
   const [isModalOpen, setIsOpenModal] = useState(false);
   const handleToggle = () => setIsOpenModal(pS => !pS);
 
@@ -18,16 +16,10 @@ const EditCardBtn = ({ id, title, start, end, priority, date }) => {
     start,
     end,
     priority,
-    date
-  }
+    date,
+  };
 
-  const handleSubmit = async ({
-    title,
-    start,
-    end,
-    priority,
-    date
-  }) => {
+  const handleSubmit = async ({ title, start, end, priority, date }) => {
     try {
       await updateTaskById({
         title,
@@ -35,7 +27,7 @@ const EditCardBtn = ({ id, title, start, end, priority, date }) => {
         end,
         priority,
         date,
-        id
+        id,
       });
     } catch (error) {
       console.error(error);
@@ -48,7 +40,12 @@ const EditCardBtn = ({ id, title, start, end, priority, date }) => {
         <IconStyled name="icon-pencil-01" width="16" height="16" />
       </Button>
       <Modal onClose={handleToggle} isOpen={isModalOpen}>
-        <EditModalCard onClose={handleToggle} handleSubmit={handleSubmit} currentTask={currentTask} id={id} />
+        <EditModalCard
+          onClose={handleToggle}
+          handleSubmit={handleSubmit}
+          currentTask={currentTask}
+          id={id}
+        />
       </Modal>
     </li>
   );
