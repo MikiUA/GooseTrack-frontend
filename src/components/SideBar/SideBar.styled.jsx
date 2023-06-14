@@ -69,11 +69,9 @@ export const StyledPicture = styled(Box)`
   margin-right: 6px;
 
   @media screen and (min-width: 768px) {
-    // width: 60px;
     flex-direction: row-reverse;
   }
   @media screen and (min-width: 1440px) {
-    // width: 71px;
     margin-right: 10px;
   }
 `;
@@ -160,7 +158,6 @@ justify-content: start;
     line-height: 1.19;
     margin-bottom: 16px;
     max-width: 215px;
-    // height: 56px;
     padding: 18px 20px;
   }
 `
@@ -171,13 +168,10 @@ export const UserNavTitle = styled(Typography)(
   box-sizing: border-box;
   font-size: 12px;
   line-height: 1.25;
-  // color: rgba(52, 52, 52, 0.5);
-  // margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 1.21;
-    // margin-bottom: 32px;
   }
    &:hover {
     color: ${theme.palette.primary.main};
@@ -187,6 +181,7 @@ export const UserNavTitle = styled(Typography)(
 );
 
 export const StyledButtonLogout = styled(Button)`
+  z-index: 11;
   width: 131px;
   height: 46px;
   left: 20px;
