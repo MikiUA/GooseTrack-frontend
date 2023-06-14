@@ -41,10 +41,7 @@ export const SliderList = styled.ul`
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: ${({ dataLength }) => (dataLength % 2 === 0 ? '32px' : '0')};
-  }
-  /* & > li:not(:last-child) {
-    margin-right: 10px;
-  } */
+  }  
 `;
 
 export const SliderItem = styled.li`
@@ -55,12 +52,13 @@ export const SliderItem = styled.li`
   height: 194px;
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: 8px;
-  overflow: hidden;
+  overflow: auto;
   display: ${({ index, currentSlide }) =>
     index === currentSlide ? 'block' : 'none'};
   transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')});
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  
   @media (min-width: 768px) {
     max-width: 580px;
     height: 187px;
@@ -148,21 +146,24 @@ export const IconArrow = styled(Icon)`
   justify-content: center;
   display: flex;
   fill: #3e85f3;
+  stroke: #3e85f3; 
+  stroke-width: 5px;
 `;
 
-export const BtnArrow = styled.button`
-  border: 1px solid #dcebf7;
+export const BtnArrow = styled.button`  
+  border: none;
   border-radius: 44px;
   padding: 5px 12px;
-  background-color: #dcebf7;
-  outline: transparent;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #dcebf7;   
+  outline: transparent; 
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+  cursor: pointer;
 
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    border: 1px solid #3e85f3;
-  }
+  &:hover .icon-arrow,
+  &:hover {
+  stroke: #ffffff; 
+  background-color: #3e85f3;
+}
 `;
 
 export const SliderArWrap = styled.div`
@@ -170,5 +171,8 @@ export const SliderArWrap = styled.div`
   gap: 35px;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 20px;  
 `;
+
+export const TextDiv = styled.div`
+`

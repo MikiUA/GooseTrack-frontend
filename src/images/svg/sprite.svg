@@ -68,7 +68,7 @@
         </symbol>
         <!-- Log-In-rigth -->
         <symbol id="icon-log-in-01" viewBox="0 0 32 32">
-            <path fill="none" stroke="#3e85f3" style="stroke:var(--color1, #3e85f3)" stroke-linejoin="round"
+            <path fill="none" stroke="" style=""
                 stroke-linecap="round" stroke-width="2.526"
                 d="M19.789 4.632h1.516c2.122 0 3.183 0 3.994.413a3.786 3.786 0 0 1 1.656 1.656c.413.811.413 1.872.413 3.994v10.611c0 2.122 0 3.183-.413 3.994a3.786 3.786 0 0 1-1.656 1.656c-.811.413-1.872.413-3.994.413h-1.516M13.474 9.684 19.79 16m-.001 0-6.316 6.316M19.789 16H4.631" />
         </symbol>

@@ -4,15 +4,14 @@ import Icon from '../../../utils/Icon/Icon';
 
 export const CustomIcon = styled(Icon)`
   margin-left: 8px;
-  width: 14px;
-  height: 14px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
+  width: 16px;
+  height: 16px;
+  stroke: #3e85f3;
+  
+  /* &:hover,
   &:focus {
-    cursor: pointer;
-    fill: #ff6c00;
-  }
+    stroke: #ffffff;
+  } */
 `;
 
 export const StyledHeader = styled.section`
@@ -104,26 +103,24 @@ export const StyledAuthButton = styled(NavLink)`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 
   &:hover,
   &:focus {
     fill: #ff6c00;
     background-color: #ff6c00;
-    color: #ffffff;
+    color: #ffffff;    
   }
-`;
 
-export const StyledAuthSpan = styled.img`
-  width: 13.5px;
-  height: 13.5px;
-  margin-left: 8px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   &:hover .login-span, 
+   &:hover {
+    stroke: #ffffff;
+  } 
 
-  &:hover,
+  &:focus .login-span, 
   &:focus {
-    cursor: pointer;
-    fill: #ff6c00;
-  }
+    stroke: #ffffff;
+  } 
 `;
 
 export const StyledLink = styled(NavLink)`
