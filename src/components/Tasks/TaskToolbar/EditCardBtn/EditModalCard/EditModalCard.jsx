@@ -4,10 +4,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import {
   TaskForm,
-  TaskFormButtonAdd,
   TaskFormButtonAddIconBox,
   TaskFormButtonAddIcon,
-  TaskFormButtonCancel,
   TaskFormCheckboxWrap,
   TaskFormInputWrap,
   TaskFormLabel,
@@ -19,7 +17,7 @@ import {
   CustomTextField,
   CustomTimeField,
 } from '../../../ModalTaskForm/ModalTaskFormStyle';
-import { TaskFormButtonWrap } from './EditModalCard.styled';
+import { TaskFormButtonEdit, TaskFormButtonWrap } from './EditModalCard.styled';
 import { useUpdateTaskPropertiesByIdMutation } from 'API/taskUtils';
 
 const EditModalCard = ({ onClose, currentTask }) => {
@@ -130,13 +128,12 @@ const EditModalCard = ({ onClose, currentTask }) => {
           />
         </TaskFormCheckboxWrap>
         <TaskFormButtonWrap>
-          <TaskFormButtonAdd type="button" onClick={handleFormSubmit}>
+          <TaskFormButtonEdit type="button" onClick={handleFormSubmit}>
             <TaskFormButtonAddIconBox>
               <TaskFormButtonAddIcon name="icon-pencil-02" />
             </TaskFormButtonAddIconBox>
-            <span>Add</span>
-          </TaskFormButtonAdd>
-          <TaskFormButtonCancel onClick={onClose}>Cancel</TaskFormButtonCancel>
+            <span>Edit</span>
+          </TaskFormButtonEdit>
         </TaskFormButtonWrap>
       </TaskForm>
     </div>

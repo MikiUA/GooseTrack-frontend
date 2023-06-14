@@ -12,6 +12,10 @@ export const TaskFormWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 267px;
+  @media screen and (min-width: 768px) {
+    max-width: 340px;
+  }
 `;
 
 export const TaskFormLabel = styled.label`
@@ -21,17 +25,17 @@ export const TaskFormLabel = styled.label`
   font-size: 12px;
   color: rgba(52, 52, 52, 0.8);
   margin-bottom: 8px;
-  /* @media screen and (min-width: 768px) {
-  }
-  @media screen and(min-width: 1440px) {
-  } */
 `;
 export const TaskFormInputWrap = styled.div`
   display: flex;
   justify-content: center;
   gap: 15px;
+  max-width: 267px;
   width: 100%;
   margin-top: 18px;
+  @media screen and (min-width: 768px) {
+    max-width: 340px;
+  }
 `;
 export const TaskFormLabelWrap = styled.div`
   display: flex;
@@ -40,9 +44,12 @@ export const TaskFormLabelWrap = styled.div`
 
 export const TaskFormCheckboxWrap = styled.div`
   display: flex;
-  gap: 26px;
+  gap: 10px;
   align-self: flex-start;
   margin: 16px 0 32px;
+  @media screen and (min-width: 768px) {
+    gap: 26px;
+  }
 `;
 
 export const TaskFormButtonWrap = styled.div`
@@ -65,8 +72,6 @@ export const TaskFormButtonAdd = styled.button`
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  width: 135px;
-  height: 42px;
   color: #ffffff;
   background-color: #3e85f3;
   border-radius: 8px;
