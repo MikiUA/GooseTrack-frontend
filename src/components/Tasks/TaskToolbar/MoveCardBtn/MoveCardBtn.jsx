@@ -24,13 +24,17 @@ const MoveCardBtn = ({ id, category }) => {
   };
 
   const handleUpdate = async (taskId, categories) => {
-    const updatedData = {
-      category: categories,
-    };
-    await updateTaskPropertiesById({
-      id: taskId,
-      body: updatedData,
-    });
+    try {
+      const updatedData = {
+        category: categories,
+      };
+      await updateTaskPropertiesById({
+        id: taskId,
+        body: updatedData,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const wrapperRef = useRef(null);

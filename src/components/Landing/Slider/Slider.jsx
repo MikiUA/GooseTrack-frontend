@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   SliderTitle,
@@ -46,6 +46,21 @@ const Slider = () => {
       setArrowClicked(false);
     }, 500);
   };
+
+  useEffect(() => {
+    if (!isArrowClicked && !isLoading) {
+      const totalSlides = data.data.result.length;
+      const timer = setInterval(() => {
+        setCurrentSlide(prevSlide =>
+          prevSlide === totalSlides - 2 ? 0 : prevSlide + 1
+        );
+      }, 5000);
+
+      return () => {
+        clearInterval(timer);
+      };
+    }
+  }, [currentSlide, isArrowClicked, isLoading, data]);
 
   return (
     <>

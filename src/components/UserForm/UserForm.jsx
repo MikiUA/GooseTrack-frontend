@@ -25,6 +25,7 @@ import {
   ErrorInputValue,
   StyledIconError,
   StyledIconChecked,
+  PopperDateStyles,
 } from './UserForm.styled';
 import dayjs from 'dayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -79,7 +80,7 @@ const UserForm = ({ data }) => {
       formData.birthday = date;
 
       const { data } = await updateUserInfo(formData);
-      console.log(data);
+
       if (data) {
         dispatch(setUserInfo(data));
       }
@@ -204,6 +205,11 @@ const UserForm = ({ data }) => {
                         maxDate={dayjs(formattedDate)}
                         slots={{
                           openPickerIcon: KeyboardArrowDownIcon,
+                        }}
+                        slotProps={{
+                          popper: {
+                            sx: PopperDateStyles,
+                          },
                         }}
                         textField={params => <TextField {...params} />}
                         iserror={errors.birthday && touched.birthday}
