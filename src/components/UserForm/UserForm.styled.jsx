@@ -345,7 +345,7 @@ export const Input = styled(OutlinedInput)`
 `;
 
 export const DateInput = styled(DatePicker)(
-  ({ theme }) => `
+  ({ theme, iserror }) => `
   box-sizing: border-box;
   width: 100%;
   height: 42px;
@@ -357,10 +357,10 @@ export const DateInput = styled(DatePicker)(
     height: 42px;
     border-radius: 8px;
     border-radius: 8px;
-    border:  1px solid  ${
-      theme.palette.mode === 'dark'
-        ? `${error}`
-        : `${accept}` || '1px solid inherit'
+    border: ${
+      iserror
+        ? `1px solid ${error}`
+        : `1px solid ${accept}` || '1px solid inherit'
     };  
   }
 
@@ -378,6 +378,10 @@ export const DateInput = styled(DatePicker)(
     height: 18px;
     font-weight: 600;
   }
+
+  &.MuiFormControl-root {
+    background-color: inherit;
+  } 
 
   &:hover: {
     border: 1px solid ${label};
