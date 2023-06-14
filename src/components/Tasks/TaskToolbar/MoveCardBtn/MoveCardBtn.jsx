@@ -7,6 +7,7 @@ import {
   IconStyled,
   LabelStyled,
   BtnStyledText,
+  BtnMoveWrap,
 } from './MoveCardBtn.styled';
 import { useState, useRef, useEffect } from 'react';
 
@@ -80,18 +81,18 @@ const MoveCardBtn = ({ id, category }) => {
           {categoryTask.map(categories => {
             return (
               categories !== category && (
-                <div key={Math.random()}>
+                <BtnMoveWrap key={Math.random()}>
                   <LabelStyled>
                     <Button onClick={() => handleUpdate(id, categories)}>
+                      <BtnStyledText> {categories}</BtnStyledText>
                       <IconStyled
                         name="icon-arrow-circle-broken-right"
                         width="16"
                         height="16"
                       />
-                      <BtnStyledText> {categories}</BtnStyledText>
                     </Button>
                   </LabelStyled>
-                </div>
+                </BtnMoveWrap>
               )
             );
           })}
