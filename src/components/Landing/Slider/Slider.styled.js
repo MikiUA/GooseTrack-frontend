@@ -55,8 +55,8 @@ export const SliderItem = styled.li`
   overflow: auto;
   display: ${({ index, currentSlide }) =>
     index === currentSlide ? 'block' : 'none'};
-  transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')});
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')}); 
+  transition: all 0.3s ease-in;
 
   
   @media (min-width: 768px) {
@@ -156,7 +156,7 @@ export const BtnArrow = styled.button`
   padding: 5px 12px;
   background-color: #dcebf7;   
   outline: transparent; 
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);  
   cursor: pointer;
 
   &:hover .icon-arrow,
