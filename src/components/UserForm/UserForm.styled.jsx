@@ -26,20 +26,13 @@ const theme = createTheme({
       labelNormal: '#00000040',
       error: '#DA1414',
       accept: '#3CBC81',
+      darkLabel: 'rgba(250, 250, 250, 0.3)',
     },
   },
 });
 
-const {
-  main,
-  contrast,
-  label,
-  darkText,
-  error,
-  accept,
-} = theme.palette.primary;
-
-
+const { main, contrast, label, darkText, error, accept, darkLabel } =
+  theme.palette.primary;
 
 export const Container = styled(Paper)`
   && {
@@ -207,10 +200,11 @@ export const UserWrap = styled(Box)`
   }
 `;
 
-export const UserName = styled(Typography)`
+export const UserName = styled(Typography)(
+  ({ theme }) => `
   margin-bottom: 4px;
 
-  color: ${darkText};
+  color: ${theme.palette.mode === 'dark' ? `${main}` : `${darkText}`};
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
@@ -220,10 +214,12 @@ export const UserName = styled(Typography)`
     font-size: 18px;
     line-height: 1;
   }
-`;
+`
+);
 
-export const User = styled(Typography)`
-  color: ${darkText};
+export const User = styled(Typography)(
+  ({ theme }) => `
+  color: ${theme.palette.mode === 'dark' ? `${darkLabel}` : `${darkText}`};
   font-weight: 600;
   font-size: 12px;
   line-height: 1.17;
@@ -232,7 +228,8 @@ export const User = styled(Typography)`
     font-size: 14px;
     line-height: 1.29;
   }
-`;
+`
+);
 
 export const InputWrap = styled(Box)`
   display: flex;
@@ -347,7 +344,8 @@ export const Input = styled(OutlinedInput)`
   }
 `;
 
-export const DateInput = styled(DatePicker)`
+export const DateInput = styled(DatePicker)(
+  ({ theme, iserror }) => `
   box-sizing: border-box;
   width: 100%;
   height: 42px;
@@ -355,20 +353,22 @@ export const DateInput = styled(DatePicker)`
   font-size: 14px;
   line-height: 1.29;
 
-  && .MuiSvgIcon-root {
-    color: ${label};
-    width: 18px;
-    height: 18px;
-  }
-
   && .MuiInputBase-root {
     height: 42px;
     border-radius: 8px;
     border-radius: 8px;
-    border: ${props =>
-      props.iserror
+    border: ${
+      iserror
         ? `1px solid ${error}`
-        : `1px solid ${accept}` || '1px solid inherit'};
+        : `1px solid ${accept}` || '1px solid inherit'
+    };  
+  }
+
+  && .MuiSvgIcon-root {
+    color: ${theme.palette.mode === 'dark' ? `${main}` : `${label}`};
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
   }
 
   && .MuiInputBase-input {
@@ -378,6 +378,10 @@ export const DateInput = styled(DatePicker)`
     height: 18px;
     font-weight: 600;
   }
+
+  &.MuiFormControl-root {
+    background-color: inherit;
+  } 
 
   &:hover: {
     border: 1px solid ${label};
@@ -413,7 +417,8 @@ export const DateInput = styled(DatePicker)`
       font-weight: 600;
     }
   }
-`;
+`
+);
 
 export const PopperDateStyles = {
   '& .MuiDateCalendar-root': {
@@ -507,6 +512,39 @@ export const PopperDateStyles = {
   },
   '& .MuiPickersYear-root.Mui-disabled': {
     color: 'rgba(17, 17, 17, 0.15);',
+  },
+
+  '@media (min-width: 768px)': {
+    '& .MuiDateCalendar-root': {
+      width: '373px',
+      minHeight: '354px',
+    },
+    '& .MuiPaper-root': {
+      padding: '15px 18px',
+      scroll: 'none',
+    },
+    '& .MuiPickersCalendarHeader-labelContainer': {
+      fontSize: '24px',
+      lineHeight: 1.17,
+    },
+    '& .MuiTypography-root.MuiTypography-caption.MuiDayCalendar-weekDayLabel': {
+      fontSize: '18px',
+      lineHeight: 1.33,
+    },
+    '& .MuiPickersYear-yearButton': {
+      fontSize: '18px',
+      lineHeight: 1.33,
+    },
+    '& .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeEnd.MuiIconButton-sizeMedium.MuiPickersArrowSwitcher-button':
+      {
+        left: '55px',
+        top: '9px',
+      },
+    '& .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeStart.MuiIconButton-sizeMedium.MuiPickersArrowSwitcher-button':
+      {
+        top: '9px',
+        right: '55px',
+      },
   },
 };
 
