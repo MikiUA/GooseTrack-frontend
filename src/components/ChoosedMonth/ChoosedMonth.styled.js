@@ -56,7 +56,7 @@ export const GridCell = styledMUI(Box, {
     cursor: pointer;
 
     &:hover{
-      border: 2px solid rgba(220, 227, 229, 1);
+      border: 1px solid rgba(220, 227, 229, 1);
     }
         &:focus{
       border: 2px solid rgba(220, 227, 229, 1);
