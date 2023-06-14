@@ -1,4 +1,3 @@
-import { TypeSpecimenTwoTone } from '@mui/icons-material';
 import { styled, Box, Button, Typography } from '@mui/material';
 import Icon from 'utils/Icon/Icon';
 
@@ -7,14 +6,13 @@ export const ButtonAdd = styled(Button)(
   padding-top: 15px;
   padding-bottom: 15px;
   margin-right: 12px;
-//   text-align: center;
+  text-align: center;
   border-radius: 8px;
   border: 1px dashed #3e85f3;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
   cursor: pointer;
-//   background-color: #e3f3ff;
    background-color: ${theme.palette.mode === 'dark' ? '#3E85F3' : '#e3f3ff'};
 `
 );
