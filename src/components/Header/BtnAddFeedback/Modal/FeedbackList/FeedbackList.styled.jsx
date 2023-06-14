@@ -127,6 +127,7 @@ export const StyledFeedbackButton = styled.button`
     border: none;
     background-color: rgba(0, 0, 0, 0);
 
+    
     :first-child {
       @media screen and (min-width: 375px) {
         margin-right: 10px;
