@@ -24,7 +24,9 @@ export const BtnStyled = styled.button`
   border: none;
 `;
 export const BtnStyledText = styled.span`
-  margin-left: 4px;
+  margin-right: 4px;
+  width: 67px;
+  text-align: left;
 `;
 export const BtnWrap = styled.div`
   background-color: transparent;
@@ -33,11 +35,11 @@ export const BtnWrap = styled.div`
 export const Wrapper = styled.div`
   position: absolute;
   flex-direction: column;
-  gap: 5px;
+
   width: 110px;
 
-  top: -50px;
-  right: -55px;
+  top: -20px;
+  right: -65px;
   border: transparent;
   border-radius: 8px;
 
@@ -45,14 +47,20 @@ export const Wrapper = styled.div`
   font-style: Medium;
   font-size: 12px;
 `;
+export const BtnMoveWrap = styled.button`
+  background-color: #fff;
+  border: none;
+  z-index: 13;
+  padding: 0 2px;
+`;
 
 export const LabelStyled = styled.div`
   cursor: pointer;
-  padding: 10px;
-  background-color: #e3f3ff;
-  transition: box-shadow 0.3s ease-in;
+  padding: 10px 0;
+  transition: scale 0.3s ease-in, background-color 0.3s ease-in;
   &:hover,
   &:focus {
-    box-shadow: 2px 2px 4px #1565c0;
+    scale: 1.05;
+    background-color: #e3f3ff;
   }
 `;

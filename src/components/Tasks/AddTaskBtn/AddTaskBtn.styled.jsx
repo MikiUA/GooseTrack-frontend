@@ -1,4 +1,3 @@
-import { TypeSpecimenTwoTone } from '@mui/icons-material';
 import { styled, Box, Button, Typography } from '@mui/material';
 import Icon from 'utils/Icon/Icon';
 
