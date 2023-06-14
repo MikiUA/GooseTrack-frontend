@@ -47,13 +47,12 @@ const Slider = () => {
     }, 500);
   };
 
-  
   useEffect(() => {
-    const totalSlides = data.data.result.length;
     if (!isArrowClicked && !isLoading) {
+      const totalSlides = data.data.result.length;
       const timer = setInterval(() => {
         setCurrentSlide(prevSlide =>
-          prevSlide === totalSlides - 1 ? 0 : prevSlide + 1
+          prevSlide === totalSlides - 2 ? 0 : prevSlide + 1
         );
       }, 5000);
 
@@ -63,74 +62,10 @@ const Slider = () => {
     }
   }, [currentSlide, isArrowClicked, isLoading, data]);
 
-  
   return (
     <>
       {!isLoading && (
         <StyledSlider>
-
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <SliderTitle>Reviews</SliderTitle>
-            <SliderContainer>
-              <SliderList>
-                {data.data.result.map((item, index) => (
-                  <SliderItem
-                    key={item._id}
-                    index={index}
-                    currentSlide={currentSlide}
-                    isArrowClicked={isArrowClicked}
-                    dataLength={data.data.result.length}
-                  >
-                    <SliderHeaderUser>
-                      <SliderUserPhoto src={item.avatarUrl} alt={item.name} />
-                      <HeaderUserWrapper>
-                        <SliderUserTitle>{item.name}</SliderUserTitle>
-                        <SliderUserRating>
-                          {Array.from({ length: 5 }, (_, index) => (
-                            <Icon
-                              key={index}
-                              width={14}
-                              height={14}
-                              name={
-                                index < item.rating ? 'icon-Vector' : 'icon--'
-                              }
-                            />
-                          ))}
-                        </SliderUserRating>
-                      </HeaderUserWrapper>
-                    </SliderHeaderUser>
-                    <SliderUserDescr>{item.message}</SliderUserDescr>
-                  </SliderItem>
-                ))}
-              </SliderList>
-            </SliderContainer>
-            <SliderArWrap onClick={handleArrowClick}>
-              <BtnArrow className="slide-previous" onClick={handlePrevSlide}>
-                <IconArrow
-                  name="icon-Vector-1"
-                  width="47"
-                  height="46"
-                  className="icon-arrow"
-                />
-              </BtnArrow>
-              <BtnArrow className="slide-next" onClick={handleNextSlide}>
-                <IconArrow
-                  name="icon-Vector-2"
-                  width="47"
-                  height="46"
-                  className="icon-arrow"
-                />
-              </BtnArrow>
-            </SliderArWrap>
-          </div>
-
           <SliderTitle>Reviews</SliderTitle>
           <SliderContainer>
             <SliderList>
@@ -182,7 +117,6 @@ const Slider = () => {
               />
             </BtnArrow>
           </SliderArWrap>
-
         </StyledSlider>
       )}
     </>

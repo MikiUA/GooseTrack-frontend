@@ -13,15 +13,16 @@ import {
   Img,
 } from './TaskColumnCard.styled';
 
-// import Icon from "utils/Icon/Icon";
 
 const TaskColumnCard = ({
   category,
   title,
   priority,
   id,
-  task,
   firstLetter,
+  start,
+  end,
+  date
 }) => {
   const { avatarUrl } = useSelector(getUserInfo);
 
@@ -57,13 +58,12 @@ const TaskColumnCard = ({
             ) : (
               { firstLetter }
             )}
-            {/* <Icon name="icon-ph_user" width="32" height="32" /> */}
           </ContainerUser>
           <Priority backgroundColor={componentStyle.backgroundColor}>
             {priority}
           </Priority>
         </ContainerInfo>
-        <TaskToolbar id={id} category={category} />
+        <TaskToolbar id={id} category={category} title={title} start={start} end={end} date={date} priority={priority}/>
       </Container>
       <TaskModal />
     </Item>

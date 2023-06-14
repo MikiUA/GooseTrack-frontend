@@ -61,7 +61,6 @@ export const SliderItem = styled.li`
   transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')});
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-
   @media (min-width: 768px) {
     max-width: 580px;
     height: 187px;
@@ -162,8 +161,7 @@ export const BtnArrow = styled.button`
   &:hover,
   &:focus {
     cursor: pointer;
-    border: 6px solid #3e85f3;
-   
+    border: 1px solid #3e85f3;
   }
 `;
 
@@ -174,4 +172,3 @@ export const SliderArWrap = styled.div`
   justify-content: center;
   margin-top: 20px;
 `;
-
