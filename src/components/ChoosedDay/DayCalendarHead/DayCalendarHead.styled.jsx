@@ -60,8 +60,8 @@ export const CalendarDayBtn = styled(Button, {
   font-weight: 700;
   font-size: 12px;
   line-height: 1.17;
- color:${theme.palette.mode === 'dark' ? '#ffffff' : '#343434'};
-//   color: ${isCurrentBtn ? `#ffffff` : `#343434`};
+  color:${theme.palette.mode === 'dark' ? '#ffffff' : '#343434'};
+  color: ${isCurrentBtn ? `#ffffff` : ``};
   width: 20px;
   height: 22px;
 
