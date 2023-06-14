@@ -111,21 +111,17 @@ export const StyledAuthButton = styled(NavLink)`
   border: none;
   display: flex;
   align-items: center;
-
-  justify-content: center; 
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    сolor 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    fill:  #ff6c00;
+    fill: #ff6c00;
     background-color: #ff6c00;
     color: #ffffff;
-  }  
-`;
-
-export const StyledAuthSpan = styled.img`
-  /* width: 13.5px;
-  height: 13.5px;
-  margin-left: 8px; */
+  }
 `;
 
 export const StyledLink = styled(NavLink)`

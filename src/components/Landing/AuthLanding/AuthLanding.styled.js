@@ -6,15 +6,14 @@ export const CustomIcon = styled(Icon)`
   margin-left: 8px;
   width: 14px;
   height: 14px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     cursor: pointer;
-    fill:  #ff6c00;
+    fill: #ff6c00;
   }
 `;
-
-
 
 export const StyledHeader = styled.section`
   height: 100vh;
@@ -50,9 +49,8 @@ export const StyledTitle = styled.h1`
 `;
 
 export const Span = styled.span`
-font-style: italic;
-`
-
+  font-style: italic;
+`;
 
 export const StyledPicture = styled.picture`
   width: 142px;
@@ -102,27 +100,30 @@ export const StyledAuthButton = styled(NavLink)`
   border: none;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    fill:  #ff6c00;
+    fill: #ff6c00;
     background-color: #ff6c00;
     color: #ffffff;
-  }  
+  }
 `;
 
 export const StyledAuthSpan = styled.img`
   width: 13.5px;
   height: 13.5px;
   margin-left: 8px;
-  
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
     cursor: pointer;
-    fill:  #ff6c00;
+    fill: #ff6c00;
   }
- 
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -131,23 +132,20 @@ export const StyledLink = styled(NavLink)`
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
-  line-height: 1.17;  
+  line-height: 1.17;
   text-decoration-line: underline;
   color: #ffffff;
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover,
+  &:hover,
   &:focus {
-    color:  #ff6c00;
+    color: #ff6c00;
   }
 
-    @media screen and (min-width: 768px) {
-      font-size: 14px;
-      line-height: 1.29;  
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.29;
   }
 `;
-
-
-
-

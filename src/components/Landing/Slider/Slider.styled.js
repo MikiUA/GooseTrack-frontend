@@ -42,9 +42,9 @@ export const SliderList = styled.ul`
     justify-content: space-between;
     margin-bottom: ${({ dataLength }) => (dataLength % 2 === 0 ? '32px' : '0')};
   }
-  & > li:not(:last-child) {
+  /* & > li:not(:last-child) {
     margin-right: 10px;
-  }
+  } */
 `;
 
 export const SliderItem = styled.li`
@@ -58,6 +58,9 @@ export const SliderItem = styled.li`
   overflow: hidden;
   display: ${({ index, currentSlide }) =>
     index === currentSlide ? 'block' : 'none'};
+  transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')});
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
   @media (min-width: 768px) {
     max-width: 580px;
@@ -146,25 +149,21 @@ export const IconArrow = styled(Icon)`
   justify-content: center;
   display: flex;
   fill: #3e85f3;
-
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    fill: #ffffff;
-  }
 `;
 
 export const BtnArrow = styled.button`
-  border: none;
+  border: 1px solid #dcebf7;
   border-radius: 44px;
   padding: 5px 12px;
   background-color: #dcebf7;
   outline: transparent;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     cursor: pointer;
-    background-color: #3e85f3;
+    border: 6px solid #3e85f3;
+   
   }
 `;
 
@@ -175,3 +174,4 @@ export const SliderArWrap = styled.div`
   justify-content: center;
   margin-top: 20px;
 `;
+
