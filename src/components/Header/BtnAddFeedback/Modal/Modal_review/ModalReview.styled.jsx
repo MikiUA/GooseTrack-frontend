@@ -4,7 +4,7 @@ export const StyledTextField = styled(TextField)`
   && .MuiInputBase-root {
     width: 395px;
     height: 127px;
-    background: #f7f7f7;
+    
     border-radius: 8px;
     font-family: 'Inter';
     font-style: normal;
