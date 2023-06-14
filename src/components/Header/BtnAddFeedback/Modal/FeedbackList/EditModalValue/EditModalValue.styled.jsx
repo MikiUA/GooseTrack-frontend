@@ -3,7 +3,7 @@ import { Button, styled } from '@mui/material';
 export const ChangeButtonSave = styled(Button)`
   padding: 8px 20px;
 
-  width: 198px;
+  width: 50%;
   height: 48px;
 
   background: #3e85f3;
@@ -24,7 +24,7 @@ export const ChangeButtonSave = styled(Button)`
 export const ChangeButtonCancel = styled(Button)`
   padding: 8px 20px;
 
-  width: 198px;
+  width: 50%;
   height: 48px;
 
   background-color: #e5edfa;
