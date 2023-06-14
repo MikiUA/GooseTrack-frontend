@@ -7,12 +7,7 @@ export const CustomIcon = styled(Icon)`
   width: 16px;
   height: 16px;
   stroke: #3e85f3;
-  
-  /* &:hover,
-  &:focus {
-    stroke: #ffffff;
-  } */
-`;
+ `;
 
 export const StyledHeader = styled.section`
   height: 100vh;
@@ -58,6 +53,14 @@ export const StyledPicture = styled.picture`
     width: 150px;
   }
 `;
+
+export const ImgLogo = styled.img`
+ width: 142px;
+
+@media screen and (min-width: 768px) {
+  width: 150px;
+}
+`
 
 export const StyledImgAuthNav = styled.div`
   display: flex;
