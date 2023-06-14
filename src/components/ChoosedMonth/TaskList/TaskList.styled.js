@@ -22,8 +22,8 @@ export const TasksContainer = styled.ul`
     line-height: 1.17;
   }
   @media screen and (min-width: 375px) {
-    margin-top: 8px;
-    margin-right: 4px;
+    // margin-top: 8px;
+    // margin-right: 4px;
     font-size: 12px;
     line-height: 1.17;
   }
