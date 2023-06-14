@@ -5,7 +5,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import {
   TaskForm,
   TaskFormButtonAdd,
-  TaskFormButtonAddSpan,
+  TaskFormButtonAddIconBox,
+  TaskFormButtonAddIcon,
   TaskFormButtonCancel,
   TaskFormCheckboxWrap,
   TaskFormInputWrap,
@@ -130,7 +131,10 @@ const EditModalCard = ({ onClose, currentTask }) => {
         </TaskFormCheckboxWrap>
         <TaskFormButtonWrap>
           <TaskFormButtonAdd type="button" onClick={handleFormSubmit}>
-            <TaskFormButtonAddSpan>+</TaskFormButtonAddSpan> <span>Add</span>
+            <TaskFormButtonAddIconBox>
+              <TaskFormButtonAddIcon name="icon-pencil-02" />
+            </TaskFormButtonAddIconBox>
+            <span>Add</span>
           </TaskFormButtonAdd>
           <TaskFormButtonCancel onClick={onClose}>Cancel</TaskFormButtonCancel>
         </TaskFormButtonWrap>
