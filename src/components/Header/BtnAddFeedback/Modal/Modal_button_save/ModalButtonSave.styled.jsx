@@ -18,7 +18,6 @@ export const StyledButtonSave = styled(Button)`
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    width: 404px;
     height: 48px;
 
     margin-bottom: 24px;
