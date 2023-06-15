@@ -1,4 +1,3 @@
-// import { TypeSpecimenTwoTone } from '@mui/icons-material';
 import { styled, Box, Button, Typography } from '@mui/material';
 import Icon from 'utils/Icon/Icon';
 
@@ -42,27 +41,32 @@ export const ButtonIconStyled = styled(Icon)(
 export const ButtonIconStyledPlus = styled(Icon)(
   ({ theme }) => `
   margin-right: 8px;
-  stroke: ${theme.palette.mode === 'dark' ? '#fff' : '#111'};
+  stroke: ${theme.palette.mode === 'dark' ? '#ffffff' : '#111'};
   transition: linear 0.3s;
 
-  // &:hover,
-  // &:focus {
-  //   stroke: #3e85f3;
+  &:hover,
+  &:focus {
+    stroke: #ffffff;
   }
 `
 );
 
-export const Container = styled(Box)`
-  display: flex;
+export const Container = styled(Box)(
+  ({ theme }) => ` 
+    display: flex;
   justify-content: center;
   align-items: center;
-`;
+  border-radius: 8px;
+  border: 1px solid ${
+    theme.palette.mode === 'dark' ? 'rgba(220, 227, 229, 0.53' : 'transparent'
+  }
+ `
+);
 
-export const Text = styled(Typography)(
-  ({ theme }) =>`
+export const Text = styled(Typography)`
   margin: 0;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
-  color: ${theme.palette.mode === 'dark' ? '#fff' : '#111'};
-`);
+  color: #111;
+`;

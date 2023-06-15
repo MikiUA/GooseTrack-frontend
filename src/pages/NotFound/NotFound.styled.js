@@ -71,7 +71,7 @@ export const StyledPicture = styled.picture`
   }
 `;
 
-export const StyledImgAuthNav = styled.div`
+export const StyledImgNotfound = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,3 +146,11 @@ export const TitleWrapper = styled.div`
   display: inline-flex;
   flex-direction: column;
 `;
+
+export const ImgLogo = styled.img`
+ width: 142px;
+
+@media screen and (min-width: 768px) {
+  width: 150px;
+}
+`

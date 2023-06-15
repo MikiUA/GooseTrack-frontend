@@ -7,12 +7,7 @@ export const CustomIcon = styled(Icon)`
   width: 16px;
   height: 16px;
   stroke: #3e85f3;
-  
-  /* &:hover,
-  &:focus {
-    stroke: #ffffff;
-  } */
-`;
+ `;
 
 export const StyledHeader = styled.section`
   height: 100vh;
@@ -59,6 +54,14 @@ export const StyledPicture = styled.picture`
   }
 `;
 
+export const ImgLogo = styled.img`
+ width: 142px;
+
+@media screen and (min-width: 768px) {
+  width: 150px;
+}
+`
+
 export const StyledImgAuthNav = styled.div`
   display: flex;
   align-items: center;
@@ -94,7 +97,8 @@ export const StyledAuthButton = styled(NavLink)`
   text-decoration: none;
   letter-spacing: -0.02em;
   background: #ffffff;
-  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  //box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  box-shadow: 0px 4px 4px rgba(0,0,0,.15);
   border-radius: 16px;
   border: none;
   display: flex;

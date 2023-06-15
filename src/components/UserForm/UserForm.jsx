@@ -11,8 +11,9 @@ import {
   ButtonWrap,
   FormWrap,
   AvatarWrap,
-  AddButton,
-  AddLabel,
+  // AddButton,
+  // AddLabel,
+  // AddSwg,
   Img,
   UserWrap,
   UserName,
@@ -21,7 +22,7 @@ import {
   DateInput,
   AvatarSwg,
   AvatarSwgBox,
-  AddSwg,
+
   ErrorInputValue,
   StyledIconError,
   StyledIconChecked,
@@ -130,13 +131,13 @@ const UserForm = ({ data }) => {
                     }}
                     style={{ display: 'none' }}
                   />
-                  <AddLabel htmlFor="avatar">
+                  {/* <AddLabel htmlFor="avatar">
                     <AddButton variant="outlined" component="svg">
                       <AddSwg>
                         <use href={`${sprite}#icon-add`}></use>
                       </AddSwg>
                     </AddButton>
-                  </AddLabel>
+                  </AddLabel> */}
                 </ImgWrap>
                 <UserWrap>
                   <UserName>{userInfo.name}</UserName>

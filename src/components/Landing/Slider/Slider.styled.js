@@ -55,7 +55,7 @@ export const SliderItem = styled.li`
   overflow: auto;
   display: ${({ index, currentSlide }) =>
     index === currentSlide ? 'block' : 'none'};
-   transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')}); 
+  // transform: scale(${({ isArrowClicked }) => (isArrowClicked ? '1.1' : '1')}); 
   transition: all 0.3s ease-in;
 
   
@@ -141,29 +141,31 @@ export const SliderUserRating = styled.div`
 
 export const IconArrow = styled(Icon)`
   width: 70px;
-  height: 16px;
+  height: 16px;  
+  background-color: transparent;  
   align-items: center;
-  justify-content: center;
+  justify-content: center;  
   display: flex;
   fill: #3e85f3;
-  stroke: #3e85f3; 
-  stroke-width: 5px;
-`;
+  
+  `;
 
 export const BtnArrow = styled.button`  
-  border: none;
+  border: transparent;
   border-radius: 44px;
   padding: 5px 12px;
   background-color: #dcebf7;   
   outline: transparent; 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+  box-shadow: 0px 4px 4px rgba(0,0,0,.15);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);  
   cursor: pointer;
 
-  &:hover .icon-arrow,
-  &:hover {
-  stroke: #ffffff; 
-  background-color: #3e85f3;
-}
+  &:hover, 
+  &:focus {
+    border: 1px solid #3e85f3;
+    
+} 
+
 `;
 
 export const SliderArWrap = styled.div`
@@ -171,6 +173,7 @@ export const SliderArWrap = styled.div`
   gap: 35px;
   align-items: center;
   justify-content: center;
+  border-radius: 44px;
   margin-top: 20px;  
 `;
 

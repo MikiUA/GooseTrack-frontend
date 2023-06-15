@@ -109,6 +109,7 @@ const Slider = () => {
                 width="47"
                 height="46"
                 className="icon-arrow"
+                
               />
             </BtnArrow>
             <BtnArrow className="slide-next" onClick={handleNextSlide}>

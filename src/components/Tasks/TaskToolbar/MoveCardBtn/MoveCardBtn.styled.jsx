@@ -27,6 +27,7 @@ export const BtnStyled = styles.button`
     padding: 0;
 `;
 
+<<<<<<< HEAD
 export const BtnStyledText = styled(Typography)(
   ({ theme }) => `
     margin-left: 4px;
@@ -40,8 +41,44 @@ export const BtnStyledText = styled(Typography)(
 export const BtnWrap = styles.div`
     background-color: transparent;
     position: relative;
+=======
+export const BtnStyled = styled.button`
+  background-color: transparent;
+  border: none;
+`;
+export const BtnStyledText = styled.span`
+  margin-right: 4px;
+  width: 67px;
+  text-align: left;
+`;
+export const BtnWrap = styled.div`
+  background-color: transparent;
+  position: relative;
+`;
+export const Wrapper = styled.div`
+  position: absolute;
+  flex-direction: column;
+
+  width: 110px;
+
+  top: -20px;
+  right: -65px;
+  border: transparent;
+  border-radius: 8px;
+
+  font-family: 'Inter';
+  font-style: Medium;
+  font-size: 12px;
+>>>>>>> 91668afc8608526fc8d05a67b247d29088c3c519
+`;
+export const BtnMoveWrap = styled.button`
+  background-color: #fff;
+  border: none;
+  z-index: 13;
+  padding: 0 2px;
 `;
 
+<<<<<<< HEAD
 export const Wrapper = styled(Box)(
   ({ theme }) => `
     position: absolute;
@@ -74,3 +111,15 @@ export const LabelStyled = styled(Box)(
     }
 `
 );
+=======
+export const LabelStyled = styled.div`
+  cursor: pointer;
+  padding: 10px 0;
+  transition: scale 0.3s ease-in, background-color 0.3s ease-in;
+  &:hover,
+  &:focus {
+    scale: 1.05;
+    background-color: #e3f3ff;
+  }
+`;
+>>>>>>> 91668afc8608526fc8d05a67b247d29088c3c519
