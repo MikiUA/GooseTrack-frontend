@@ -1,7 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 import { IoIosClose } from 'react-icons/io';
-import { Box, styled as styledMui } from '@mui/material';
-
 
 export const BackdropStyle = styled.div`
   position: fixed;
@@ -23,11 +21,10 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-export const ModalStyle = styledMui(Box)(({ theme }) => `
+export const ModalStyle = styled.div`
   max-width: 300px;
   max-height: 80vh;
-  background-color: ${theme.palette.background.default};
-  color: ${theme.palette.text.secondary}
+  background-color: #ffffff;
   padding: 48px 18px 40px;
   z-index: 12;
   position: absolute;
@@ -37,7 +34,7 @@ export const ModalStyle = styledMui(Box)(({ theme }) => `
   border: 1px solid rgba(220, 227, 229, 0.8);
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   border-radius: 8px;
-  animation: \${fadeInAnimation} 0.3s ease-in;
+  animation: ${fadeInAnimation} 0.3s ease-in;
 
   @media (min-width: 375px) {
     max-width: 395px;
@@ -48,7 +45,7 @@ export const ModalStyle = styledMui(Box)(({ theme }) => `
     height: auto;
     padding: 40px 28px;
   }
-`);
+`;
 
 export const StyledIcon = styled(IoIosClose)`
   position: absolute;
