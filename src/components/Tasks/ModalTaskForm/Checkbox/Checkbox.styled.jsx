@@ -1,15 +1,16 @@
-import styled from 'styled-components';
+import styles from 'styled-components';
+import { styled, Typography } from '@mui/material';
 
-export const CheckboxLabel = styled.label`
+export const CheckboxLabel = styles.label`
   display: flex;
   align-items: center;
 `;
 
-export const CheckboxInput = styled.input`
+export const CheckboxInput = styles.input`
   display: none;
 `;
 
-export const CheckboxStyle = styled.div`
+export const CheckboxStyle = styles.div`
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -20,7 +21,7 @@ export const CheckboxStyle = styled.div`
   align-items: center;
   background-color: ${prop => (prop.checked ? `${prop.color}80` : prop.color)};
 `;
-export const InnerCircleStyle = styled.div`
+export const InnerCircleStyle = styles.div`
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -28,8 +29,12 @@ export const InnerCircleStyle = styled.div`
   border: ${prop => (prop.checked ? '1px solid #ffffff' : 'none')};
 `;
 
-export const CheckboxSpan = styled.span`
+export const CheckboxSpan = styled(Typography)(
+  ({ theme }) => `
   margin-left: 5px;
   font-family: 'Inter';
   font-weight: 600;
-`;
+  font-size: 12px;
+  line-height: 1.17;
+  color: ${theme.palette.mode === 'dark' ? '#FFFFFF' : '#111'};
+`);

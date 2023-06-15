@@ -1,34 +1,41 @@
-import styled from 'styled-components';
+import styles from 'styled-components';
+import { styled, Box, Typography } from '@mui/material';
 
-export const Container = styled.div`
+export const Container = styled(Box)(
+  ({ theme }) => `
   margin-top: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   gap: 15px;
-`;
+  background-color: ${theme.palette.mode === 'dark' ? '#171820' : '#fff'};
+`
+);
 
-export const Title = styled.h1`
+export const Title = styled(Typography)(
+  ({ theme }) => `
   margin: 0;
   text-align: center;
   font-family: 'Inter';
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
-  color: #3e85f3;
+  color: ${theme.palette.mode === 'dark' ? '#fff' : '#3e85f3'};
+
   @media screen and (min-width: 768px) {
     font-size: 24px;
     font-weight: 600;
   }
-`;
+`
+);
 
-export const ContainerBtn = styled.div`
+export const ContainerBtn = styles.div`
   display: flex;
   gap: 14px;
 `;
 
-export const Button = styled.button`
+export const Button = styles.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +50,7 @@ export const Button = styled.button`
   transition: linear 0.3s;
 `;
 
-export const DeleteBtn = styled(Button)`
+export const DeleteBtn = styles(Button)`
   display: flex;
   width: 135px;
   height: 42px;
@@ -61,7 +68,7 @@ export const DeleteBtn = styled(Button)`
   }
 `;
 
-export const CancelBtn = styled(Button)`
+export const CancelBtn = styles(Button)`
   width: 135px;
   height: 42px;
   padding: 8px 16px 8px 20px;
