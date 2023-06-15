@@ -156,6 +156,7 @@ export const BtnArrow = styled.button`
   padding: 5px 12px;
   background-color: #dcebf7;   
   outline: transparent; 
+  box-shadow: 0px 4px 4px rgba(0,0,0,.15);
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);  
   cursor: pointer;
 

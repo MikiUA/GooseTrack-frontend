@@ -97,7 +97,8 @@ export const StyledAuthButton = styled(NavLink)`
   text-decoration: none;
   letter-spacing: -0.02em;
   background: #ffffff;
-  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  //box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  box-shadow: 0px 4px 4px rgba(0,0,0,.15);
   border-radius: 16px;
   border: none;
   display: flex;
