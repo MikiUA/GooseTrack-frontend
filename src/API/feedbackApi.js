@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL, jwt } from './apiParams';
 
-
 const feedbackApi = createApi({
   reducerPath: 'feedbackApi',
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
@@ -18,7 +17,6 @@ const feedbackApi = createApi({
         url: '/reviews/my-reviews',
         method: 'GET',
         headers: { Authorization: `Bearer ${jwt()}` },
-        // params: { userId: myUserId },
       }),
     }),
     createFeedback: builder.mutation({

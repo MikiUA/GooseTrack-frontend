@@ -15,6 +15,7 @@ import {
   BtnArrow,
   IconArrow,
   SliderContainer,
+  TextDiv
 } from './Slider.styled';
 import { useGetAllFeedbacksQuery } from 'API/feedbackApi';
 import Icon from '../../../utils/Icon/Icon';
@@ -93,8 +94,10 @@ const Slider = () => {
                         ))}
                       </SliderUserRating>
                     </HeaderUserWrapper>
-                  </SliderHeaderUser>
-                  <SliderUserDescr>{item.message}</SliderUserDescr>
+                  </SliderHeaderUser>  
+                  <TextDiv className='text'>                               
+                  <SliderUserDescr>{item.message}</SliderUserDescr>   
+                  </TextDiv>                                  
                 </SliderItem>
               ))}
             </SliderList>
@@ -106,6 +109,7 @@ const Slider = () => {
                 width="47"
                 height="46"
                 className="icon-arrow"
+                
               />
             </BtnArrow>
             <BtnArrow className="slide-next" onClick={handleNextSlide}>

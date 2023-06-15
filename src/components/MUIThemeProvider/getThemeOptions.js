@@ -31,6 +31,13 @@ const getThemeOptions = (mode) => ({
         }
     },
     components: {
+        MuiTextField: {
+            styleOverrides: ({
+                root: {
+                    backgroundColor: mode === 'light' ? '#FFFFFF' : '#21222C',
+                },
+            }),
+        },
         MuiBox: {
             styleOverrides: {
                 root: {
@@ -52,6 +59,33 @@ const getThemeOptions = (mode) => ({
                 },
             },
         },
+        // overrides: {
+        //     MuiTextField: {
+        //         root: {
+        //             '& .MuiInputBase-root': {
+        //                 backgroundColor: 'inherit',
+        //                 color: 'inherit',
+        //             },
+        //             '& .MuiInputBase-input': {
+        //                 caretColor: 'inherit',
+        //             },
+        //             '& .MuiInputLabel-root': {
+        //                 color: 'inherit',
+        //             },
+        //             '& .MuiOutlinedInput-root': {
+        //                 '& fieldset': {
+        //                     borderColor: 'inherit',
+        //                 },
+        //                 '&:hover fieldset': {
+        //                     borderColor: 'inherit',
+        //                 },
+        //                 '&.Mui-focused fieldset': {
+        //                     borderColor: 'inherit',
+        //                 },
+        //             },
+        //         },
+        //     }
+        // },
     },
 });
 

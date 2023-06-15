@@ -4,16 +4,10 @@ import Icon from '../../../utils/Icon/Icon';
 
 export const CustomIcon = styled(Icon)`
   margin-left: 8px;
-  width: 14px;
-  height: 14px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    fill: #ff6c00;
-  }
-`;
+  width: 16px;
+  height: 16px;
+  stroke: #3e85f3;
+ `;
 
 export const StyledHeader = styled.section`
   height: 100vh;
@@ -60,6 +54,14 @@ export const StyledPicture = styled.picture`
   }
 `;
 
+export const ImgLogo = styled.img`
+ width: 142px;
+
+@media screen and (min-width: 768px) {
+  width: 150px;
+}
+`
+
 export const StyledImgAuthNav = styled.div`
   display: flex;
   align-items: center;
@@ -95,7 +97,8 @@ export const StyledAuthButton = styled(NavLink)`
   text-decoration: none;
   letter-spacing: -0.02em;
   background: #ffffff;
-  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  //box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  box-shadow: 0px 4px 4px rgba(0,0,0,.15);
   border-radius: 16px;
   border: none;
   display: flex;
@@ -104,26 +107,24 @@ export const StyledAuthButton = styled(NavLink)`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 
   &:hover,
   &:focus {
     fill: #ff6c00;
     background-color: #ff6c00;
-    color: #ffffff;
+    color: #ffffff;    
   }
-`;
 
-export const StyledAuthSpan = styled.img`
-  width: 13.5px;
-  height: 13.5px;
-  margin-left: 8px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   &:hover .login-span, 
+   &:hover {
+    stroke: #ffffff;
+  } 
 
-  &:hover,
+  &:focus .login-span, 
   &:focus {
-    cursor: pointer;
-    fill: #ff6c00;
-  }
+    stroke: #ffffff;
+  } 
 `;
 
 export const StyledLink = styled(NavLink)`

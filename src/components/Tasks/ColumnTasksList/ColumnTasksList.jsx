@@ -1,7 +1,7 @@
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 import { useSelector } from 'react-redux';
 import { getUserInfo } from '../../../API/userSlice';
-import { List } from './ColumnTasksList.styled';
+import { ListStyled } from './ColumnTasksList.styled';
 
 const ColumnTasksList = ({ tasks }) => {
   const userInfo = useSelector(getUserInfo);
@@ -9,7 +9,7 @@ const ColumnTasksList = ({ tasks }) => {
   const firstLetter = userName[0].toLocaleUpperCase();
 
   return (
-    <List>
+    <ListStyled>
       {tasks !== 0 &&
         tasks.map(({ category, title, _id, priority, start, end, date }) => (
           <TaskColumnCard
@@ -24,7 +24,7 @@ const ColumnTasksList = ({ tasks }) => {
             date={date}
           />
         ))}
-    </List>
+    </ListStyled>
   );
 };
 

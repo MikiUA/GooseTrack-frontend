@@ -1,55 +1,69 @@
-import styled from 'styled-components';
+import { styled, Box, Button, InputLabel } from '@mui/material';
+import Icon from '../../../utils/Icon/Icon';
 
-export const TaskForm = styled.form`
+export const TaskForm = styled(Box)(
+ ({ theme }) => `
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 19px;
-`;
+  background-color: ${theme.palette.mode === 'dark' ? 'rgb(33, 34, 44)' : '#FFFFFF'}; 
+`);
 
-export const TaskFormWrap = styled.div`
+export const TaskFormWrap = styled(Box)`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 267px;
+  @media screen and (min-width: 768px) {
+    max-width: 340px;
+  }
 `;
 
-export const TaskFormLabel = styled.label`
+export const TaskFormLabel = styled(InputLabel)`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   color: rgba(52, 52, 52, 0.8);
   margin-bottom: 8px;
-  /* @media screen and (min-width: 768px) {
-  }
-  @media screen and(min-width: 1440px) {
-  } */
 `;
-export const TaskFormInputWrap = styled.div`
+
+export const TaskFormInputWrap = styled(Box)`
   display: flex;
   justify-content: center;
   gap: 15px;
+  max-width: 267px;
   width: 100%;
   margin-top: 18px;
+  @media screen and (min-width: 768px) {
+    max-width: 340px;
+  }
 `;
-export const TaskFormLabelWrap = styled.div`
+export const TaskFormLabelWrap = styled(Box)`
   display: flex;
   flex-direction: column;
 `;
 
-export const TaskFormCheckboxWrap = styled.div`
+export const TaskFormCheckboxWrap = styled(Box)`
   display: flex;
-  gap: 26px;
+  gap: 10px;
   align-self: flex-start;
   margin: 16px 0 32px;
+  @media screen and (min-width: 768px) {
+    gap: 26px;
+  }
 `;
 
-export const TaskFormButtonWrap = styled.div`
+export const TaskFormButtonWrap = styled(Box)`
   display: flex;
+  align-items: center;
+
   gap: 14px;
 `;
 
-export const TaskFormButtonAdd = styled.button`
+export const TaskFormButtonAdd = styled(Button)`
+  display: flex;
   width: 135px;
   height: 42px;
   display: flex;
@@ -61,8 +75,6 @@ export const TaskFormButtonAdd = styled.button`
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  width: 135px;
-  height: 42px;
   color: #ffffff;
   background-color: #3e85f3;
   border-radius: 8px;
@@ -75,11 +87,25 @@ export const TaskFormButtonAdd = styled.button`
   }
 `;
 
-export const TaskFormButtonAddSpan = styled.span`
+export const TaskFormButtonAddIconBox = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
   margin-right: 10px;
+  padding: 0;
 `;
 
-export const TaskFormButtonCancel = styled.button`
+export const TaskFormButtonAddIcon = styled(Icon)`
+  width: 18px;
+  height: 18px;
+`;
+
+export const TaskFormButtonCancel = styled(Button)`
   width: 135px;
   height: 42px;
   display: flex;
@@ -87,7 +113,6 @@ export const TaskFormButtonCancel = styled.button`
   align-items: center;
   padding: 8px 16px 8px 20px;
   border: none;
-  width: 118px;
   height: 42px;
   font-family: 'Inter';
   font-style: normal;

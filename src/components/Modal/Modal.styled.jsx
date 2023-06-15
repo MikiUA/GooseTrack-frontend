@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { IoIosClose } from 'react-icons/io';
+import { useTheme } from '@mui/material';
 
 export const BackdropStyle = styled.div`
   position: fixed;
@@ -21,11 +22,11 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-export const ModalStyle = styled.div`
+const ModalStyleInner = styled.div`
   max-width: 300px;
-  min-height: 335px;
   max-height: 80vh;
-  background-color: #ffffff;
+  background-color: ${props=> props.bgcolor || '#ffffff'};
+  color: ${props=> props.color || '#ffffff'};
   padding: 48px 18px 40px;
   z-index: 12;
   position: absolute;
@@ -47,6 +48,13 @@ export const ModalStyle = styled.div`
     padding: 40px 28px;
   }
 `;
+export const ModalStyle=({children})=>{
+  const theme = useTheme();
+  return( 
+  <ModalStyleInner bgcolor={theme.palette.background.paper} color={theme.palette.text.primary}>
+     {children}
+  </ModalStyleInner>
+)}
 
 export const StyledIcon = styled(IoIosClose)`
   position: absolute;
