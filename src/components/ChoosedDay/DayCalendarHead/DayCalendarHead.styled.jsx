@@ -18,42 +18,61 @@ export const CalendarHeadBox = styled(Box)(
 `
 );
 export const CalendarHeadList = styled(List)`
-  padding: 0;
+  padding: 14px 18px;
   display: flex;
   justify-content: space-around;
-  margin: 14px, 19, 5px;
+
+  @media screen and (min-width: 767px) {
+    padding: 10px 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 10px 46px;
+  }
 `;
 export const CalendarHeadItem = styled(ListItemText)`
+  margin: 0;
   text-align: center;
   list-style: none;
 `;
 
 export const CalendarDay = styled(Typography)`
+  margin-bottom: 6px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 1.12;
 
   text-transform: uppercase;
   text-align: center;
   overflow: hidden;
 
   @media screen and (max-width: 767px) {
+
     font-size: 0;
     &:first-letter {
       font-size: 16px;
     }
+  @media screen and (min-width: 767px) {
+    margin-bottom: 4px;
+      font-size: 14px;
+  line-height: 1.29;
+    font-size: 0;
+    &:first-letter {
+      font-size: 16px;
+    }
+
   }
 `;
 export const CalendarDayBtn = styled(Button, {
   shouldForwardProp: props => props !== 'isCurrentBtn',
 })(
   ({ isCurrentBtn, theme }) => `
+  min-width: 0;
   border-radius: 6px;
   background-color: ${isCurrentBtn ? `#3E85F3` : `transparent`};
   border: none;
-  padding: 0;
+  padding: 4px 6px;
   text-align: center;
   font-family: 'Inter';
   font-style: normal;
@@ -62,14 +81,20 @@ export const CalendarDayBtn = styled(Button, {
   line-height: 1.17;
   color:${theme.palette.mode === 'dark' ? '#ffffff' : '#343434'};
   color: ${isCurrentBtn ? `#ffffff` : ``};
-  width: 20px;
-  height: 22px;
+  // width: 20px;
+  // height: 22px;
 
   :hover,
   focus {
     color: #ffffff;
     background: #3e85f3;
     border-radius: 6px;
+  }
+
+  @media screen and (min-width: 767px) {
+    padding: 4px 8px;
+    font-size: 16px;
+    line-height: 1.12;
   }
 `
 );
