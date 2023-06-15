@@ -13,8 +13,8 @@ export const ButtonAdd = styled(Button)(
     font-size: 14px;
     line-height: 1.29;
     cursor: pointer;
-    // background-color: ${theme.palette.mode === 'dark' ? '#3E85F3' : '#e3f3ff'};
-    // color: ${theme.palette.mode === 'dark' ? '#fff' : '#111'};
+    background-color: ${theme.palette.mode === 'dark' ? '#3E85F3' : '#e3f3ff'};
+    color: ${theme.palette.mode === 'dark' ? '#fff' : '#111'};
 `
 );
 
@@ -57,16 +57,17 @@ export const Container = styled(Box)(
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid ${
-    theme.palette.mode === 'dark' ? 'rgba(220, 227, 229, 0.53' : 'transparent'
+  border: 1px solid ${theme.palette.mode === 'dark' ? 'rgba(220, 227, 229, 0.53' : 'transparent'
   }
  `
 );
 
-export const Text = styled(Typography)`
+export const Text = styled(Typography)(
+  ({ theme }) => `
   margin: 0;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
-  color: #111;
-`;
+  color:${theme.palette.mode === 'dark' ? '#fff' : '#111'
+  };
+`);
