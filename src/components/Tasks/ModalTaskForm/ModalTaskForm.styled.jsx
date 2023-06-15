@@ -7,7 +7,7 @@ export const TaskForm = styled(Box)(
   flex-direction: column;
   align-items: center;
   margin-top: 19px;
-  background-color: ${theme.palette.mode === 'dark' ? '#171820' : '#FFFFFF'}; 
+  background-color: ${theme.palette.mode === 'dark' ? 'rgb(33, 34, 44)' : '#FFFFFF'}; 
 `);
 
 export const TaskFormWrap = styled(Box)`

@@ -51,7 +51,7 @@ const ModalStyleInner = styled.div`
 export const ModalStyle=({children})=>{
   const theme = useTheme();
   return( 
-  <ModalStyleInner bgcolor={theme.palette.background.default} color={theme.palette.text.primary}>
+  <ModalStyleInner bgcolor={theme.palette.background.paper} color={theme.palette.text.primary}>
      {children}
   </ModalStyleInner>
 )}

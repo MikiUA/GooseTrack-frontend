@@ -9,7 +9,7 @@ export const Container = styled(Box)(
   align-items: center;
   justify-content: space-around;
   gap: 15px;
-  background-color: ${theme.palette.mode === 'dark' ? '#171820' : '#fff'};
+  background-color: ${theme.palette.mode === 'dark' ? '#rgb(33, 34, 44)' : '#fff'};
 `
 );
 
