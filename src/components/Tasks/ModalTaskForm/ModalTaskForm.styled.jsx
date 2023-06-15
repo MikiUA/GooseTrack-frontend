@@ -2,13 +2,16 @@ import { styled, Box, Button, InputLabel } from '@mui/material';
 import Icon from '../../../utils/Icon/Icon';
 
 export const TaskForm = styled(Box)(
- ({ theme }) => `
+  ({ theme }) => `
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 19px;
-  background-color: ${theme.palette.mode === 'dark' ? 'rgb(33, 34, 44)' : '#FFFFFF'}; 
-`);
+  background-color: ${
+    theme.palette.mode === 'dark' ? 'rgb(33, 34, 44)' : '#FFFFFF'
+  }; 
+`
+);
 
 export const TaskFormWrap = styled(Box)`
   display: flex;
@@ -20,14 +23,20 @@ export const TaskFormWrap = styled(Box)`
   }
 `;
 
-export const TaskFormLabel = styled(InputLabel)`
-  font-family: 'Inter';
-  font-style: normal;
+export const TaskFormLabel = styled(InputLabel)(
+  ({ theme }) => `
+ font-family: 'Inter';
   font-weight: 500;
   font-size: 12px;
-  color: rgba(52, 52, 52, 0.8);
+  margin-top: 19px;
   margin-bottom: 8px;
-`;
+  color: ${
+    theme.palette.mode === 'dark'
+      ? 'rgba(250, 250, 250, 0.3);'
+      : 'rgba(52, 52, 52, 0.8)'
+  }; 
+`
+);
 
 export const TaskFormInputWrap = styled(Box)`
   display: flex;
