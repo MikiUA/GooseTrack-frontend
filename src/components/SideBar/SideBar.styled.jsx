@@ -5,13 +5,14 @@ export const StyledContainer = styled(Box)(
   ({ theme, data }) => `
  display:  ${data ? 'flex' : 'none'};
   width: 225px;
-  height: 100vh;
+     min-height: 100vh;
   position: fixed;
   z-index: 11;
   margin: 0;
   flex-direction: column;
   justify-content: space-between;
   background-color: ${theme.palette.background.sidebar};
+   border: 2px solid ${theme.palette.borderGray};
   @media screen and (min-width: 768px) {
      width: 289px;
     padding: 24px 32px;
