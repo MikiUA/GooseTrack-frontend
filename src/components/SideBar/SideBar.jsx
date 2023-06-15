@@ -26,7 +26,7 @@ const SideBar = ({ onClose, isOpen }) => {
   const [logout] = useLogoutMutation();
   const dispatch = useDispatch();
   const path = useLocation();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const isAccount = useMemo(() => {
     if (path.pathname.includes('/account')) return true;
@@ -53,18 +53,18 @@ const SideBar = ({ onClose, isOpen }) => {
           <StyledPicture>
             <source
               media="(min-width: 375px)"
-              srcSet={`${basePath}logoGOOSE-mob.png 1x, ${basePath}logoGOOSEmob@2x.png 2x`}
+              srcSet={`${basePath}goose1x.png 1x, ${basePath}goose2x.png 2x`}
             />
             <source
               media="(min-width: 768px)"
-              srcSet={`${basePath}logo-GOOSE-tab.png 1x, ${basePath}logo-GOOSE-tab@2x.png 2x`}
+              srcSet={`${basePath}goosetablet1x.png 1x, ${basePath}goosetablet2x.png 2x`}
             />
             <source
               media="(min-width: 1440px)"
-              srcSet={`${basePath}logo-GOOSE-desk.png 1x, ${basePath}logo-GOOSE-desk@2x.png 2x`}
+              srcSet={`${basePath}goosedesk1x.png 1x, ${basePath}goosedesk2x.png 2x`}
             />
             <LogoIcon
-              src={require('../../images/logoGoose/logo-GOOSE-desk.png')}
+              src={require('../../images/logoGoose/goosedesk2x.png')}
               alt="Logo goose"
             />
           </StyledPicture>
@@ -78,15 +78,11 @@ const SideBar = ({ onClose, isOpen }) => {
         </StyledHeader>
         <StyledUser>User Panel</StyledUser>
 
-        <StyledLink disabled={isAccount} onClick={()=>navigate('/account')}>
-          <UserNavTitle onClick={onClose}>
-            My account
-          </UserNavTitle>
+        <StyledLink disabled={isAccount} onClick={() => navigate('/account')}>
+          <UserNavTitle onClick={onClose}>My account</UserNavTitle>
         </StyledLink>
-        <StyledLink disabled={!isAccount} onClick={()=>navigate('/calendar')}>
-          <UserNavTitle onClick={onClose}>
-            Calendar
-          </UserNavTitle>
+        <StyledLink disabled={!isAccount} onClick={() => navigate('/calendar')}>
+          <UserNavTitle onClick={onClose}>Calendar</UserNavTitle>
         </StyledLink>
       </StyledBox>
       <StyledButtonLogout
