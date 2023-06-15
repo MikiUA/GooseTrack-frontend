@@ -6,7 +6,7 @@ import { Item } from './TasksColumn.styled';
 const TasksColumn = ({ taskColumnTitle, tasks, category }) => {
   return (
     <Item>
-      <ColumnHeadBar taskColumnTitle={taskColumnTitle} />
+      <ColumnHeadBar taskColumnTitle={taskColumnTitle} category={category} />
 
       {tasks && <ColumnTasksList tasks={tasks} />}
 
