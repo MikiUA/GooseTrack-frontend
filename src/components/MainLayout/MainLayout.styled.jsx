@@ -4,7 +4,7 @@ import { IconButton } from '@mui/material';
 export const WrapperMain = styled(Box)(
   ({ theme }) => `
   display:flex;
-  max-height: 100vh;
+  min-height: 100vh;
   max-width: 100vw;
   background-color:${theme.palette.background.default};
   color:${theme.palette.text.primary}
