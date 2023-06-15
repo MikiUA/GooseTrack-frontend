@@ -1,113 +1,56 @@
-# React homework template
+# GooseTrack by '[Б]андерогуси'
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+Welcome to the **GooseTrack by '[Б]андерогуси'**! This application allows you to manage your tasks, keep track of important events, and stay organized. With an intuitive user interface and powerful features, you can easily add, edit, and prioritize tasks, view your to-do list and completed tasks, and customize your calendar experience.
 
-## Создание репозитория по шаблону
+## Features
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+- **Calendar View**: Easily navigate through different months and years to see your scheduled events and tasks. GooseTrack's Calendar view provides a comprehensive overview of your schedule, displaying all your tasks, events, and appointments in a visually appealing and intuitive layout.
+- **Task Management**: Add, edit, and delete tasks on specific dates with ease. Set priorities and colors for tasks to stay organized.
+- **To-Do List**: Access a comprehensive to-do list that displays all pending tasks and their priorities.
+- **Completed Tasks**: Review all completed tasks and mark them as done.
+- **Priority Coloring**: Tasks are color-coded based on their priority level for quick identification.
+- **User Info**: Personalize your profile page with your information and preferences.
+- **Review and Feedback**: Leave your valuable feedback and reviews to help us improve the app further.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+*GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack.*
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+## Screenshots
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+![Calendar View](screenshots/calendar.png)
+![Task Management](screenshots/tasks.png)
+<!-- Add any additional relevant screenshots here -->
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+## Usage
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+1. Visit the THE THING UPON THEE website [here](mikiua.github.io/GooseTrack-frontend/).
+2. On the landing page, you can learn more about the app and its features.
+3. To start using the app, register for an account or sign in if you already have one.
+4. Upon signing in, you will be directed to the calendar view where you can add, edit, and manage your tasks.
+5. Click on a specific date to add a new task. Fill in the task details, such as title, start time, and priority.
+6. To edit a task, click on the task and modify the necessary fields.
+7. Completed tasks can be marked as done by clicking on the checkbox.
+8. Access the to-do list to view all pending tasks and their priorities.
+9. Customize your user profile page by providing your information and preferences.
+10. Navigate to the review section to share your feedback and suggestions.
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+## Technologies Used
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
+- React
+- HTML/CSS
+- JavaScript
+- [React Router](https://reactrouter.com/) for handling routing
+- [Styled Components](https://styled-components.com/) for styling
+- <!-- Add any additional technologies used -->
 
-## Подготовка к работе
+## Contributing
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+We welcome contributions from the community to enhance* **this** warm place* of all on the internet. If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
 
-## Деплой
+## Acknowledgements
 
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+<!-- Add any acknowledgements or credits for resources, libraries, or tutorials used -->
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+---
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+Thank you for choosing the **GooseTrack by us**! We hope it helps you stay organized and boost your productivity. If you have any questions or need assistance, please feel free to reach out to our support team. Happy organizing!
