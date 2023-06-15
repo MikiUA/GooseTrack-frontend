@@ -6,7 +6,7 @@ export const CalendarToolbarWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 18px;
-  margin-top: 24px;
+  // margin-top: 24px;
   margin-bottom: 24px;
   width: 100%;
   max-width: 100%;

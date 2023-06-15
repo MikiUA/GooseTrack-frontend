@@ -67,7 +67,7 @@ export const GridCell = styledMUI(Box, {
     }
       @media screen and (min-width: 1440px) {
       max-width: 155px;
-      max-height: 114px;
+      max-height: 112px;
     }
 `
 );

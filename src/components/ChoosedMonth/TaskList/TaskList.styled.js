@@ -48,11 +48,14 @@ export const TaskItem = styled.li`
   ${props => {
     switch (props.priority) {
       case 'low':
-        return 'color: #3E85F3; background-color: #CEEEFD;';
+        return `color: #3E85F3; background-color: #CEEEFD;`;
+      // border: ${ props.veryManyTasks ? '1px solid #3E85F3' : '' };`;
       case 'medium':
-        return 'color: #F3B249; background-color: #FCF0D4;';
+        return `color: #F3B249; background-color: #FCF0D4;`;
+      //border: ${props.veryManyTasks ? '1px solid #F3B249' : ''};`;
       case 'high':
-        return 'color: #EA3D65; background-color: #FFD2DD;';
+        return `color: #EA3D65; background-color: #FFD2DD;`;
+      //border: ${ props.veryManyTasks ? '1px solid #EA3D65' : '' };`;
       default:
         return;
     }
@@ -67,13 +70,22 @@ export const TaskItem = styled.li`
 
   @media screen and (min-width: 768px) {
     width: ${props => (props.manyTasks ? '30px' : '92px')};
-    height: auto;
+    width: ${props => (props.veryManyTasks ? '24px' : '')};
+    height: ${props => (props.veryManyTasks ? '24px;' : 'auto')};
+    border-radius: ${props => (props.veryManyTasks ? '50%' : '')};
+    font-size: ${props => (props.veryManyTasks ? '0' : '14px')};
+    // height: auto;
     padding: 4px 6px;
-    font-size: 14px;
+    //font-size: 14px;
     line-height: 1.29;
   }
   @media screen and (min-width: 1440px) {
     width: ${props => (props.manyTasks ? '44px' : '140px')};
+    width: ${props => (props.veryManyTasks ? '24px' : '')};
+    height: ${props => (props.veryManyTasks ? '24px;' : 'auto')};
+    border-radius: ${props => (props.veryManyTasks ? '50%' : '')};
+    font-size: ${props => (props.veryManyTasks ? '0' : '')};
+
     padding: 4px 10px;
   }
 `;
