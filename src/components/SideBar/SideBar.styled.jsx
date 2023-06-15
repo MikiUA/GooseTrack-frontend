@@ -4,28 +4,28 @@ import Icon from '../../utils/Icon/Icon';
 export const StyledContainer = styled(Box)(
   ({ theme, data }) => `
   box-sizing: border-box;
- display:  ${data ? 'flex' : 'none'};
+  display:  ${data ? 'flex' : 'none'};
   width: 225px;
-  height: 100vh;
+  min-height: 100%;
   position: fixed;
   z-index: 11;
   margin: 0;
   flex-direction: column;
   justify-content: space-between;
   background-color: ${theme.palette.background.sidebar};
+  border: 2px solid ${theme.palette.borderGray};
   @media screen and (min-width: 768px) {
-     width: 289px;
+    width: 289px;
     padding: 24px 32px;
   }
   @media screen and (min-width: 1440px) {
     position: relative;
     display: flex;
-   
     padding: 32px 24px;
   }
-
 `
 );
+
 export const StyledBox = styled(Box)`
   z-index: 11;
   display: flex;
@@ -37,8 +37,6 @@ export const StyledHeader = styled(Box)`
   align-items: center;
   margin-top: 24px;
   margin-bottom: 64px;
- 
-  }
 `;
 
 export const StyleHeagerText = styled(Typography)(
@@ -56,8 +54,6 @@ margin-left: 6px;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.33;
-   
-
 `
 );
 
@@ -66,7 +62,7 @@ export const StyledPicture = styled(Box)`
   align-items: center;
   justify-content: center;
   width: 36px;
-  hight: 35px;
+  height: 35px;
   margin-right: 6px;
 
   @media screen and (min-width: 768px) {
@@ -81,7 +77,7 @@ export const StyledButtonClose = styled(Button)`
   opacity: 1;
   width: 24px;
   height: 24px;
-  margin-left: 20px;
+  margin-left: 6px;
   padding: 0;
   color: rgba(132, 130, 138, 1);
   background-color: transparent;
@@ -91,7 +87,7 @@ export const StyledButtonClose = styled(Button)`
     background-color: transparent;
   }
   @media screen and (min-width: 768px) {
-    margin-left: 66px;
+    margin-left: 16px;
     width: 36px;
     height: 36px;
   }
