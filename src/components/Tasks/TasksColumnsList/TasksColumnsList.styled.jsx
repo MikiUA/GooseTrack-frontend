@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import { List, styled } from '@mui/material';
 
 
-export const List = styled.ul`
+export const ListStyled = styled(List)(
+({ theme }) => `
 display: flex;
 flex-direction: row;
 overflow-x: auto;
@@ -15,12 +16,12 @@ max-height: 432px;
 &::-webkit-scrollbar {
     height: 12px;
     border-radius: 12px;
-    background-color: #F2F2F2;
+    background-color: ${theme.palette.mode === 'dark' ? '#21222C' : '#F2F2F2'};
 }
 
 &::-webkit-scrollbar-thumb {
     border-radius: 12px;
-    background-color: #E7E5E5;
+    background-color: ${theme.palette.mode === 'dark' ? '#2D3037' : '#E7E5E5'};
 }
 
 @media screen and (min-width: 768px) {
@@ -38,3 +39,4 @@ max-height: 432px;
     overflow-x: hidden;
 }
 `
+)

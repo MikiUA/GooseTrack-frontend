@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 import TasksColumn from '../TasksColumn/TasksColumn';
-import { List } from './TasksColumnsList.styled';
+import { ListStyled } from './TasksColumnsList.styled';
 import { useAllTaskQuery } from 'API/taskUtils';
 import { useMemo } from 'react';
 
@@ -36,7 +36,7 @@ const TasksColumnsList = () => {
   );
 
   return (
-    <List>
+    <ListStyled>
       {Object.keys(taskTypes).map(taskColumnTitle => (
         <TasksColumn
           key={taskColumnTitle}
@@ -45,7 +45,7 @@ const TasksColumnsList = () => {
           category={taskTypes[taskColumnTitle]}
         />
       ))}
-    </List>
+    </ListStyled>
   );
 };
 

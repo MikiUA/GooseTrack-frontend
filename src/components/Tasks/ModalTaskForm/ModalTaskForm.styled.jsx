@@ -1,14 +1,16 @@
-import styled from 'styled-components';
+import { styled, Box, Button, InputLabel } from '@mui/material';
 import Icon from '../../../utils/Icon/Icon';
 
-export const TaskForm = styled.form`
+export const TaskForm = styled(Box)(
+ ({ theme }) => `
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 19px;
-`;
+  background-color: ${theme.palette.mode === 'dark' ? 'rgb(33, 34, 44)' : '#FFFFFF'}; 
+`);
 
-export const TaskFormWrap = styled.div`
+export const TaskFormWrap = styled(Box)`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -18,7 +20,7 @@ export const TaskFormWrap = styled.div`
   }
 `;
 
-export const TaskFormLabel = styled.label`
+export const TaskFormLabel = styled(InputLabel)`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -26,7 +28,8 @@ export const TaskFormLabel = styled.label`
   color: rgba(52, 52, 52, 0.8);
   margin-bottom: 8px;
 `;
-export const TaskFormInputWrap = styled.div`
+
+export const TaskFormInputWrap = styled(Box)`
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -37,12 +40,12 @@ export const TaskFormInputWrap = styled.div`
     max-width: 340px;
   }
 `;
-export const TaskFormLabelWrap = styled.div`
+export const TaskFormLabelWrap = styled(Box)`
   display: flex;
   flex-direction: column;
 `;
 
-export const TaskFormCheckboxWrap = styled.div`
+export const TaskFormCheckboxWrap = styled(Box)`
   display: flex;
   gap: 10px;
   align-self: flex-start;
@@ -52,14 +55,14 @@ export const TaskFormCheckboxWrap = styled.div`
   }
 `;
 
-export const TaskFormButtonWrap = styled.div`
+export const TaskFormButtonWrap = styled(Box)`
   display: flex;
   align-items: center;
 
   gap: 14px;
 `;
 
-export const TaskFormButtonAdd = styled.button`
+export const TaskFormButtonAdd = styled(Button)`
   display: flex;
   width: 135px;
   height: 42px;
@@ -84,7 +87,7 @@ export const TaskFormButtonAdd = styled.button`
   }
 `;
 
-export const TaskFormButtonAddIconBox = styled.div`
+export const TaskFormButtonAddIconBox = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,7 +105,7 @@ export const TaskFormButtonAddIcon = styled(Icon)`
   height: 18px;
 `;
 
-export const TaskFormButtonCancel = styled.button`
+export const TaskFormButtonCancel = styled(Button)`
   width: 135px;
   height: 42px;
   display: flex;
