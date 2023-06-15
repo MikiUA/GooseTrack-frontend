@@ -22,12 +22,16 @@ export const EditModalValue = ({
   };
 
   const handleSubmit = async itemId => {
-    const res = await updateFeedback({ id: itemId, body: feedbackData });
+    try {
+      const res = await updateFeedback({ id: itemId, body: feedbackData });
 
-    if (!res.error) {
-      onModalUpdated();
+      if (!res.error) {
+        onModalUpdated();
+      }
+      onClose();
+    } catch (error) {
+      console.error(error);
     }
-    onClose();
   };
 
   return (
