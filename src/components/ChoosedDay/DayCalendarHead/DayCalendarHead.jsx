@@ -2,69 +2,13 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import styles from 'styled-components';
-
-const CalendarHeadBox = styles.div`
-  width: 100%;
-  margin-top: 24px;
-  margin-bottom: 14px;
-  background: #ffffff;
-  border: 1px solid rgba(220, 227, 229, 0.5);
-  border-radius: 8px;
-`;
-const CalendarHeadList = styles.ul`
-padding:0;
-  display: flex;
-  justify-content: space-around;
-  margin: 14px, 19, 5px;
-`;
-const CalendarHeadItem = styles.li`
-  text-align: center;
-  list-style: none;
-`;
-
-const CalendarDay = styles.p`
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 18px;
-  text-transform: uppercase;
-  text-align: center;
-  overflow: hidden;
-
-
-  @media screen and (max-width:767px) {
-    font-size: 0;
-    &:first-letter {
-      font-size: 16px;
-    }
-  }
-`;
-const CalendarDayBtn = styles.button`
-border-radius: 6px;
-background-color: ${props => (props.isCurrentBtn ? `#3E85F3` : `#FFF`)};
-border:none;
-padding:0;
-text-align:center;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 12px;
-line-height: 1.17;
-color: #343434;
-color: ${props => (props.isCurrentBtn ? `#FFF` : `#343434`)};
-width: 20px;
-height: 22px;
-
-  :hover,
-  focus
-   {
-    color: #FFFFFF;
-    background: #3E85F3;
-    border-radius: 6px;
-  }
-`;
+import {
+  CalendarDay,
+  CalendarDayBtn,
+  CalendarHeadBox,
+  CalendarHeadItem,
+  CalendarHeadList,
+} from './DayCalendarHead.styled';
 
 const daysName = ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'sun'];
 
@@ -123,7 +67,7 @@ const DayCalendarHead = () => {
 
     // console.log(newPath)
   };
-  console.log(date.getDate())
+  console.log(date.getDate());
   const allDays = [...pre, monthDate, ...post];
   // console.log(allDays)
 
@@ -133,11 +77,10 @@ const DayCalendarHead = () => {
         {allDays.map((data, index) => (
           <CalendarHeadItem key={index}>
             <CalendarDay>{daysName[index]}</CalendarDay>
-            <CalendarDayBtn 
-            type="button" 
-            onClick={() => handleNavigate(data)}
-            
-            isCurrentBtn={data.getDate() === date.getDate()}
+            <CalendarDayBtn
+              type="button"
+              onClick={() => handleNavigate(data)}
+              isCurrentBtn={data.getDate() === date.getDate()}
             >
               {data.getDate()}
             </CalendarDayBtn>
