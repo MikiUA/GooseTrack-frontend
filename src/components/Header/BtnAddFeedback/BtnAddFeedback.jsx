@@ -43,20 +43,28 @@ export const BtnAddFeedback = () => {
   const pageTitle = getPageTitle(location.pathname);
 
   const handleSubmit = async feedbackData => {
-    const res = await createFeedback(feedbackData);
+    try {
+      const res = await createFeedback(feedbackData);
 
-    if (!res.error) {
-      refetch();
+      if (!res.error) {
+        refetch();
 
-      setRating(0);
-      setReview('');
+        setRating(0);
+        setReview('');
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
   const handleDelete = async id => {
-    const res = await deleteFeedback(id);
-    if (!res.error) {
-      refetch();
+    try {
+      const res = await deleteFeedback(id);
+      if (!res.error) {
+        refetch();
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -68,6 +76,7 @@ export const BtnAddFeedback = () => {
   const handleModalUpdated = () => {
     refetch();
   };
+
   return (
     <>
       {pageTitle === 'Calendar' && (
