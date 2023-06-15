@@ -67,6 +67,18 @@ export const TaskItem = styled.li`
   font-size: ${props => (props.manyTasks ? '0' : '10px')};
   line-height: 1.4;
   white-space: nowrap;
+  ${props=>(props.manyTasks || props.veryManyTasks)?'':`
+    transition: all 1s ease-in, width 2s;
+    &:hover,
+    &:focus {
+      text-overflow: clip;
+      min-width: 100%;
+      width:fit-content;
+      z-index:7;
+      border: 1px solid rgba(255,255,255,0.5);
+      box-sizing:border-box;
+    }
+  `}
 
   @media screen and (min-width: 768px) {
     width: ${props => (props.manyTasks ? '30px' : '92px')};
