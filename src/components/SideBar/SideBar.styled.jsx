@@ -3,6 +3,7 @@ import Icon from '../../utils/Icon/Icon';
 
 export const StyledContainer = styled(Box)(
   ({ theme, data }) => `
+  box-sizing: border-box;
  display:  ${data ? 'flex' : 'none'};
   width: 225px;
      min-height: 100vh;

@@ -1,13 +1,28 @@
 import { styled, Box } from '@mui/material';
 import { IconButton } from '@mui/material';
 
+export const RootWrapperMain = styled(Box)(
+  ({ theme }) => `
+    background-color:${theme.palette.background.default};
+  `
+);
+
 export const WrapperMain = styled(Box)(
   ({ theme }) => `
   display:flex;
   min-height: 100vh;
-   width: 100vw;
+  max-width: 100vw;
+  width: 1440px;
+  margin: 0 auto; 
   background-color:${theme.palette.background.default};
   color:${theme.palette.text.primary}
+
+  //  @media screen and(min-width: 1440px) {
+  //   width: 1440px;
+
+  // }
+
+
 `
 );
 
@@ -70,7 +85,7 @@ export const WrapperHeader = styled(Box)`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 80%;
+    //width: 80%;
     max-width: 1100px;
     height: 42px;
   }

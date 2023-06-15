@@ -9,6 +9,7 @@ const TaskList = ({ taskArr = [] }) => {
             key={task._id}
             priority={task.priority}
             manyTasks={taskArr.length > 2 ? true : false}
+            veryManyTasks={taskArr.length > 6 ? true : false}
           >
             {task.title}
           </TaskItem>
