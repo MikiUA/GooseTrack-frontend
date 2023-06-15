@@ -1,11 +1,12 @@
 import { useCurrentUserInfoQuery } from 'API/userInfo';
+import { Loader } from 'components/Loader/Loader';
 import UserForm from 'components/UserForm/UserForm';
 
 const AccountPage = () => {
   const { data } = useCurrentUserInfoQuery();
 
   if (!data) {
-    return <h2>Loading</h2>;
+    return <Loader />;
   }
 
   return (

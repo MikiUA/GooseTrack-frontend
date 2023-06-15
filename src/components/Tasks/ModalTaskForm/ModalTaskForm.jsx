@@ -59,7 +59,6 @@ const ModalTaskForm = ({ onClose, handleSubmit, category }) => {
             id="outlined-basic"
             variant="outlined"
             placeholder="Enter text"
-            sx={{ fontFamily: 'Inter', fontSize: '24px' }}
             onChange={event => setFormTitle(event.target.value)}
             required
           />

@@ -60,14 +60,14 @@ const DayCalendarHead = () => {
     const newURLDay = `${calendarDay.getFullYear()}-${
       month < 10 ? `0${month}` : month
     }-${formarDay}`;
-    console.log(newURLDay);
+
     const newPath = `/calendar/day/${newURLDay}`;
     setDateStr(newURLDay);
     navigate(newPath);
 
     // console.log(newPath)
   };
-  console.log(date.getDate());
+
   const allDays = [...pre, monthDate, ...post];
   // console.log(allDays)
 
