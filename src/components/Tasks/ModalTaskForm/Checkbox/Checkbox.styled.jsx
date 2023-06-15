@@ -1,5 +1,5 @@
 import styles from 'styled-components';
-import { styled, Typography } from '@mui/material';
+import { styled, Typography, Box } from '@mui/material';
 
 export const CheckboxLabel = styles.label`
   display: flex;
@@ -21,13 +21,19 @@ export const CheckboxStyle = styles.div`
   align-items: center;
   background-color: ${prop => (prop.checked ? `${prop.color}80` : prop.color)};
 `;
-export const InnerCircleStyle = styles.div`
-  width: 8px;
+
+export const InnerCircleStyle = styled(Box)(
+  ({ theme }) => `
+ width: 8px;
   height: 8px;
-  border-radius: 50%;
-  background-color: ${prop => prop.color};
-  border: ${prop => (prop.checked ? '1px solid #ffffff' : 'none')};
-`;
+ border-radius: 50%;
+background-color: inherit;
+ border: ${
+   theme.palette.mode === 'dark' ? '1px solid #343434' : '1px solid #ffffff'
+ };
+
+`
+);
 
 export const CheckboxSpan = styled(Typography)(
   ({ theme }) => `
@@ -37,4 +43,5 @@ export const CheckboxSpan = styled(Typography)(
   font-size: 12px;
   line-height: 1.17;
   color: ${theme.palette.mode === 'dark' ? '#FFFFFF' : '#111'};
-`);
+`
+);

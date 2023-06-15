@@ -26,7 +26,7 @@ const AddTaskBtn = ({ columnHeadBtn, category }) => {
     category,
   }) => {
     try {
-      const res = await addTask({
+      await addTask({
         title: title,
         start: start,
         end: end,
@@ -34,7 +34,6 @@ const AddTaskBtn = ({ columnHeadBtn, category }) => {
         date: date,
         category: category,
       });
-      console.log(res);
     } catch (error) {
       console.error(error);
     }
